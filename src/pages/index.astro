@@ -2,6 +2,8 @@
 // L'Atelier de Lucette — Page d'inscription gratuite
 // Lead magnet : Mini-rituel du discernement
 import '../styles/global.css';
+
+const metaPixelId = import.meta.env.PUBLIC_META_PIXEL_ID;
 ---
 
 <!doctype html>
@@ -118,9 +120,32 @@ import '../styles/global.css';
     </style>
 
     <script is:inline src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519" defer></script>
+
+    {metaPixelId && (
+      <script define:vars={{ metaPixelId }}>
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+        document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', metaPixelId);
+        fbq('track', 'PageView');
+      </script>
+    )}
   </head>
 
   <body class="selection:bg-[#C83AB7] selection:text-[#F5F0E8] relative overflow-x-hidden text-lg">
+    {metaPixelId && (
+      <noscript>
+        <img
+          height="1"
+          width="1"
+          style="display:none"
+          src={`https://www.facebook.com/tr?id=${metaPixelId}&ev=PageView&noscript=1`}
+          alt=""
+        />
+      </noscript>
+    )}
 
     <!-- Geometrie de fond -->
     <div class="arch-lines">
@@ -709,6 +734,14 @@ import '../styles/global.css';
                       var $ = ml_jQuery || jQuery;
                       $('.ml-subscribe-form-42757869 .row-success').show();
                       $('.ml-subscribe-form-42757869 .row-form').hide();
+
+                      if (typeof fbq === 'function' && !window.__adlLeadTracked) {
+                        window.__adlLeadTracked = true;
+                        fbq('track', 'Lead', {
+                          content_name: 'Mini-rituel',
+                          source: 'MailerLite form'
+                        });
+                      }
                     }
                     fetch("https://assets.mailerlite.com/jsonp/131564/forms/190600034032551146/takel");
                   </script>
