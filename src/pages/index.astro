@@ -108,8 +108,16 @@ import '../styles/global.css';
       }
       ::-webkit-scrollbar { width: 6px; }
       ::-webkit-scrollbar-thumb { background: var(--color-sable-doux); border-radius: 0; }
+
+      /* MailerLite form */
+      .ml-form-embedSubmitLoad { display: inline-block; width: 20px; height: 20px; }
+      .ml-form-embedSubmitLoad:after { content: " "; display: block; width: 11px; height: 11px; margin: 4px auto; border-radius: 50%; border: 3px solid #fff; border-color: #fff #fff #fff transparent; animation: ml-spin 1.2s linear infinite; }
+      @keyframes ml-spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+      .ml-error input { border-color: #C83AB7 !important; }
+      .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
     </style>
 
+    <script is:inline src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519" defer></script>
   </head>
 
   <body class="selection:bg-[#C83AB7] selection:text-[#F5F0E8] relative overflow-x-hidden text-lg">
@@ -648,12 +656,64 @@ import '../styles/global.css';
                     </li>
                   </ul>
 
-                  <a href="#" class="w-full py-4 px-6 bg-[#C83AB7] text-[#F5F0E8] font-semibold text-xs uppercase tracking-[0.2em] hover:bg-[#D58458] transition-colors duration-300 flex justify-center items-center gap-3 mb-6 rounded-sm">
-                    Recevoir le mini-rituel
-                    <iconify-icon icon="solar:arrow-right-linear" width="14" height="14" stroke-width="1.5"></iconify-icon>
-                  </a>
+                  <!-- MailerLite form -->
+                  <div id="mlb2-42757869" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-42757869">
+                    <div class="ml-form-align-center">
+                      <div class="ml-form-embedWrapper embedForm" style="background:transparent;border:none;padding:0;">
+                        <div class="ml-form-embedBody ml-form-embedBodyDefault row-form" style="padding:0;">
+                          <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/131564/forms/190600034032551146/subscribe" data-code="" method="post" target="_blank">
+                            <div class="ml-form-formContent" style="margin-bottom:12px;">
+                              <div class="ml-form-fieldRow mb-3">
+                                <div class="ml-field-group ml-field-name">
+                                  <input aria-label="name" type="text" class="form-control w-full px-4 py-3 border border-[#263F93]/20 rounded-sm text-sm text-[#263F93] placeholder-[#263F93]/40 bg-[#F5F0E8] focus:outline-none focus:border-[#C83AB7] transition-colors" name="fields[name]" placeholder="Pr&eacute;nom" autocomplete="given-name">
+                                </div>
+                              </div>
+                              <div class="ml-form-fieldRow ml-last-item">
+                                <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                                  <input aria-label="email" aria-required="true" type="email" class="form-control w-full px-4 py-3 border border-[#263F93]/20 rounded-sm text-sm text-[#263F93] placeholder-[#263F93]/40 bg-[#F5F0E8] focus:outline-none focus:border-[#C83AB7] transition-colors" name="fields[email]" placeholder="Email" autocomplete="email">
+                                </div>
+                              </div>
+                            </div>
 
-                  <div class="text-center border-t border-[#263F93]/12 pt-4">
+                            <div class="text-xs text-[#263F93]/60 leading-relaxed mb-4 font-light">
+                              Oui, je veux recevoir le mini-rituel et les prochaines nouvelles de L'Atelier de Lucette. Je peux me d&eacute;sinscrire &agrave; tout moment.
+                            </div>
+
+                            <input type="hidden" name="ml-submit" value="1">
+
+                            <button type="submit" class="w-full py-4 px-6 bg-[#C83AB7] text-[#F5F0E8] font-semibold text-xs uppercase tracking-[0.2em] hover:bg-[#D58458] transition-colors duration-300 flex justify-center items-center gap-3 rounded-sm cursor-pointer">
+                              Recevoir le mini-rituel
+                              <iconify-icon icon="solar:arrow-right-linear" width="14" height="14" stroke-width="1.5"></iconify-icon>
+                            </button>
+
+                            <button disabled="disabled" style="display:none;" type="button" class="loading w-full py-4 px-6 bg-[#C83AB7] text-[#F5F0E8] font-semibold text-xs uppercase tracking-[0.2em] rounded-sm">
+                              <div class="ml-form-embedSubmitLoad"></div>
+                            </button>
+
+                            <input type="hidden" name="anticsrf" value="true">
+                          </form>
+                        </div>
+
+                        <div class="ml-form-successBody row-success" style="display:none;">
+                          <div class="text-center py-8">
+                            <h4 class="text-2xl font-serif text-[#263F93] mb-2">Merci !</h4>
+                            <p class="text-[#263F93]/70 text-sm font-light">Tu vas recevoir le mini-rituel par email.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <script is:inline>
+                    function ml_webform_success_42757869() {
+                      var $ = ml_jQuery || jQuery;
+                      $('.ml-subscribe-form-42757869 .row-success').show();
+                      $('.ml-subscribe-form-42757869 .row-form').hide();
+                    }
+                    fetch("https://assets.mailerlite.com/jsonp/131564/forms/190600034032551146/takel");
+                  </script>
+
+                  <div class="text-center border-t border-[#263F93]/12 pt-4 mt-4">
                     <span class="text-[0.6rem] text-[#263F93]/85 font-semibold uppercase tracking-widest flex items-center justify-center gap-1.5">
                       <iconify-icon icon="solar:shield-check-linear" width="10" height="10"></iconify-icon>
                       Gratuit &mdash; Acc&egrave;s imm&eacute;diat
