@@ -24,7 +24,12 @@ const metaPixelId = import.meta.env.PUBLIC_META_PIXEL_ID || '118700902141020';
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-SNKPGHZL0Y');
+      if (window.location.search.includes('tr=internal')) {
+        try { localStorage.setItem('__internal', '1'); } catch(e) {}
+      }
+      var __int = false;
+      try { __int = localStorage.getItem('__internal') === '1'; } catch(e) {}
+      gtag('config', 'G-SNKPGHZL0Y', __int ? { 'traffic_type': 'internal' } : {});
     </script>
     <style>
       :root {
