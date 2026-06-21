@@ -1,0 +1,207 @@
+---
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="fr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>L'Atelier de Lucette — Liens</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        background-color: #F5F0E8;
+        color: #263F93;
+        -webkit-font-smoothing: antialiased;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .ui-text { font-family: 'Special Elite', 'Courier New', monospace; }
+
+      .container {
+        width: 100%;
+        max-width: 400px;
+        padding: 48px 24px;
+        text-align: center;
+      }
+
+      .avatar {
+        width: 88px;
+        height: 88px;
+        border-radius: 50%;
+        margin: 0 auto 24px;
+        overflow: hidden;
+        border: 2px solid #CDAE72;
+      }
+      .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      h1 {
+        font-size: 2rem;
+        font-weight: 500;
+        margin: 0 0 4px;
+        line-height: 1.2;
+      }
+      h1 .italic {
+        font-style: italic;
+        color: #C83AB7;
+      }
+
+      .tagline {
+        font-size: 1.1rem;
+        color: #263F93;
+        opacity: 0.7;
+        margin: 0 0 8px;
+        font-weight: 400;
+      }
+
+      .divider {
+        width: 32px;
+        height: 1.5px;
+        background: #CDAE72;
+        margin: 24px auto;
+      }
+
+      .links {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 32px;
+      }
+
+      .link-card {
+        display: block;
+        text-decoration: none;
+        padding: 18px 20px;
+        background: rgba(255, 255, 255, 0.5);
+        border: 1px solid rgba(38, 63, 147, 0.08);
+        border-radius: 6px;
+        color: #263F93;
+        transition: all 0.25s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      .link-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transition: opacity 0.25s ease;
+        background: linear-gradient(135deg, rgba(200, 58, 183, 0.04) 0%, rgba(213, 132, 88, 0.04) 100%);
+      }
+      .link-card:hover {
+        transform: translateY(-2px);
+        border-color: rgba(200, 58, 183, 0.2);
+        box-shadow: 0 8px 24px rgba(38, 63, 147, 0.06);
+      }
+      .link-card:hover::before { opacity: 1; }
+      .link-card:active { transform: translateY(0); }
+
+      .link-card h2 {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: 1.15rem;
+        font-weight: 600;
+        margin: 0 0 3px;
+        position: relative;
+      }
+      .link-card p {
+        font-size: 0.95rem;
+        margin: 0;
+        opacity: 0.65;
+        font-weight: 400;
+        position: relative;
+      }
+
+      .link-card .icon {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 6px;
+      }
+      .link-card .arrow {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0;
+        transition: opacity 0.25s ease, right 0.25s ease;
+        font-size: 1.1rem;
+      }
+      .link-card:hover .arrow {
+        opacity: 0.4;
+        right: 16px;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        font-size: 0.9rem;
+      }
+      .footer-links a {
+        color: #263F93;
+        opacity: 0.5;
+        text-decoration: none;
+        transition: opacity 0.2s ease;
+      }
+      .footer-links a:hover {
+        opacity: 0.8;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="avatar">
+        <img
+          src="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4912b6ad-3610-48d6-be3f-a237010589e9_500x500.png"
+          alt="L'Atelier de Lucette"
+        />
+      </div>
+      <h1>L'Atelier <span class="italic">de Lucette</span></h1>
+      <p class="tagline">Revenir à toi, écouter ton intuition, poser des actions justes</p>
+
+      <div class="divider"></div>
+
+      <div class="links">
+        <a href="https://carolineverdier.substack.com" target="_blank" rel="noopener" class="link-card">
+          <h2><span class="icon">✧</span> Blog Substack</h2>
+          <p>1 article par semaine sur les relations, le retour à soi et la création</p>
+          <span class="arrow">→</span>
+        </a>
+
+        <a href="/tirage" target="_blank" rel="noopener" class="link-card">
+          <h2><span class="icon">✦</span> Tirage 3 cartes</h2>
+          <p>Tirage en ligne gratuit — Situation, blocage, conseil avec l'oracle D'une Rive à l'Autre</p>
+          <span class="arrow">→</span>
+        </a>
+
+        <a href="/mini-rituel" target="_blank" rel="noopener" class="link-card">
+          <h2><span class="icon">◈</span> Mini-rituel gratuit</h2>
+          <p>Viens avec une question, repars avec une action</p>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+
+      <div class="footer-links">
+        <a href="https://carolineverdier.substack.com" target="_blank" rel="noopener">Substack</a>
+        <a href="https://instagram.com/caroline.verdier" target="_blank" rel="noopener">Instagram</a>
+        <a href="/cgv">CGV</a>
+        <a href="/mentions-legales">Mentions légales</a>
+      </div>
+    </div>
+  </body>
+</html>
