@@ -1,0 +1,682 @@
+---
+import fs from 'fs';
+import path from 'path';
+import '../styles/global.css';
+
+const cardsData = JSON.parse(fs.readFileSync(path.resolve('public/data/cards.json'), 'utf-8'));
+const totalCards = cardsData.total;
+const cardsList = cardsData.cards;
+---
+
+<!doctype html>
+<html lang="fr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tirage en ligne — D'une Rive à l'Autre — L'Atelier de Lucette</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SNKPGHZL0Y"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-SNKPGHZL0Y');
+    </script>
+    <style>
+      :root {
+        --cream: #F5F0E8;
+        --bone: #FFFCF6;
+        --gold: #CDAE72;
+        --gold-light: #F1D9A7;
+        --terracotta: #D58458;
+        --blue: #263F93;
+        --blue-dark: #1f2b58;
+        --cyan: #31B6CC;
+        --magenta: #C83AB7;
+        --white: #FFFFFF;
+
+        --card-w: min(320px, 30vw);
+        --card-h: calc(var(--card-w) * 1.4);
+      }
+
+      @media (max-width: 640px) {
+        :root {
+          --card-w: min(180px, 50vw);
+        }
+      }
+
+      @font-face {
+        font-family: 'Cormorant Garamond';
+        src: url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap');
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        background: var(--cream);
+        color: var(--blue);
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      .script { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; }
+      .stamp { font-family: 'Special Elite', 'Courier New', monospace; }
+
+      .bg-grain {
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E");
+      }
+
+      /* Card back design */
+      .card-back {
+        background: url('/images/cards/card-back.png') center/cover no-repeat;
+        border: none;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Card base */
+      .card-slot {
+        perspective: 1200px;
+        width: var(--card-w);
+        height: var(--card-h);
+        position: relative;
+      }
+      .card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        transform-style: preserve-3d;
+      }
+      .card-inner.flipped {
+        transform: rotateY(180deg);
+      }
+      .card-face {
+        position: absolute;
+        inset: 0;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .card-front {
+        transform: rotateY(180deg);
+        background: var(--white);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .card-front img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 4px;
+      }
+
+      /* Shuffle animation */
+      @keyframes shuffleFly {
+        0% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0; }
+        10% { opacity: 1; }
+        50% { transform: translate(var(--dx), var(--dy)) rotate(var(--r)) scale(0.8); opacity: 0.7; }
+        100% { transform: translate(0, 0) rotate(0deg) scale(1); opacity: 0; }
+      }
+      @keyframes shuffleCard {
+        0% { transform: translateY(0) scale(1) rotate(0deg); }
+        25% { transform: translateY(-100px) scale(0.85) rotate(-12deg); }
+        50% { transform: translateY(15px) scale(1.08) rotate(6deg); }
+        75% { transform: translateY(-50px) scale(0.9) rotate(-5deg); }
+        100% { transform: translateY(0) scale(1) rotate(0deg); }
+      }
+      @keyframes twinkle {
+        0%, 100% { opacity: 0.2; transform: scale(0.8); }
+        50% { opacity: 1; transform: scale(1.2); }
+      }
+      @keyframes starFall {
+        0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
+        20% { opacity: 1; }
+        80% { opacity: 1; }
+        100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+      }
+      @keyframes fadeSlideUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .shuffle-container {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 10;
+      }
+      .shuffle-particle {
+        position: absolute;
+        width: calc(var(--card-w) * 0.6);
+        height: calc(var(--card-h) * 0.6);
+        border-radius: 6px;
+        animation: shuffleFly 2s ease-in-out forwards;
+        background: url('/images/cards/card-back.png') center/cover no-repeat;
+        border: 1px solid var(--gold);
+      }
+
+      /* Star particles */
+      .star-particle {
+        position: fixed;
+        font-size: 1.5rem;
+        color: var(--gold);
+        pointer-events: none;
+        z-index: 20;
+        animation: starFall 3s ease-in forwards;
+      }
+
+      /* Reveal animation for card sections */
+      .reading-section {
+        opacity: 0;
+        transform: translateY(16px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+        margin-top: 0.75rem;
+        overflow-wrap: break-word;
+        max-width: 100%;
+      }
+      .reading-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Card reveal stagger */
+      .card-wrapper {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+        min-width: 0;
+      }
+      .card-wrapper.revealed {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Overlay for shuffle phase */
+      .shuffle-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(245, 240, 232, 0.85);
+        backdrop-filter: blur(8px);
+        z-index: 40;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s ease;
+      }
+      .shuffle-overlay.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .shuffle-overlay .deck-stack {
+        position: relative;
+        width: var(--card-w);
+        height: var(--card-h);
+      }
+      .shuffle-overlay .deck-stack > div {
+        position: absolute;
+        inset: 0;
+        border-radius: 8px;
+        background: url('/images/cards/card-back.png') center/cover no-repeat;
+        border: 2px solid var(--gold);
+      }
+      .shuffle-overlay .deck-stack > div:nth-child(1) { transform: rotate(-2deg) translateY(-2px); }
+      .shuffle-overlay .deck-stack > div:nth-child(2) { transform: rotate(1deg) translateY(1px); }
+      .shuffle-overlay .deck-stack > div:nth-child(3) { transform: rotate(-0.5deg); }
+
+      /* Audio toggle */
+      .sound-toggle {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        z-index: 50;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: var(--white);
+        border: 1px solid rgba(38,63,147,0.15);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 1.2rem;
+      }
+      .sound-toggle:hover {
+        background: var(--cream);
+        transform: scale(1.05);
+      }
+
+      /* Placeholder for card image loading */
+      .card-img-placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, var(--cream), var(--bone));
+        color: var(--blue);
+        font-family: 'Cormorant Garamond', serif;
+        font-style: italic;
+        font-size: 0.85rem;
+        text-align: center;
+        padding: 8px;
+      }
+      /* Shuffle progress bar */
+      .progress-track {
+        width: min(200px, 60vw);
+        height: 2px;
+        background: rgba(38, 63, 147, 0.1);
+        border-radius: 2px;
+        margin: 1.5rem auto 0;
+        overflow: hidden;
+      }
+      .progress-fill {
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(90deg, var(--gold), var(--cyan), var(--magenta));
+        border-radius: 2px;
+      }
+      .progress-fill.animating {
+        transition: width 10.5s linear;
+      }
+
+    </style>
+  </head>
+
+  <body class="relative selection:bg-[#C83AB7] selection:text-[#F5F0E8]">
+    <!-- Sound toggle -->
+    <button class="sound-toggle" id="soundToggle" aria-label="Activer ou couper le son" title="Son">
+      <span id="soundIcon">🔇</span>
+    </button>
+
+    <!-- Shuffle overlay -->
+    <div class="shuffle-overlay" id="shuffleOverlay">
+      <div class="text-center mb-8">
+        <div class="deck-stack mx-auto mb-8" id="shuffleDeck">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <p class="stamp text-xs tracking-[0.2em] text-[#263F93]/60 uppercase">Concentre-toi sur ta question...</p>
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 inset-x-0 z-30 h-20 flex items-center border-b border-[#263F93]/15 bg-[#F5F0E8]/90 backdrop-blur-md">
+      <div class="max-w-6xl mx-auto w-full px-6 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-3 group">
+          <span class="text-xl font-serif font-normal tracking-tight text-[#263F93]">L'Atelier <span class="font-light opacity-70">de Lucette</span></span>
+        </a>
+        <a href="/mini-rituel" class="stamp text-[0.6rem] tracking-[0.25em] uppercase text-[#263F93]/70 hover:text-[#C83AB7] transition-colors">
+          Mini-rituel
+        </a>
+      </div>
+    </nav>
+
+    <!-- Main -->
+    <main class="pt-28 pb-24 px-6 min-h-screen flex flex-col items-center overflow-x-hidden">
+      <!-- Header -->
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-4 mb-6">
+          <div class="h-px w-8 bg-[#31B6CC]"></div>
+          <span class="stamp text-[0.55rem] tracking-[0.25em] uppercase text-[#263F93]/70">Oracle D'une Rive à l'Autre</span>
+          <div class="h-px w-8 bg-[#C83AB7]"></div>
+        </div>
+        <h1 class="script text-5xl md:text-6xl text-[#263F93] leading-[1.1] mb-4 font-normal">
+          Tirage de l'Oracle
+        </h1>
+        <p class="text-xl md:text-2xl text-[#263F93]/75 font-light italic leading-relaxed max-w-lg mx-auto">
+          3 cartes pour voir clair : ta situation, ce qui te bloque, le conseil à suivre.
+        </p>
+      </div>
+
+      <!-- Draw button -->
+      <button id="drawBtn" class="stamp inline-block px-10 py-5 bg-[#C83AB7] text-[#F5F0E8] text-xs uppercase tracking-widest font-medium hover:bg-[#D58458] transition-all hover:-translate-y-0.5 shadow-xl shadow-[#C83AB7]/20 rounded-sm cursor-pointer border-none mb-12">
+        Tirer les cartes
+      </button>
+
+      <!-- 3 Card slots -->
+      <div class="flex flex-col md:flex-row gap-6 md:gap-12 items-center md:items-start justify-center mb-12 w-full" id="cardArea">
+        {['Situation', 'Blocage', 'Conseil'].map((label, i) => (
+        <div class="flex flex-col items-center gap-2 md:gap-3 flex-1 card-wrapper" data-index={i}>
+          <div class="card-slot" data-slot={i}>
+            <div class="card-inner" id={`cardInner${i}`}>
+              <div class="card-face card-back"></div>
+              <div class="card-face card-front" id={`cardFront${i}`}>
+                <div class="card-img-placeholder">
+                  <span class="text-2xl mb-1 opacity-40">✦</span>
+                  <span class="opacity-40">Carte</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="stamp text-[0.55rem] tracking-[0.25em] uppercase text-[#263F93]/60">{label}</span>
+          <div class="reading-section w-full" data-card-index={i}></div>
+        </div>
+        ))}
+      </div>
+
+      <!-- Bottom CTA -->
+      <div id="bottomCta" class="w-full flex flex-col items-center mt-16 hidden">
+        <div class="h-px w-full max-w-xs bg-gradient-to-r from-transparent via-[#CDAE72]/30 to-transparent mb-10"></div>
+        <div class="flex justify-center mb-12">
+          <button id="newDrawBtn" class="stamp inline-block px-8 py-4 bg-transparent border border-[#263F93] text-[#263F93] text-xs uppercase tracking-widest font-medium hover:bg-[#263F93] hover:text-[#F5F0E8] transition-all rounded-sm cursor-pointer">
+            Nouveau tirage
+          </button>
+        </div>
+        <div class="text-center">
+          <p class="text-sm text-[#263F93]/50 font-light italic mb-3">
+            Poursuis l'experience avec un mini-rituel
+          </p>
+          <a href="/mini-rituel" class="stamp inline-block px-10 py-4 bg-[#263F93] text-[#F5F0E8] text-sm uppercase tracking-[0.25em] font-medium hover:bg-[#C83AB7] transition-all rounded-sm">
+            Decouvrir le mini-rituel
+          </a>
+        </div>
+      </div>
+
+      <!-- Loading phase text -->
+      <div id="phaseText" class="mt-6 text-center min-h-[2rem]">
+        <span class="stamp text-[0.55rem] tracking-[0.25em] uppercase text-[#263F93]/40"></span>
+      </div>
+    </main>
+
+    <script define:vars={{ cardsList }}>
+    const CARDS = cardsList;
+
+    const state = {
+      drawn: [],
+      phase: 'idle', // idle | shuffling | revealing | reading
+      introAudio: null,
+      outroAudio: null,
+      isMuted: true,
+      isPlaying: false,
+    };
+
+    const $ = (s) => document.querySelector(s);
+    const $$ = (s) => document.querySelectorAll(s);
+
+    function init() {
+      setupAudio();
+      $('#drawBtn').addEventListener('click', startDraw);
+      $('#newDrawBtn').addEventListener('click', resetAndDraw);
+      $('#soundToggle').addEventListener('click', toggleSound);
+    }
+
+    function setupAudio() {
+      state.introAudio = new Audio('/audio/intro.mp3');
+      state.outroAudio = new Audio('/audio/outro.mp3');
+      state.outroAudio.loop = false;
+      state.introAudio.volume = 0.7;
+      state.outroAudio.volume = 0.5;
+      state.introAudio.muted = true;
+      state.outroAudio.muted = true;
+    }
+
+    function toggleSound() {
+      state.isMuted = !state.isMuted;
+      if (state.introAudio) state.introAudio.muted = state.isMuted;
+      if (state.outroAudio) state.outroAudio.muted = state.isMuted;
+      $('#soundIcon').textContent = state.isMuted ? '🔇' : '🔊';
+    }
+
+    function playIntro() {
+      if (!state.introAudio) return;
+      state.introAudio.currentTime = 0;
+      state.introAudio.play().catch(() => {});
+    }
+
+    function playOutro() {
+      if (!state.outroAudio) return;
+      state.outroAudio.currentTime = 0;
+      state.outroAudio.play().catch(() => {});
+    }
+
+    function stopAllAudio() {
+      if (state.introAudio) { state.introAudio.pause(); state.introAudio.currentTime = 0; }
+      if (state.outroAudio) { state.outroAudio.pause(); state.outroAudio.currentTime = 0; }
+    }
+
+    function startDraw() {
+      if (state.phase !== 'idle') return;
+      state.phase = 'shuffling';
+
+      // Pick 3 random unique cards
+      const shuffled = [...CARDS].sort(() => Math.random() - 0.5);
+      state.drawn = shuffled.slice(0, 3);
+
+      $('#drawBtn').style.display = 'none';
+      $('#bottomCta').classList.add('hidden');
+      $$('.card-wrapper').forEach(el => el.classList.remove('revealed'));
+
+      // Show shuffle overlay
+      const overlay = $('#shuffleOverlay');
+      overlay.classList.add('active');
+
+      // Animate shuffle deck
+      const deck = $('#shuffleDeck');
+      deck.querySelectorAll('div').forEach((el, i) => {
+        el.style.animation = `shuffleCard 0.9s ease-in-out ${i * 0.15}s infinite alternate`;
+      });
+
+      // Start audio (user interaction already happened, so autoplay should work)
+      state.isMuted = false;
+      state.introAudio.muted = false;
+      state.outroAudio.muted = false;
+      $('#soundIcon').textContent = '🔊';
+      playIntro();
+
+      // Phase text
+      $('#phaseText span').textContent = 'Les cartes se mélangent...';
+
+      // Start progress bar
+      const progressFill = $('#progressFill');
+      progressFill.classList.remove('animating');
+      progressFill.style.width = '0%';
+      void progressFill.offsetHeight;
+      progressFill.classList.add('animating');
+      progressFill.style.width = '100%';
+
+      // After intro duration (10s), reveal
+      const introDuration = 10500; // intro is ~10.7s, give or take
+
+      // Spawn star particles for "pluie d'étoiles" near the end
+      setTimeout(() => spawnStars(), 9500);
+
+      setTimeout(() => {
+        overlay.classList.remove('active');
+        progressFill.classList.remove('animating');
+        progressFill.style.width = '0%';
+        deck.querySelectorAll('div').forEach(el => el.style.animation = '');
+        revealCards();
+      }, introDuration);
+    }
+
+    function spawnStars() {
+      const symbols = ['✦', '✧', '⋆', '☆', '·'];
+      for (let i = 0; i < 25; i++) {
+        setTimeout(() => {
+          const star = document.createElement('div');
+          star.className = 'star-particle';
+          star.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+          star.style.left = Math.random() * 100 + '%';
+          star.style.top = '-5%';
+          star.style.fontSize = (0.6 + Math.random() * 1.2) + 'rem';
+          star.style.animationDuration = (2 + Math.random() * 2) + 's';
+          star.style.animationDelay = Math.random() * 0.5 + 's';
+          document.body.appendChild(star);
+          setTimeout(() => star.remove(), 4000);
+        }, i * 80);
+      }
+
+      // Play outro after a brief moment (the "pluie d'étoiles" moment)
+      setTimeout(() => {
+        stopAllAudio();
+        playOutro();
+      }, 1200);
+    }
+
+    function revealCards() {
+      state.phase = 'revealing';
+      $('#phaseText span').textContent = 'Les cartes se dévoilent...';
+
+      // Show card wrappers
+      $$('.card-wrapper').forEach((el, i) => {
+        setTimeout(() => {
+          el.classList.add('revealed');
+
+          const card = state.drawn[i];
+          const front = $(`#cardFront${i}`);
+          const inner = $(`#cardInner${i}`);
+
+          // Set card content
+          const img = document.createElement('img');
+          img.src = card.image;
+          img.alt = card.nom;
+          img.style.width = '100%';
+          img.style.height = '100%';
+          img.style.objectFit = 'cover';
+
+          img.onerror = () => {
+            img.style.display = 'none';
+            front.innerHTML = `
+              <div class="card-img-placeholder">
+                <span class="text-3xl mb-2 opacity-30">✦</span>
+                <span class="font-semibold text-sm">${card.nom}</span>
+                <span class="text-xs opacity-50 mt-1">n°${card.numero}</span>
+              </div>
+            `;
+          };
+
+          img.onload = () => {
+            front.innerHTML = '';
+            front.appendChild(img);
+          };
+
+          // Clear and set img
+          front.innerHTML = '';
+          front.appendChild(img);
+
+          // Trigger img load
+          if (img.complete && img.naturalWidth > 0) {
+            img.onload && img.onload();
+          }
+
+          // Flip after a brief delay
+          setTimeout(() => {
+            inner.classList.add('flipped');
+          }, 300);
+
+          // Show reading content after all flipped
+          if (i === 2) {
+            setTimeout(() => showReading(), 1000);
+          }
+        }, i * 600);
+      });
+    }
+
+    function showReading() {
+      state.phase = 'reading';
+      $('#phaseText span').textContent = '';
+
+      const labels = ['Situation', 'Blocage', 'Conseil'];
+      const sections = [
+        { title: 'Ce qui est', contentKey: 'essence', extraKey: null },
+        { title: 'Ce qui bloque', contentKey: 'ombre', extraKey: null },
+        { title: 'Le conseil cash', contentKey: 'zero_bullshit', extraKey: 'questions', extraLabel: 'Questions pour toi' },
+      ];
+
+      state.drawn.forEach((card, i) => {
+        const container = document.querySelector(`[data-card-index="${i}"]`);
+        if (!container) return;
+
+        let extraHtml = '';
+        if (sections[i].extraKey === 'questions' && card.questions?.length) {
+          extraHtml = `
+            <div class="mt-4 pt-4 border-t border-[#263F93]/8">
+              <p class="stamp text-[0.6rem] tracking-[0.2em] uppercase text-[#C83AB7] mb-2">${sections[i].extraLabel}</p>
+              <ul class="space-y-1.5">
+                ${card.questions.map(q => `<li class="text-lg text-[#263F93]/80 font-light pl-3 border-l border-[#31B6CC]/30">${q}</li>`).join('')}
+              </ul>
+            </div>
+          `;
+        } else if (sections[i].extraKey && card[sections[i].extraKey]) {
+          extraHtml = `
+            <div class="mt-4 pt-4 border-t border-[#263F93]/8">
+              <p class="stamp text-[0.6rem] tracking-[0.2em] uppercase text-[#C83AB7] mb-2">${sections[i].extraLabel}</p>
+              <p class="text-lg text-[#263F93]/80 font-light leading-relaxed">${card[sections[i].extraKey]}</p>
+            </div>
+          `;
+        }
+
+        container.innerHTML = `
+          <div class="bg-white border border-[#263F93]/8 p-3 md:p-6 rounded-sm h-full">
+            <div class="flex items-center justify-between mb-3">
+              <span class="stamp text-[0.6rem] tracking-[0.25em] uppercase text-[#C83AB7]">${card.numero} — ${card.nom}</span>
+              <span class="stamp text-[0.55rem] tracking-[0.2em] uppercase text-[#263F93]/30">${labels[i]}</span>
+            </div>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              ${card.mots_cles.split(' - ').map(m => `<span class="stamp text-[0.55rem] tracking-[0.1em] uppercase text-[#263F93]/50 bg-[#F5F0E8] px-2 py-0.5 rounded-sm">${m.trim()}</span>`).join('')}
+            </div>
+            <p class="text-xl md:text-2xl text-[#263F93] leading-relaxed font-medium mb-1">${sections[i].title}</p>
+            <p class="text-lg md:text-xl text-[#263F93]/80 leading-relaxed font-light">${card[sections[i].contentKey]}</p>
+            ${extraHtml}
+          </div>
+        `;
+
+        container.style.transitionDelay = (i * 0.2) + 's';
+        container.classList.add('visible');
+      });
+
+      $('#bottomCta').classList.remove('hidden');
+    }
+
+    function resetAndDraw() {
+      if (state.phase === 'shuffling') return;
+      stopAllAudio();
+
+      // Reset UI
+      $$('.card-inner').forEach(el => el.classList.remove('flipped'));
+      $$('.card-wrapper').forEach(el => el.classList.remove('revealed'));
+      $$('.card-front').forEach(el => {
+        el.innerHTML = `<div class="card-img-placeholder">
+          <span class="text-2xl mb-1 opacity-40">✦</span>
+          <span class="opacity-40">Carte</span>
+        </div>`;
+      });
+      $$('[data-card-index]').forEach(el => {
+        el.innerHTML = '';
+        el.classList.remove('visible');
+        el.style.transitionDelay = '';
+      });
+      $('#bottomCta').classList.add('hidden');
+      $('#phaseText span').textContent = '';
+
+      state.phase = 'idle';
+      startDraw();
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
+    </script>
+  </body>
+</html>
