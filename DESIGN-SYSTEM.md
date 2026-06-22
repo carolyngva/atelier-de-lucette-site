@@ -4,20 +4,20 @@
 
 | Rôle | Couleur | Hex |
 |------|---------|-----|
-| Fond principal | Crème ADL | #F5F0E8 |
+| Fond principal | Crème ADL | #F7F4EE |
 | Surface | Papier chaud | #FFFCF6 |
-| Texte principal | Bleu profond | #263F93 |
+| Texte principal | Bleu profond | #1E3A8A |
 | Texte secondaire | Bleu encre | #1f2b58 |
-| Accent intuition | Magenta | #C83AB7 |
-| Accent chaleur | Orange | #D58458 |
-| Accent lumière | Doré | #CDAE72 |
-| Accent mouvement | Cyan | #31B6CC |
+| Accent intuition | Magenta | #CC3DAA |
+| Accent chaleur | Orange | #D4845A |
+| Accent lumière | Doré | #C9A96E |
+| Accent mouvement | Cyan | #2AACCB |
 | Blanc | Blanc | #FFFFFF |
 
 ## Typographie
 
 - **Texte principal et titres lisibles** : Cormorant Garamond
-- **Accents émotionnels / mots script** : Feeling Passionate
+- **Accents émotionnels / mots script** : Cormorant Garamond (italic ou poids 500)
 - **Labels, tampons, petits cartouches, navigation et boutons** : Special Elite
 
 ## Styles
@@ -34,7 +34,7 @@
 - Boutons CTA : fond magenta, texte crème, hover orange
 - Cartes : fond blanc, bordure fine, hover shadow
 - Sections alternées : crème / blanc / crème
-- Fond foncé (pricing/footer) : bleu profond (#263F93)
+- Fond foncé (pricing/footer) : bleu profond (#1E3A8A)
 
 ## Icônes
 

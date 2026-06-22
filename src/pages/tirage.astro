@@ -35,15 +35,15 @@ const cardsList = cardsData.cards;
     </script>
     <style>
       :root {
-        --cream: #F5F0E8;
+        --cream: #F7F4EE;
         --bone: #FFFCF6;
-        --gold: #CDAE72;
+        --gold: #C9A96E;
         --gold-light: #F1D9A7;
-        --terracotta: #D58458;
-        --blue: #263F93;
+        --terracotta: #D4845A;
+        --blue: #1E3A8A;
         --blue-dark: #1f2b58;
-        --cyan: #31B6CC;
-        --magenta: #C83AB7;
+        --cyan: #2AACCB;
+        --magenta: #CC3DAA;
         --white: #FFFFFF;
 
         --card-w: min(320px, 30vw);
@@ -306,7 +306,7 @@ const cardsList = cardsData.cards;
     </style>
   </head>
 
-  <body class="relative selection:bg-[#C83AB7] selection:text-[#F5F0E8]">
+  <body class="relative selection:bg-[#CC3DAA] selection:text-[#F7F4EE]">
     <!-- Sound toggle -->
     <button class="sound-toggle" id="soundToggle" aria-label="Activer ou couper le son" title="Son">
       <span id="soundIcon">🔇</span>
@@ -320,7 +320,7 @@ const cardsList = cardsData.cards;
           <div></div>
           <div></div>
         </div>
-        <p class="stamp text-xs tracking-[0.2em] text-[#263F93]/60 uppercase">Concentre-toi sur ta question...</p>
+        <p class="stamp text-xs tracking-[0.2em] text-[#1E3A8A]/60 uppercase">Concentre-toi sur ta question...</p>
         <div class="progress-track">
           <div class="progress-fill" id="progressFill"></div>
         </div>
@@ -328,12 +328,12 @@ const cardsList = cardsData.cards;
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 inset-x-0 z-30 h-20 flex items-center border-b border-[#263F93]/15 bg-[#F5F0E8]/90 backdrop-blur-md">
+    <nav class="fixed top-0 inset-x-0 z-30 h-20 flex items-center border-b border-[#1E3A8A]/15 bg-[#F7F4EE]/90 backdrop-blur-md">
       <div class="max-w-6xl mx-auto w-full px-6 flex items-center justify-between">
         <a href="/" class="flex items-center gap-3 group">
-          <span class="text-xl font-serif font-normal tracking-tight text-[#263F93]">L'Atelier <span class="font-light opacity-70">de Lucette</span></span>
+          <span class="text-xl font-serif font-normal tracking-tight text-[#1E3A8A]">L'Atelier <span class="font-light opacity-70">de Lucette</span></span>
         </a>
-        <a href="/mini-rituel" class="stamp text-[0.6rem] tracking-[0.25em] uppercase text-[#263F93]/70 hover:text-[#C83AB7] transition-colors">
+        <a href="/mini-rituel" class="stamp text-[0.6rem] tracking-[0.25em] uppercase text-[#1E3A8A]/70 hover:text-[#CC3DAA] transition-colors">
           Mini-rituel
         </a>
       </div>
@@ -344,20 +344,20 @@ const cardsList = cardsData.cards;
       <!-- Header -->
       <div class="text-center max-w-2xl mx-auto mb-12">
         <div class="inline-flex items-center gap-4 mb-6">
-          <div class="h-px w-8 bg-[#31B6CC]"></div>
-          <span class="stamp text-[0.55rem] tracking-[0.25em] uppercase text-[#263F93]/70">Oracle D'une Rive à l'Autre</span>
-          <div class="h-px w-8 bg-[#C83AB7]"></div>
+          <div class="h-px w-8 bg-[#2AACCB]"></div>
+          <span class="stamp text-[0.55rem] tracking-[0.25em] uppercase text-[#1E3A8A]/70">Oracle D'une Rive à l'Autre</span>
+          <div class="h-px w-8 bg-[#CC3DAA]"></div>
         </div>
-        <h1 class="script text-5xl md:text-6xl text-[#263F93] leading-[1.1] mb-4 font-normal">
+        <h1 class="script text-5xl md:text-6xl text-[#1E3A8A] leading-[1.1] mb-4 font-normal">
           Tirage de l'Oracle
         </h1>
-        <p class="text-xl md:text-2xl text-[#263F93]/75 font-light italic leading-relaxed max-w-lg mx-auto">
+        <p class="text-xl md:text-2xl text-[#1E3A8A]/75 font-light italic leading-relaxed max-w-lg mx-auto">
           3 cartes pour voir clair : ta situation, ce qui te bloque, le conseil à suivre.
         </p>
       </div>
 
       <!-- Draw button -->
-      <button id="drawBtn" class="stamp inline-block px-10 py-5 bg-[#C83AB7] text-[#F5F0E8] text-xs uppercase tracking-widest font-medium hover:bg-[#D58458] transition-all hover:-translate-y-0.5 shadow-xl shadow-[#C83AB7]/20 rounded-sm cursor-pointer border-none mb-12">
+      <button id="drawBtn" class="stamp inline-block px-10 py-5 bg-[#CC3DAA] text-[#F7F4EE] text-xs uppercase tracking-widest font-medium hover:bg-[#D4845A] transition-all hover:-translate-y-0.5 shadow-xl shadow-[#CC3DAA]/20 rounded-sm cursor-pointer border-none mb-12">
         Tirer les cartes
       </button>
 
@@ -376,7 +376,7 @@ const cardsList = cardsData.cards;
               </div>
             </div>
           </div>
-          <span class="stamp text-[0.55rem] tracking-[0.25em] uppercase text-[#263F93]/60">{label}</span>
+          <span class="stamp text-[0.55rem] tracking-[0.25em] uppercase text-[#1E3A8A]/60">{label}</span>
           <div class="reading-section w-full" data-card-index={i}></div>
         </div>
         ))}
@@ -384,17 +384,17 @@ const cardsList = cardsData.cards;
 
       <!-- Bottom CTA -->
       <div id="bottomCta" class="w-full flex flex-col items-center mt-16 hidden">
-        <div class="h-px w-full max-w-xs bg-gradient-to-r from-transparent via-[#CDAE72]/30 to-transparent mb-10"></div>
+        <div class="h-px w-full max-w-xs bg-gradient-to-r from-transparent via-[#C9A96E]/30 to-transparent mb-10"></div>
         <div class="flex justify-center mb-12">
-          <button id="newDrawBtn" class="stamp inline-block px-8 py-4 bg-transparent border border-[#263F93] text-[#263F93] text-xs uppercase tracking-widest font-medium hover:bg-[#263F93] hover:text-[#F5F0E8] transition-all rounded-sm cursor-pointer">
+          <button id="newDrawBtn" class="stamp inline-block px-8 py-4 bg-transparent border border-[#1E3A8A] text-[#1E3A8A] text-xs uppercase tracking-widest font-medium hover:bg-[#1E3A8A] hover:text-[#F7F4EE] transition-all rounded-sm cursor-pointer">
             Nouveau tirage
           </button>
         </div>
         <div class="text-center">
-          <p class="text-sm text-[#263F93]/50 font-light italic mb-3">
+          <p class="text-sm text-[#1E3A8A]/50 font-light italic mb-3">
             Poursuis l'experience avec un mini-rituel
           </p>
-          <a href="/mini-rituel" class="stamp inline-block px-10 py-4 bg-[#263F93] text-[#F5F0E8] text-sm uppercase tracking-[0.25em] font-medium hover:bg-[#C83AB7] transition-all rounded-sm">
+          <a href="/mini-rituel" class="stamp inline-block px-10 py-4 bg-[#1E3A8A] text-[#F7F4EE] text-sm uppercase tracking-[0.25em] font-medium hover:bg-[#CC3DAA] transition-all rounded-sm">
             Decouvrir le mini-rituel
           </a>
         </div>
@@ -402,7 +402,7 @@ const cardsList = cardsData.cards;
 
       <!-- Loading phase text -->
       <div id="phaseText" class="mt-6 text-center min-h-[2rem]">
-        <span class="stamp text-[0.55rem] tracking-[0.25em] uppercase text-[#263F93]/40"></span>
+        <span class="stamp text-[0.55rem] tracking-[0.25em] uppercase text-[#1E3A8A]/40"></span>
       </div>
     </main>
 
@@ -618,33 +618,33 @@ const cardsList = cardsData.cards;
         let extraHtml = '';
         if (sections[i].extraKey === 'questions' && card.questions?.length) {
           extraHtml = `
-            <div class="mt-4 pt-4 border-t border-[#263F93]/8">
-              <p class="stamp text-[0.6rem] tracking-[0.2em] uppercase text-[#C83AB7] mb-2">${sections[i].extraLabel}</p>
+            <div class="mt-4 pt-4 border-t border-[#1E3A8A]/8">
+              <p class="stamp text-[0.6rem] tracking-[0.2em] uppercase text-[#CC3DAA] mb-2">${sections[i].extraLabel}</p>
               <ul class="space-y-1.5">
-                ${card.questions.map(q => `<li class="text-lg text-[#263F93]/80 font-light pl-3 border-l border-[#31B6CC]/30">${q}</li>`).join('')}
+                ${card.questions.map(q => `<li class="text-lg text-[#1E3A8A]/80 font-light pl-3 border-l border-[#2AACCB]/30">${q}</li>`).join('')}
               </ul>
             </div>
           `;
         } else if (sections[i].extraKey && card[sections[i].extraKey]) {
           extraHtml = `
-            <div class="mt-4 pt-4 border-t border-[#263F93]/8">
-              <p class="stamp text-[0.6rem] tracking-[0.2em] uppercase text-[#C83AB7] mb-2">${sections[i].extraLabel}</p>
-              <p class="text-lg text-[#263F93]/80 font-light leading-relaxed">${card[sections[i].extraKey]}</p>
+            <div class="mt-4 pt-4 border-t border-[#1E3A8A]/8">
+              <p class="stamp text-[0.6rem] tracking-[0.2em] uppercase text-[#CC3DAA] mb-2">${sections[i].extraLabel}</p>
+              <p class="text-lg text-[#1E3A8A]/80 font-light leading-relaxed">${card[sections[i].extraKey]}</p>
             </div>
           `;
         }
 
         container.innerHTML = `
-          <div class="bg-white border border-[#263F93]/8 p-3 md:p-6 rounded-sm h-full">
+          <div class="bg-white border border-[#1E3A8A]/8 p-3 md:p-6 rounded-sm h-full">
             <div class="flex items-center justify-between mb-3">
-              <span class="stamp text-[0.6rem] tracking-[0.25em] uppercase text-[#C83AB7]">${card.numero} — ${card.nom}</span>
-              <span class="stamp text-[0.55rem] tracking-[0.2em] uppercase text-[#263F93]/30">${labels[i]}</span>
+              <span class="stamp text-[0.6rem] tracking-[0.25em] uppercase text-[#CC3DAA]">${card.numero} — ${card.nom}</span>
+              <span class="stamp text-[0.55rem] tracking-[0.2em] uppercase text-[#1E3A8A]/30">${labels[i]}</span>
             </div>
             <div class="flex flex-wrap gap-1.5 mb-4">
-              ${card.mots_cles.split(' - ').map(m => `<span class="stamp text-[0.55rem] tracking-[0.1em] uppercase text-[#263F93]/50 bg-[#F5F0E8] px-2 py-0.5 rounded-sm">${m.trim()}</span>`).join('')}
+              ${card.mots_cles.split(' - ').map(m => `<span class="stamp text-[0.55rem] tracking-[0.1em] uppercase text-[#1E3A8A]/50 bg-[#F7F4EE] px-2 py-0.5 rounded-sm">${m.trim()}</span>`).join('')}
             </div>
-            <p class="text-xl md:text-2xl text-[#263F93] leading-relaxed font-medium mb-1">${sections[i].title}</p>
-            <p class="text-lg md:text-xl text-[#263F93]/80 leading-relaxed font-light">${card[sections[i].contentKey]}</p>
+            <p class="text-xl md:text-2xl text-[#1E3A8A] leading-relaxed font-medium mb-1">${sections[i].title}</p>
+            <p class="text-lg md:text-xl text-[#1E3A8A]/80 leading-relaxed font-light">${card[sections[i].contentKey]}</p>
             ${extraHtml}
           </div>
         `;
