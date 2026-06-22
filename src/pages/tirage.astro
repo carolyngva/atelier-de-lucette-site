@@ -84,7 +84,6 @@ const cardsList = cardsData.cards;
       .card-back {
         background: url('/images/cards/card-back.png') center/cover no-repeat;
         border: none;
-        position: relative;
         overflow: hidden;
       }
 
@@ -199,14 +198,9 @@ const cardsList = cardsData.cards;
 
       /* Card reveal stagger */
       .card-wrapper {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.5s ease, transform 0.5s ease;
-        min-width: 0;
-      }
-      .card-wrapper.revealed {
         opacity: 1;
-        transform: translateY(0);
+        transform: none;
+        min-width: 0;
       }
 
       /* Overlay for shuffle phase */
