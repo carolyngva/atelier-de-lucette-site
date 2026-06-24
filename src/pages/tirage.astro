@@ -294,7 +294,7 @@ const cardsList = cardsData.cards;
         border-radius: 2px;
       }
       .progress-fill.animating {
-        transition: width 10.5s linear;
+        transition: width 5s linear;
       }
 
     </style>
@@ -496,11 +496,10 @@ const cardsList = cardsData.cards;
       progressFill.classList.add('animating');
       progressFill.style.width = '100%';
 
-      // After intro duration (10s), reveal
-      const introDuration = 10500; // intro is ~10.7s, give or take
+      const introDuration = 5000;
 
       // Spawn star particles for "pluie d'étoiles" near the end
-      setTimeout(() => spawnStars(), 9500);
+      setTimeout(() => spawnStars(), introDuration - 1000);
 
       setTimeout(() => {
         overlay.classList.remove('active');
