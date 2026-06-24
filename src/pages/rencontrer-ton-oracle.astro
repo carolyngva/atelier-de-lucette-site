@@ -31,6 +31,14 @@ import '../styles/global.css';
       try { __int = localStorage.getItem('__internal') === '1'; } catch(e) {}
       gtag('config', 'G-SNKPGHZL0Y', __int ? { 'traffic_type': 'internal' } : {});
     </script>
+    <script is:inline src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519" defer></script>
+    <style>
+      .ml-form-embedSubmitLoad { display: inline-block; width: 20px; height: 20px; }
+      .ml-form-embedSubmitLoad:after { content: " "; display: block; width: 11px; height: 11px; margin: 4px auto; border-radius: 50%; border: 3px solid #fff; border-color: #fff #fff #fff transparent; animation: ml-spin 1.2s linear infinite; }
+      @keyframes ml-spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+      .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+      .ml-error input { border-color: #CC3DAA !important; }
+    </style>
   </head>
   <body class="selection:bg-[#CC3DAA] selection:text-[#F7F4EE] overflow-x-hidden bg-[#F7F4EE] text-[#1E3A8A]">
     <div class="bg-grain fixed inset-0 pointer-events-none z-0"></div>
@@ -73,16 +81,59 @@ import '../styles/global.css';
             <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-4">Recevoir la guidance</p>
             <h2 class="text-3xl md:text-4xl leading-tight font-normal mb-4">Ton oracle n'a pas besoin d'être inventé.</h2>
             <p class="text-lg leading-relaxed text-[#1E3A8A]/75 mb-6">Il peut d'abord être rencontré.</p>
-            <form action="#mailerlite-a-connecter" method="post" class="space-y-3" aria-label="Formulaire guidance offerte">
-              <input class="w-full px-4 py-3 border border-[#1E3A8A]/20 rounded-sm bg-[#F7F4EE] text-[#1E3A8A] placeholder-[#1E3A8A]/45 focus:outline-none focus:border-[#CC3DAA]" type="text" name="name" placeholder="Prénom" autocomplete="given-name" />
-              <input class="w-full px-4 py-3 border border-[#1E3A8A]/20 rounded-sm bg-[#F7F4EE] text-[#1E3A8A] placeholder-[#1E3A8A]/45 focus:outline-none focus:border-[#CC3DAA]" type="email" name="email" placeholder="Email" autocomplete="email" required />
-              <a href="/rencontrer-ton-oracle/acces" class="block w-full text-center bg-[#CC3DAA] text-[#F7F4EE] ui-text text-xs tracking-[0.2em] uppercase px-6 py-4 rounded-sm hover:bg-[#D4845A] transition-colors">
-                Recevoir la guidance offerte
-              </a>
-            </form>
-            <p class="mt-4 text-sm italic text-[#1E3A8A]/55">
-              Connexion MailerLite à finaliser avant mise en ligne publique. Le bouton ouvre provisoirement la page d'accès.
-            </p>
+            <div id="mlb2-42994970" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-42994970">
+              <div class="ml-form-align-center">
+                <div class="ml-form-embedWrapper embedForm">
+                  <div class="ml-form-embedBody row-form">
+                    <form class="ml-block-form space-y-3" action="https://assets.mailerlite.com/jsonp/131564/forms/191155615916099278/subscribe" data-code="" method="post" target="_blank" aria-label="Formulaire guidance offerte">
+                      <div class="ml-form-formContent space-y-3">
+                        <div class="ml-form-fieldRow">
+                          <div class="ml-field-group ml-field-name">
+                            <input aria-label="name" type="text" class="form-control w-full px-4 py-3 border border-[#1E3A8A]/20 rounded-sm bg-[#F7F4EE] text-[#1E3A8A] placeholder-[#1E3A8A]/45 focus:outline-none focus:border-[#CC3DAA]" name="fields[name]" placeholder="Prénom" autocomplete="given-name" />
+                          </div>
+                        </div>
+                        <div class="ml-form-fieldRow ml-last-item">
+                          <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                            <input aria-label="email" aria-required="true" type="email" class="form-control w-full px-4 py-3 border border-[#1E3A8A]/20 rounded-sm bg-[#F7F4EE] text-[#1E3A8A] placeholder-[#1E3A8A]/45 focus:outline-none focus:border-[#CC3DAA]" name="fields[email]" placeholder="Email" autocomplete="email" required />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="ml-form-embedPermissions text-left">
+                        <p class="text-xs leading-relaxed text-[#1E3A8A]/60 mb-3">
+                          En t'inscrivant, tu recevras cette guidance offerte et quelques emails pour prolonger l'expérience. Tu peux te désinscrire à tout moment.
+                        </p>
+                      </div>
+
+                      <input type="hidden" name="ml-submit" value="1" />
+                      <div class="ml-form-embedSubmit">
+                        <button type="submit" class="primary block w-full text-center bg-[#CC3DAA] text-[#F7F4EE] ui-text text-xs tracking-[0.2em] uppercase px-6 py-4 rounded-sm hover:bg-[#D4845A] transition-colors">
+                          Recevoir la guidance offerte
+                        </button>
+                        <button disabled style="display: none;" type="button" class="loading w-full text-center bg-[#CC3DAA] text-[#F7F4EE] ui-text text-xs tracking-[0.2em] uppercase px-6 py-4 rounded-sm">
+                          <div class="ml-form-embedSubmitLoad"></div>
+                          <span class="sr-only">Chargement</span>
+                        </button>
+                      </div>
+                      <input type="hidden" name="anticsrf" value="true" />
+                    </form>
+                  </div>
+
+                  <div class="ml-form-successBody row-success" style="display: none;">
+                    <div class="ml-form-successContent text-left">
+                      <h4 class="text-2xl text-[#1E3A8A] mb-2 font-normal">C'est envoyé.</h4>
+                      <p class="text-[#1E3A8A]/70">Va écouter la guidance et laisse venir ce qui veut naître.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <script is:inline>
+              function ml_webform_success_42994970() {
+                window.location.href = '/rencontrer-ton-oracle/acces';
+              }
+              fetch('https://assets.mailerlite.com/jsonp/131564/forms/191155615916099278/takel');
+            </script>
           </section>
         </div>
       </header>
