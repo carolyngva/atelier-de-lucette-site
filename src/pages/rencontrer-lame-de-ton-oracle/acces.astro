@@ -1,0 +1,160 @@
+---
+import '../../styles/global.css';
+
+const resources = [
+  {
+    number: '01',
+    title: "Rencontrer l'énergie de ton oracle",
+    duration: '12 min',
+    intention: "Ouvrir l'espace, sentir sa présence, son atmosphère et les premiers messages qui veulent venir.",
+    audio: '/audio/oracle/01-rencontrer-energie-oracle.mp3',
+    pdf: '/pdf/oracle/fiche-01-rencontrer-energie-oracle.pdf',
+  },
+  {
+    number: '02',
+    title: 'Connecter à ton projet de création',
+    duration: '10 min',
+    intention: "Entrer dans le lien vivant avec ton projet et commencer à laisser descendre sa forme.",
+    audio: '/audio/oracle/02-connecter-projet-creation.mp3',
+    pdf: '/pdf/oracle/fiche-02-connecter-projet-creation.pdf',
+  },
+  {
+    number: '03',
+    title: 'Recevoir les messages de ton oracle',
+    duration: '6 min',
+    intention: "Écouter les mots, les sensations et les phrases que les cartes veulent transmettre.",
+    audio: '/audio/oracle/03-recevoir-messages-oracle.mp3',
+    pdf: '/pdf/oracle/fiche-03-recevoir-messages-oracle.pdf',
+  },
+  {
+    number: '04',
+    title: 'Ramener des visions',
+    duration: '11 min',
+    intention: "Continuer à recevoir les images, symboles, cartes et facettes de l'univers de ton oracle.",
+    audio: '/audio/oracle/04-ramener-visions.mp3',
+    pdf: '/pdf/oracle/fiche-04-ramener-visions.pdf',
+  },
+  {
+    number: '05',
+    title: 'Faire descendre le nom de ton oracle',
+    duration: '7 min',
+    intention: "Laisser émerger le nom juste comme une vibration, sans le forcer avec le mental.",
+    audio: '/audio/oracle/05-faire-descendre-nom-oracle.mp3',
+    pdf: '/pdf/oracle/fiche-05-faire-descendre-nom-oracle.pdf',
+  },
+  {
+    number: '06',
+    title: 'Découvrir la place de ton oracle dans le monde',
+    duration: '5 min',
+    intention: "Clarifier la transformation que ton oracle vient accompagner et le domaine où il veut agir.",
+    audio: '/audio/oracle/06-place-oracle-monde.mp3',
+    pdf: '/pdf/oracle/fiche-06-place-oracle-monde.pdf',
+  },
+];
+---
+
+<!doctype html>
+<html lang="fr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Ton espace — Rencontrer l'âme de ton oracle</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      audio { width: 100%; height: 44px; }
+      audio::-webkit-media-controls-panel { background: #FFFCF6; }
+    </style>
+  </head>
+
+  <body class="selection:bg-[#CC3DAA] selection:text-[#F7F4EE] bg-[#F7F4EE] text-[#1E3A8A] overflow-x-hidden">
+    <div class="bg-grain fixed inset-0 pointer-events-none z-0"></div>
+
+    <nav class="fixed top-0 inset-x-0 z-50 h-20 flex items-center border-b border-[#1E3A8A]/15 bg-[#F7F4EE]/90 backdrop-blur-md">
+      <div class="max-w-5xl mx-auto w-full px-6 flex items-center justify-between">
+        <a href="/" class="text-xl font-serif tracking-tight text-[#1E3A8A]">L'Atelier <span class="opacity-70">de Lucette</span></a>
+        <a href="/rencontrer-lame-de-ton-oracle" class="ui-text text-xs tracking-[0.22em] uppercase text-[#1E3A8A]/70 hover:text-[#CC3DAA] transition-colors">Le parcours</a>
+      </div>
+    </nav>
+
+    <main class="relative z-10 min-h-screen pt-28 pb-20 px-6">
+      <div class="max-w-4xl mx-auto">
+        <header class="text-center mb-14">
+          <div class="inline-flex items-center gap-4 mb-6">
+            <div class="h-px w-8 bg-[#2AACCB]"></div>
+            <span class="ui-text text-xs tracking-[0.22em] uppercase text-[#1E3A8A]/70">Ton espace</span>
+            <div class="h-px w-8 bg-[#CC3DAA]"></div>
+          </div>
+          <h1 class="text-4xl md:text-6xl leading-[1.05] font-normal mb-5">Rencontrer l'âme<br />de ton oracle</h1>
+          <p class="text-xl italic leading-relaxed text-[#1E3A8A]/75 max-w-3xl mx-auto">
+            Écoute les guidances dans l'ordre une première fois, puis reviens à celles qui t'appellent. Chaque passage peut être refait autant de fois que nécessaire.
+          </p>
+        </header>
+
+        <section class="luxury-card bg-[#FFFCF6]/85 border border-[#1E3A8A]/10 rounded-sm p-6 md:p-8 mb-8">
+          <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-4">Avant de commencer</p>
+          <div class="grid md:grid-cols-3 gap-5 text-[#1E3A8A]/75 leading-relaxed">
+            <p>Prévois un carnet ou les fiches imprimées pour noter ce qui arrive.</p>
+            <p>Ne cherche pas à réussir la guidance. Laisse venir les images, même floues.</p>
+            <p>Si rien ne vient, c'est aussi une information. Reviens plus tard, autrement.</p>
+          </div>
+        </section>
+
+        <div class="space-y-6">
+          {resources.map((resource) => (
+            <section class="luxury-card bg-[#FFFCF6]/90 border border-[#1E3A8A]/10 rounded-sm p-6 md:p-8">
+              <div class="flex flex-col md:flex-row md:items-start gap-5 mb-5">
+                <div class="w-12 h-12 rounded-full bg-[#F7F4EE] border border-[#1E3A8A]/10 flex items-center justify-center shrink-0 text-[#CC3DAA] ui-text text-xs tracking-[0.12em]">
+                  {resource.number}
+                </div>
+                <div class="flex-1">
+                  <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-2">
+                    <h2 class="text-2xl md:text-3xl font-normal leading-tight">{resource.title}</h2>
+                    <span class="ui-text text-xs tracking-[0.2em] uppercase text-[#1E3A8A]/45 whitespace-nowrap">{resource.duration}</span>
+                  </div>
+                  <p class="leading-relaxed text-[#1E3A8A]/70">{resource.intention}</p>
+                </div>
+              </div>
+              <audio controls preload="none">
+                <source src={resource.audio} type="audio/mpeg" />
+              </audio>
+              <div class="mt-4 flex flex-wrap gap-3">
+                <a href={resource.audio} download class="bg-[#1E3A8A] text-[#F7F4EE] ui-text text-xs tracking-[0.18em] uppercase px-5 py-3 rounded-sm hover:bg-[#CC3DAA] transition-colors">Télécharger l'audio</a>
+                <a href={resource.pdf} download class="border border-[#1E3A8A]/25 text-[#1E3A8A] ui-text text-xs tracking-[0.18em] uppercase px-5 py-3 rounded-sm hover:border-[#CC3DAA] hover:text-[#CC3DAA] transition-colors">Télécharger la fiche</a>
+              </div>
+            </section>
+          ))}
+        </div>
+
+        <section class="mt-8 bg-[#1E3A8A] text-[#F7F4EE] p-6 md:p-8 rounded-sm border border-[#1E3A8A] relative overflow-hidden">
+          <div class="bg-grain absolute inset-0 opacity-10"></div>
+          <div class="relative z-10 grid md:grid-cols-[1fr_auto] gap-6 items-center">
+            <div>
+              <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-4">Bonus</p>
+              <h2 class="text-3xl md:text-4xl font-normal mb-3">L'ebook Crée ton Oracle</h2>
+              <p class="leading-relaxed text-[#F1D9A7]">
+                Un support complémentaire pour prolonger les guidances, structurer tes intuitions et garder une trace de ton processus.
+              </p>
+            </div>
+            <a href="/pdf/oracle/ebook-cree-ton-oracle.pdf" download class="inline-flex justify-center bg-[#CC3DAA] text-white ui-text text-xs tracking-[0.18em] uppercase px-6 py-4 rounded-sm hover:bg-[#D4845A] transition-colors">Télécharger l'ebook</a>
+          </div>
+        </section>
+
+        <section class="mt-8 text-center">
+          <p class="text-lg leading-relaxed italic text-[#1E3A8A]/60 max-w-3xl mx-auto">
+            Ces guidances sont issues d'un espace vivant de transmission. Elles ont été réorganisées ici comme un parcours autonome pour t'accompagner dans ton propre processus.
+          </p>
+          <p class="mt-8 text-sm text-[#1E3A8A]/45 italic">
+            Un doute, une question ? Réponds simplement à l'email que tu as reçu.
+          </p>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
