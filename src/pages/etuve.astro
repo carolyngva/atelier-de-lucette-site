@@ -1,0 +1,743 @@
+---
+// L'Atelier de Lucette - Page offre BOFU
+// L'Étuve : espace de pratique de 6 semaines, oracle D'une Rive à l'Autre inclus.
+import '../styles/global.css';
+
+const ctaHref = 'https://buy.stripe.com/7sY8wP39U3Bd4eob3r7bW01';
+
+const etapes = [
+  {
+    n: '1',
+    title: 'Incarnation',
+    card: 'Incarnation',
+    image: '/images/cards/incarnation.jpg',
+    aide: '"Je ne sens rien", "Mon mental est trop puissant", "Je ne sais pas si c\'est mon intuition ou mon imagination".',
+    text: "Tu apprends à ressentir l'intuition dans le corps. Pas comme une idée abstraite, ni comme une injonction à \"faire confiance\". Comme un signal sensible : une sensation, une agitation, une lourdeur, un élan, un apaisement.",
+  },
+  {
+    n: '2',
+    title: 'Exploration',
+    card: 'Chasse au trésor',
+    image: '/images/cards/chasse-au-tresor.jpg',
+    aide: '"Je lis le livret et ça ne me parle pas", "Je suis perdue", "Je ne sais pas si je dois me fier au texte ou à l\'image".',
+    text: "Tu utilises l'oracle comme laboratoire. Tu apprends à interroger une carte sans chercher une réponse absolue. L'oracle devient un support pour dialoguer avec ce qui se passe en toi, pas une voix extérieure de plus.",
+  },
+  {
+    n: '3',
+    title: 'Régulation',
+    card: 'Avancer avec élégance',
+    image: '/images/cards/avancer-avec-elegance.jpg',
+    aide: '"Les actions sont toujours trop grandes", "Je ne suis pas sûre de ce que je fais", "Est-ce une résistance ou une fausse route ?"',
+    text: "Tu apprends à reconnaître ce que ton système nerveux peut réellement soutenir. Une action peut être juste sur le papier, mais trop grande pour toi aujourd'hui. L'objectif est de trouver l'action qui ouvre un passage sans te mettre en survie.",
+  },
+  {
+    n: '4',
+    title: 'Passage',
+    card: "D'une Rive à l'Autre",
+    image: '/images/cards/d-une-rive-a-l-autre.jpg',
+    aide: '"Je pensais que ça irait avec l\'action mais en fait non", "J\'ai peur", "Le mental reprend toute la place".',
+    text: "Tu apprends à poser l'action juste et à l'ancrer. Tu ne restes pas dans la compréhension, le tirage ou l'intuition. Tu passes dans la matière : une action simple, précise, soutenable, que tu peux réellement faire.",
+  },
+];
+
+const benefices = [
+  "Reconnaître les signaux de ton intuition dans ton corps, au lieu de les chercher seulement dans ta tête.",
+  "Faire la différence entre peur, mental, intuition et bruit extérieur quand une décision devient floue.",
+  "Construire TA façon de t'écouter, au lieu d'appliquer une méthode de plus sur toi.",
+  "Sortir de la boucle des avis, des signes, des contenus et des confirmations à répétition.",
+  "Transformer ce que tu sens en une action simple, faisable et soutenable dans ta vraie vie.",
+  "Repartir avec un système de pratique que tu peux continuer seule après les 6 semaines, si tu choisis de l'entretenir.",
+];
+
+const problemesFond = [
+  "Tu demandes des avis, puis tu n'arrives pas à les suivre et tu t'en veux.",
+  "Tu as peur de déranger, de décevoir, de prendre trop de place ou de faire le mauvais choix.",
+  "Tu cherches une validation extérieure parce qu'une partie de toi ne se sent pas autorisée à choisir seule.",
+  "Tu confonds parfois intuition et hypervigilance : ton corps parle, mais tu ne sais plus si c'est un oui profond ou une peur ancienne.",
+];
+
+const semaines = [
+  {
+    title: 'Semaine 1',
+    text: "Ouvrir l'espace, choisir ta matière de pratique et repérer les voix déjà présentes autour de ta décision.",
+  },
+  {
+    title: 'Semaine 2',
+    text: "Sentir comment ton intuition, ta peur et ton mental se manifestent dans ton corps.",
+  },
+  {
+    title: 'Semaine 3',
+    text: "Interroger une carte sans chercher une réponse absolue, mais comme un miroir de ce qui se joue en toi.",
+  },
+  {
+    title: 'Semaine 4',
+    text: "Distinguer ce qui t'appartient vraiment de ce qui vient des attentes, des algorithmes, des avis ou des projections.",
+  },
+  {
+    title: 'Semaine 5',
+    text: "Transformer ton signal intérieur en action assez claire et assez petite pour être posée sans te mettre en survie.",
+  },
+  {
+    title: 'Semaine 6',
+    text: "Ancrer ta manière de décider et repartir avec un rituel simple à réutiliser seule.",
+  },
+];
+
+const differences = [
+  "Ce n'est pas une méthode pour obtenir une réponse extérieure de plus.",
+  "Ce n'est pas une injonction à faire confiance aveuglément à ton intuition.",
+  "Ce n'est pas une pratique pour devenir dépendante des cartes.",
+  "Ce n'est pas du développement personnel qui te demande de forcer, performer ou passer à l'action trop vite.",
+  "C'est un cadre sensible et concret pour écouter, distinguer, choisir, puis agir à ta mesure.",
+];
+
+const erreurs = [
+  "Demander aux autres, puis être frustrée de ne pas réussir à suivre leurs conseils.",
+  "Croire que les cartes avaient LA réponse, alors qu'elles ouvraient surtout une conversation intérieure.",
+  "Choisir une action trop grande, trop symbolique, trop impressionnante, puis ne pas la faire.",
+  "Accumuler de nouvelles informations au lieu de pratiquer avec ce qui était déjà là.",
+];
+
+const premieresCohortes = [
+  "Tu aimes participer à quelque chose qui se construit en vrai, pas seulement consommer un programme déjà figé.",
+  "Tu peux accueillir qu'une première cohorte soit vivante, ajustée, parfois plus artisanale qu'un programme déjà figé.",
+  "Tu as envie que tes questions, tes blocages et tes retours contribuent à façonner la suite de L'Étuve.",
+  "Tu veux un tarif fondateur en échange de cette place particulière dans la naissance de l'offre.",
+];
+
+const preuves = [
+  "L'Étuve est le prolongement naturel de D'une Rive à l'Autre : le moment où l'oracle devient un espace de pratique, de discernement et de passage.",
+  "Cette première cohorte est faite pour des femmes qui aiment entrer dans quelque chose de vivant, en train de se préciser.",
+  "Tu bénéficies d'un tarif fondateur en échange de cette place particulière dans la naissance de l'offre.",
+];
+
+const recus = [
+  "6 semaines pour construire TA façon de t'écouter",
+  '4 ateliers collectifs de pratique en visio (jeudi 16h30-18h30)',
+  'Les replays des lives',
+  "L'oracle physique D'une Rive à l'Autre, envoyé chez toi",
+  'Des supports de pratique liés aux 4 étapes pour continuer après la cohorte',
+  'Le cadre des voix : peur, mental, intuition, bruit extérieur',
+  'Un groupe Telegram dédié',
+  'Un questionnaire de préparation avant les lives',
+];
+
+const temoignages = [
+  {
+    name: 'Marjorie',
+    context: "Inspir'Action",
+    quote: "Je pensais que c'était une formation sur l'intuition avec un oracle. En fait, c'est l'intuition dans sa globalité qui offre évidemment une place à l'oracle.",
+  },
+  {
+    name: 'Caroline',
+    context: "Inspir'Action",
+    quote: "Je vois plus rapidement quand mon mental est en train de me raconter une histoire. Je retourne à mon corps ou à mon coeur, ou alors j'utilise le jeu pour sortir du truc dans lequel il m'embarque.",
+  },
+  {
+    name: 'Nathalie',
+    context: "Inspir'Action",
+    quote: "J'avais beaucoup trop de peurs et trop de doutes, et énormément de mal à écouter mon intuition. Le groupe donne envie d'aller faire les exercices et d'aller vraiment au bout du processus.",
+  },
+  {
+    name: 'Fanny',
+    context: 'Delta',
+    quote: "Je trouvais qu'elle était à la fois perchée et très pragmatique. C'est la première fois où je me suis retrouvée à parler avec autre chose que mon cerveau, sans avoir l'impression d'être folle.",
+  },
+];
+
+const faqs = [
+  {
+    q: "Est-ce que l'oracle D'une Rive à l'Autre est inclus ?",
+    a: "Oui. L'oracle physique est inclus dans les 245 CHF. Si tu l'as déjà et que tu ne veux pas le recevoir une deuxième fois, écris-moi avant de t'inscrire : je te donnerai une réduction adaptée.",
+  },
+  {
+    q: 'Est-ce que c\'est spirituel ?',
+    a: "Oui, il y a une dimension spirituelle, pas au sens religieux. Ma spiritualité, c'est la co-création avec l'univers, la foi en quelque chose de plus grand que moi, l'idée que nous avons toutes une sagesse intérieure. Et le cadre reste concret : écouter, distinguer, choisir, agir.",
+  },
+  {
+    q: 'Est-ce que les lives sont obligatoires ?',
+    a: 'Tu peux regarder les replays, mais la première cohorte est pensée comme un espace vivant. Pour en tirer le meilleur, il vaut mieux participer aux lives ou au minimum suivre les replays et les pratiques chaque semaine.',
+  },
+  {
+    q: 'Combien de temps ça demande ?',
+    a: "Prévois environ 2h de live les semaines concernées, puis un temps de pratique personnel selon ton rythme. L'idée n'est pas d'ajouter une charge énorme, mais de créer un espace régulier pour écouter et poser une action.",
+  },
+  {
+    q: "Et si je sais déjà que j'ai du mal à pratiquer régulièrement ?",
+    a: "C'est justement une des matières de L'Étuve. Tu ne repars pas seulement avec de l'inspiration : tu construis un système simple, adapté à ta vraie vie, pour continuer après. Mais je ne peux pas pratiquer à ta place. L'objectif est de rendre la pratique assez claire, assez légère et assez personnelle pour que tu puisses choisir d'y revenir.",
+  },
+  {
+    q: "Et si j'ai une décision importante à prendre maintenant ?",
+    a: "L'Étuve n'est pas là pour te faire attendre 6 semaines avant d'agir. Si une décision importante est déjà présente dans ta vie, elle peut devenir ta matière de pratique dès le début.",
+  },
+  {
+    q: "Est-ce qu'il y aura du suivi individuel ?",
+    a: "Non, pas de suivi individuel. Les questions passent par le groupe Telegram et par les questionnaires de préparation avant les lives. J'y réponds pendant les lives et/ou dans une synthèse post-live.",
+  },
+  {
+    q: 'Quand ça commence ?',
+    a: 'La première cohorte commence le 1er septembre 2026 et se termine le 12 octobre 2026. Les lives ont lieu le jeudi de 16h30 à 18h30.',
+  },
+  {
+    q: 'Combien ça coûte ?',
+    a: "Le prix est de 245 CHF pour les 6 semaines, oracle D'une Rive à l'Autre inclus. Si tu as déjà l'oracle, écris-moi avant de rejoindre pour recevoir la réduction correspondante.",
+  },
+];
+---
+
+<!doctype html>
+<html lang="fr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>L'Étuve — Retrouve ce qui est vraiment à toi — L'Atelier de Lucette</title>
+    <meta
+      name="description"
+      content="L'Étuve : un espace de pratique de 6 semaines avec l'oracle D'une Rive à l'Autre inclus, pour apprendre à distinguer intuition, peur, mental et bruit extérieur, puis poser une action faisable dans ta vraie vie."
+    />
+    <link rel="canonical" href="https://latelierdelucette.com/etuve/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_CH" />
+    <meta property="og:site_name" content="L'Atelier de Lucette" />
+    <meta property="og:title" content="L'Étuve — Retrouve ce qui est vraiment à toi" />
+    <meta property="og:description" content="Un parcours de 6 semaines avec l'oracle D'une Rive à l'Autre inclus, pour distinguer intuition, peur, mental et bruit extérieur, puis poser une action juste." />
+    <meta property="og:url" content="https://latelierdelucette.com/etuve/" />
+    <meta property="og:image" content="https://latelierdelucette.com/images/etuve-stripe-cover.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="L'Étuve — Retrouve ce qui est vraiment à toi" />
+    <meta name="twitter:description" content="Un parcours de 6 semaines avec oracle inclus pour retrouver ton vrai signal et poser une action juste." />
+    <meta name="twitter:image" content="https://latelierdelucette.com/images/etuve-stripe-cover.jpg" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
+    <script is:inline src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "L'Étuve",
+        "description": "Un parcours de 6 semaines avec l'oracle D'une Rive à l'Autre inclus, pour apprendre à distinguer intuition, peur, mental et bruit extérieur, puis poser une action juste.",
+        "provider": {
+          "@type": "Organization",
+          "name": "L'Atelier de Lucette",
+          "url": "https://latelierdelucette.com"
+        },
+        "url": "https://latelierdelucette.com/etuve/",
+        "image": "https://latelierdelucette.com/images/etuve-stripe-cover.jpg",
+        "inLanguage": "fr-CH",
+        "offers": {
+          "@type": "Offer",
+          "price": "245",
+          "priceCurrency": "CHF",
+          "url": "https://buy.stripe.com/7sY8wP39U3Bd4eob3r7bW01",
+          "availability": "https://schema.org/InStock"
+        },
+        "hasCourseInstance": {
+          "@type": "CourseInstance",
+          "courseMode": "online",
+          "startDate": "2026-09-01",
+          "endDate": "2026-10-12"
+        }
+      }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SNKPGHZL0Y"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      if (window.location.search.includes('tr=internal')) {
+        try { localStorage.setItem('__internal', '1'); } catch(e) {}
+      }
+      var __int = false;
+      try { __int = localStorage.getItem('__internal') === '1'; } catch(e) {}
+      gtag('config', 'G-SNKPGHZL0Y', __int ? { 'traffic_type': 'internal' } : {});
+    </script>
+  </head>
+
+  <body class="selection:bg-[#CC3DAA] selection:text-[#F7F4EE] overflow-x-hidden bg-[#F7F4EE] text-[#1E3A8A]">
+    <div class="bg-grain fixed inset-0 pointer-events-none z-0"></div>
+    <div class="arch-lines">
+      <svg width="100%" height="100%" viewBox="0 0 1440 900" preserveAspectRatio="none">
+        <line x1="10%" y1="0" x2="10%" y2="100%" stroke="#1E3A8A" stroke-width="0.5" />
+        <line x1="90%" y1="0" x2="90%" y2="100%" stroke="#1E3A8A" stroke-width="0.5" />
+        <line x1="0" y1="800" x2="1440" y2="360" stroke="#CC3DAA" stroke-width="0.5" opacity="0.5" />
+      </svg>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 inset-x-0 z-50 h-20 flex items-center border-b border-[#1E3A8A]/15 bg-[#F7F4EE]/90 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto w-full px-6 flex items-center justify-between">
+          <a href="/" class="text-xl font-serif tracking-tight text-[#1E3A8A]">L'Atelier <span class="opacity-70">de Lucette</span></a>
+          <div class="hidden md:flex items-center gap-9">
+            <a href="#probleme" class="ui-text text-xs tracking-[0.2em] uppercase text-[#1E3A8A]/70 hover:text-[#CC3DAA] transition-colors">Le problème</a>
+            <a href="#parcours" class="ui-text text-xs tracking-[0.2em] uppercase text-[#1E3A8A]/70 hover:text-[#CC3DAA] transition-colors">Le parcours</a>
+            <a href="#prix" class="ui-text text-xs tracking-[0.2em] uppercase text-[#1E3A8A]/70 hover:text-[#CC3DAA] transition-colors">Prix</a>
+          </div>
+        <a href={ctaHref} class="bg-[#CC3DAA] text-[#F7F4EE] ui-text text-xs tracking-[0.18em] uppercase px-5 py-3 rounded-sm hover:bg-[#D4845A] transition-colors">Rejoindre L'Étuve</a>
+      </div>
+    </nav>
+
+    <main class="relative z-10">
+      <!-- Hero -->
+      <header class="min-h-screen flex items-center px-6 pt-28 pb-20">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-[1.05fr_0.95fr] gap-14 items-center">
+          <div class="text-center lg:text-left">
+          <div class="inline-flex items-center gap-4 mb-8">
+            <div class="h-px w-10 bg-[#2AACCB]"></div>
+            <span class="ui-text text-xs tracking-[0.22em] uppercase text-[#1E3A8A]/70">Transformation guidée · 6 semaines</span>
+            <div class="h-px w-10 bg-[#CC3DAA]"></div>
+          </div>
+
+          <h1 class="text-5xl md:text-7xl leading-[1.05] font-normal tracking-tight mb-8">
+            L'Étuve
+          </h1>
+
+          <p class="text-xl md:text-2xl leading-snug text-[#1E3A8A]/85 max-w-3xl lg:mx-0 mx-auto mb-6 font-light">
+            Le passage guidé pour retrouver une boussole intérieure fiable quand tu confonds intuition, peur, mental et bruit extérieur.
+          </p>
+
+          <p class="text-2xl md:text-3xl italic leading-tight text-[#CC3DAA] mb-8">
+            Tu ne repars pas avec une réponse toute faite. Tu repars avec TA façon de t'écouter.
+          </p>
+
+          <p class="text-lg md:text-xl leading-relaxed text-[#1E3A8A]/80 max-w-3xl lg:mx-0 mx-auto mb-12 font-light">
+            En 6 semaines, tu apprends à entendre ce qui est vraiment à toi, à reconnaître les mécanismes qui brouillent ton discernement, puis à poser une action faisable à partir de ce que tu as senti. L'oracle <em>D'une Rive à l'Autre</em> est inclus, non comme une réponse magique, mais comme un support de passage.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-10">
+            <a href={ctaHref} class="inline-flex justify-center bg-[#CC3DAA] text-[#F7F4EE] ui-text text-xs tracking-[0.18em] uppercase px-9 py-4 rounded-sm hover:bg-[#D4845A] transition-colors">Rejoindre L'Étuve</a>
+            <a href="#parcours" class="inline-flex justify-center border border-[#1E3A8A]/25 text-[#1E3A8A] ui-text text-xs tracking-[0.18em] uppercase px-9 py-4 rounded-sm hover:border-[#CC3DAA] hover:text-[#CC3DAA] transition-colors">Découvrir le parcours</a>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-x-10 gap-y-3 text-sm text-[#1E3A8A]/75">
+            <span class="flex items-center gap-2"><iconify-icon icon="solar:calendar-linear" width="16"></iconify-icon> 1er sept. - 12 oct. 2026</span>
+            <span class="flex items-center gap-2"><iconify-icon icon="solar:tag-price-linear" width="16"></iconify-icon> 245 CHF, oracle inclus</span>
+            <span class="flex items-center gap-2"><iconify-icon icon="solar:users-group-rounded-linear" width="16"></iconify-icon> Première cohorte, 10 places minimum</span>
+          </div>
+          </div>
+
+          <div class="relative max-w-xl mx-auto lg:mx-0 w-full">
+            <div class="absolute inset-0 bg-[#CC3DAA] translate-x-5 translate-y-5 rounded-sm"></div>
+            <div class="relative aspect-[4/5] overflow-hidden rounded-sm border border-[#1E3A8A]/10 shadow-2xl bg-[#C9A96E]">
+              <img src="/images/ecoute-toi-caroline-drize.jpg" alt="Caroline Verdier avec l'oracle D'une Rive à l'Autre" class="w-full h-full object-cover" />
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Le problème -->
+      <section id="probleme" class="px-6 py-24 bg-[#FFFCF6] border-y border-[#1E3A8A]/10">
+        <div class="max-w-4xl mx-auto text-center">
+          <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Le problème</p>
+          <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-10">
+            Tu ne manques pas de réponses.<br />Tu en as trop.
+          </h2>
+          <div class="text-lg md:text-xl leading-relaxed text-[#1E3A8A]/78 space-y-5 text-left max-w-3xl mx-auto">
+            <p>Tu entends ton intuition qui chuchote. Ta peur qui crie. Ton mental qui analyse tout. Les avis des autres. Les contenus que tu as lus. Les algorithmes qui te montrent encore une possibilité. L'IA qui peut te proposer dix scénarios. Les signes que tu cherches parce que choisir seule te fait peur.</p>
+            <p>Et tu ne sais plus quelle voix écouter.</p>
+            <p>Alors tu tires des cartes, tu lis, tu médites, tu notes, tu cherches des confirmations. Mais au lieu de t'aider à trancher, tout devient parfois encore plus flou.</p>
+          </div>
+          <div class="mt-12 bg-[#F7F4EE] border border-[#1E3A8A]/10 p-7 md:p-8 text-left max-w-3xl mx-auto rounded-sm">
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#2AACCB] mb-5">Le problème de fond</p>
+            <h3 class="text-2xl md:text-3xl font-serif text-[#1E3A8A] mb-5">Ce n'est pas seulement que tu hésites.</h3>
+            <p class="text-lg leading-relaxed text-[#1E3A8A]/78 mb-6">Souvent, derrière la confusion, il y a une peur plus ancienne : peur d'être abandonnée si tu choisis pour toi, peur de déranger, peur de décevoir, peur de prendre trop de place, peur qu'on ne te suive pas de l'autre côté.</p>
+            <div class="grid gap-3">
+              {problemesFond.map((probleme) => (
+                <div class="flex gap-3 text-[#1E3A8A]/78 leading-relaxed">
+                  <span class="text-[#CC3DAA]">*</span>
+                  <span>{probleme}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div class="mt-12 border-l border-[#1E3A8A] pl-8 py-2 text-left max-w-2xl mx-auto">
+            <p class="text-2xl font-serif italic text-[#1E3A8A] mb-4">
+              &laquo;&nbsp;Qu'est-ce qui est encore vraiment à moi dans tout ce que j'entends, lis, ressens et reçois ?&nbsp;&raquo;
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ce que L'Étuve va t'apporter -->
+      <section class="px-6 py-24">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-[0.9fr_1.1fr] gap-12 items-start">
+          <div>
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Ce que ça change</p>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-6">Tu ne repars pas avec une réponse.</h2>
+            <p class="text-3xl italic leading-tight text-[#2AACCB]">Tu repars avec TA façon de t'écouter.</p>
+          </div>
+          <div class="grid gap-4">
+            {benefices.map((benefice) => (
+              <div class="bg-[#FFFCF6] border border-[#1E3A8A]/10 p-5 rounded-sm flex gap-4">
+                <span class="text-[#CC3DAA] mt-1">*</span>
+                <p class="text-lg leading-relaxed text-[#1E3A8A]/78">{benefice}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Ce que propose L'Étuve -->
+      <section class="px-6 py-24 bg-[#FFFCF6] border-y border-[#1E3A8A]/10">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-[0.8fr_1.2fr] gap-12 items-center">
+          <div>
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#2AACCB] mb-6">Ce que propose L'Étuve</p>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-6">Un système pour passer du flou intérieur à une action juste.</h2>
+            <p class="text-3xl italic leading-tight text-[#CC3DAA]">Du bruit à l'évidence. De l'évidence au geste juste.</p>
+          </div>
+          <div class="text-lg md:text-xl leading-relaxed text-[#1E3A8A]/75 space-y-5">
+            <p>L'Étuve te donne un cadre pour traverser ce qui se passe entre le moment où tu sens quelque chose et le moment où tu arrives à poser un choix dans ta vraie vie.</p>
+            <p>On travaille avec l'oracle <em>D'une Rive à l'Autre</em>, le corps, l'écriture, le discernement des voix intérieures, les questions de préparation et les retours collectifs. L'oracle ouvre la porte. Ensuite, on descend dans ce que la carte révèle : les sensations, les résistances, les élans, les projections, les peurs, les histoires que ton mental fabrique.</p>
+            <p>L'objectif : retrouver l'évidence sous le bruit, puis choisir une action assez juste et assez soutenable pour être réellement posée.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Parcours -->
+      <section id="parcours" class="px-6 py-24">
+        <div class="max-w-4xl mx-auto text-center mb-14">
+          <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Le parcours</p>
+          <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-6">6 semaines pour passer du bruit au signal.</h2>
+          <p class="text-xl leading-relaxed text-[#1E3A8A]/75">Chaque semaine te ramène à une pratique simple : sentir, distinguer, choisir, puis poser une action que ton système peut vraiment soutenir.</p>
+        </div>
+        <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-5">
+          {semaines.map((semaine) => (
+            <article class="bg-[#FFFCF6] border border-[#1E3A8A]/10 rounded-sm p-6">
+              <p class="ui-text text-xs tracking-[0.2em] uppercase text-[#CC3DAA] mb-4">{semaine.title}</p>
+              <p class="text-lg leading-relaxed text-[#1E3A8A]/78">{semaine.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <!-- Les 4 étapes -->
+      <section id="etapes" class="px-6 py-24 bg-[#1E3A8A] text-[#F7F4EE]">
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center max-w-3xl mx-auto mb-14">
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#C9A96E] mb-6">Comment ça se passe</p>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-6">Les 4 étapes de L'Étuve</h2>
+            <p class="text-xl leading-relaxed text-[#F1D9A7]">6 semaines pour apprendre une pratique, pas pour poser une seule action. Tu repars avec une façon de faire que tu peux continuer seule.</p>
+          </div>
+          <div class="grid md:grid-cols-2 gap-6">
+            {etapes.map((etape) => (
+              <article class="bg-white/7 border border-white/10 rounded-sm overflow-hidden">
+                <div class="grid sm:grid-cols-[0.38fr_0.62fr] h-full">
+                  <div class="bg-[#F7F4EE] p-4 flex items-center justify-center">
+                    <img src={etape.image} alt={`Carte ${etape.card} de l'oracle D'une Rive à l'Autre`} class="w-full max-w-[150px] rounded-sm shadow-xl" loading="lazy" />
+                  </div>
+                  <div class="p-7">
+                    <div class="flex items-center gap-4 mb-4">
+                      <span class="text-3xl font-serif italic text-[#CC3DAA]">{etape.n}</span>
+                      <div>
+                        <h3 class="text-2xl font-normal text-white">{etape.title}</h3>
+                        <p class="ui-text text-[0.65rem] tracking-[0.16em] uppercase text-[#F1D9A7]/55 mt-1">Carte : {etape.card}</p>
+                      </div>
+                    </div>
+                    <p class="text-lg md:text-xl leading-relaxed text-[#F1D9A7]/90 mb-5">{etape.text}</p>
+                    <p class="text-base leading-relaxed text-white/65 italic">Cette étape aide quand tu te dis : {etape.aide}</p>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- C'est pour toi / pas pour toi -->
+      <section class="px-6 py-24 bg-[#FFFCF6]">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+          <article class="p-7 md:p-8 bg-[#F7F4EE] border border-[#1E3A8A]/10 rounded-sm">
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#2AACCB] mb-5">C'est pour toi si...</p>
+            <ul class="space-y-4 text-lg leading-relaxed text-[#1E3A8A]/78">
+              <li>Tu as trop de réponses, trop d'avis, trop de signes, et plus assez de confiance dans ce que tu ressens.</li>
+              <li>Tu sens qu'une autre rive t'appelle, mais tu ne sais pas comment y aller.</li>
+              <li>Tu veux apprendre à faire la différence entre peur, mental, intuition et bruit extérieur.</li>
+              <li>Tu as besoin d'un cadre concret pour poser une action juste.</li>
+              <li>Tu veux pratiquer, pas seulement comprendre.</li>
+            </ul>
+          </article>
+          <article class="p-7 md:p-8 bg-[#F7F4EE] border border-[#1E3A8A]/10 rounded-sm">
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#D4845A] mb-5">Ce n'est pas pour toi si...</p>
+            <ul class="space-y-4 text-lg leading-relaxed text-[#1E3A8A]/78">
+              <li>Tu veux qu'on décide à ta place.</li>
+              <li>Tu cherches une prédiction d'avenir.</li>
+              <li>Tu veux un accompagnement individuel.</li>
+              <li>Tu veux que les cartes, l'IA, une méthode ou quelqu'un d'autre pense à ta place.</li>
+              <li>Tu préfères attendre que tout soit parfaitement clair avant de poser une première action.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- Format -->
+      <section class="px-6 py-24 bg-[#FFFCF6] border-y border-[#1E3A8A]/10">
+        <div class="max-w-4xl mx-auto text-center mb-14">
+          <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Le format</p>
+          <h2 class="text-4xl md:text-5xl leading-tight font-normal">6 semaines, du 1er septembre au 12 octobre</h2>
+          <p class="text-lg md:text-xl leading-relaxed text-[#1E3A8A]/70 mt-6">Une première cohorte vivante, pensée pour pratiquer ensemble sans te noyer dans du contenu.</p>
+        </div>
+        <div class="max-w-4xl mx-auto grid sm:grid-cols-2 gap-6 text-lg leading-relaxed text-[#1E3A8A]/78">
+          <div class="flex gap-3"><span class="text-[#CC3DAA]">*</span><span>4 ateliers collectifs de pratique, le jeudi de 16h30 à 18h30</span></div>
+          <div class="flex gap-3"><span class="text-[#CC3DAA]">*</span><span>L'oracle physique D'une Rive à l'Autre, inclus dans le prix</span></div>
+          <div class="flex gap-3"><span class="text-[#CC3DAA]">*</span><span>Des supports de pratique pour avancer entre les lives</span></div>
+          <div class="flex gap-3"><span class="text-[#CC3DAA]">*</span><span>Un canal Telegram pour poser tes questions</span></div>
+          <div class="flex gap-3"><span class="text-[#CC3DAA]">*</span><span>Un questionnaire de préparation avant chaque live</span></div>
+          <div class="flex gap-3"><span class="text-[#CC3DAA]">*</span><span>Pas de suivi individuel : cadre collectif prioritaire</span></div>
+        </div>
+      </section>
+
+      <!-- Pourquoi L'Étuve -->
+      <section class="px-6 py-24 bg-[#F7F4EE]">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-[0.9fr_1.1fr] gap-12 items-center">
+          <div>
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#2AACCB] mb-6">Pourquoi ce nom</p>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-6">L'Étuve vient d'un souvenir très concret : les peintures sur soie de ma grand-mère Lucette.</h2>
+          </div>
+          <div class="text-lg md:text-xl leading-relaxed text-[#1E3A8A]/75 space-y-5">
+            <p>Quand j'étais enfant, il y avait ces moments de création, de tissu, de couleurs, de patience. Une peinture sur soie ne se révélait pas seulement parce qu'on avait une idée : il fallait préparer le support, poser le geste, fixer la couleur, laisser la matière faire son travail.</p>
+            <p>L'Étuve reprend cette image. Ce n'est pas un endroit où l'on force une réponse à sortir. C'est un espace où l'on réunit les bonnes conditions pour que ce qui est déjà là puisse se préciser : une sensation, une peur, un désir, une limite, une direction.</p>
+            <p>Comme dans l'étuve qui fixe la couleur, on vient fixer ton signal intérieur dans la matière : une action claire, incarnée, assez simple pour exister vraiment.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Mes erreurs -->
+      <section class="px-6 py-24 bg-[#FFFCF6] border-y border-[#1E3A8A]/10">
+        <div class="max-w-4xl mx-auto text-center mb-12">
+          <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Ce que j'ai appris à mes dépens</p>
+          <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-6">J'ai fait exactement les erreurs que L'Étuve t'aide à éviter.</h2>
+          <p class="text-lg md:text-xl leading-relaxed text-[#1E3A8A]/75">L'offre ne vient pas d'une posture de maîtrise parfaite. Elle vient d'un chemin très concret avec les cartes, le corps, la peur, les conseils des autres et l'envie de toujours apprendre plus avant de pratiquer.</p>
+        </div>
+        <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-5">
+          {erreurs.map((erreur) => (
+            <article class="bg-[#F7F4EE] border border-[#1E3A8A]/10 rounded-sm p-6 flex gap-4">
+              <span class="text-[#CC3DAA] mt-1">*</span>
+              <p class="text-lg leading-relaxed text-[#1E3A8A]/78">{erreur}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <!-- Différence -->
+      <section class="px-6 py-24 bg-[#1E3A8A] text-[#F7F4EE]">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-[0.9fr_1.1fr] gap-12 items-start">
+          <div>
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#C9A96E] mb-6">Pourquoi c'est différent</p>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-6">L'Étuve ne te demande pas de croire plus fort à ton intuition.</h2>
+            <p class="text-2xl italic leading-tight text-[#F1D9A7]">Elle t'apprend à discerner plus finement.</p>
+          </div>
+          <div class="space-y-4">
+            {differences.map((difference) => (
+              <div class="border border-white/10 bg-white/7 p-5 rounded-sm flex gap-4">
+                <iconify-icon icon="solar:stars-minimalistic-linear" class="text-[#CC3DAA] mt-1 shrink-0" width="16" height="16"></iconify-icon>
+                <p class="text-lg leading-relaxed text-[#F1D9A7]/92">{difference}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Qui je suis -->
+      <section id="histoire" class="py-24 px-6 bg-[#F7F4EE] relative overflow-hidden">
+        <div class="max-w-6xl mx-auto">
+          <div class="flex flex-col md:flex-row gap-16 items-center">
+            <div class="w-full md:w-5/12 relative group">
+              <div class="absolute inset-0 bg-[#CC3DAA] transform translate-x-4 translate-y-4 rounded-sm transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2"></div>
+              <div class="aspect-square bg-[#C9A96E] relative overflow-hidden rounded-sm grayscale contrast-110 hover:grayscale-0 transition-all duration-1000 z-10 shadow-xl border border-white/20">
+                <img src="/images/portrait-caroline.png" alt="Caroline Verdier" class="w-full h-full object-cover" style="object-position: center 32%;" />
+              </div>
+            </div>
+            <div class="w-full md:w-7/12">
+              <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Qui je suis</p>
+              <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-8">Je suis Caroline.</h2>
+              <div class="space-y-5 text-lg leading-relaxed text-[#1E3A8A]/80">
+                <p>J'ai créé <em>D'une Rive à l'Autre</em>, un oracle né d'un long processus intuitif, créatif et corporel. Je ne l'ai pas créé depuis une méthode théorique : j'avais besoin, moi aussi, d'un passage entre ce que je sentais et ce que j'arrivais à incarner.</p>
+                <p>J'ai traversé deux burn-out pour comprendre que mon corps me parlait. Aujourd'hui, je fais le choix d'écouter avant d'arriver au troisième. Et si tu veux, on fait ce chemin ensemble.</p>
+                <p class="font-serif text-2xl leading-snug text-[#1E3A8A]">Je crois aux oracles et à l'IA. Je crois au corps et aux systèmes. Je crois aux signes et à l'action concrète. Je crois qu'on peut être intuitive sans être hors-sol.</p>
+                <p class="italic text-[#CC3DAA]">Dans L'Étuve, je ne viens pas avec une vérité figée. Je viens avec un cadre pour que tu puisses entendre la tienne.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Témoignages -->
+      <section class="px-6 py-24 bg-[#FFFCF6] border-y border-[#1E3A8A]/10">
+        <div class="max-w-4xl mx-auto text-center mb-14">
+          <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#2AACCB] mb-6">Ce que mes accompagnements ont déjà ouvert</p>
+          <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-6">L'Étuve est nouvelle. Le terrain, lui, est déjà là.</h2>
+          <p class="text-lg md:text-xl leading-relaxed text-[#1E3A8A]/75">Ces témoignages viennent d'accompagnements précédents, notamment <em>Inspir'Action</em>. Ils parlent déjà des thèmes au coeur de L'Étuve : intuition, corps, mental, peur, pratique, discernement et passage à l'action.</p>
+        </div>
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
+          {temoignages.map((temoignage) => (
+            <figure class="bg-[#F7F4EE] border border-[#1E3A8A]/10 rounded-sm p-7 md:p-8">
+              <blockquote class="text-xl md:text-2xl font-serif leading-snug text-[#1E3A8A] mb-7">
+                &laquo;&nbsp;{temoignage.quote}&nbsp;&raquo;
+              </blockquote>
+              <figcaption class="flex items-center justify-between gap-4 border-t border-[#1E3A8A]/10 pt-5">
+                <span class="text-lg text-[#1E3A8A]">{temoignage.name}</span>
+                <span class="ui-text text-[0.65rem] tracking-[0.18em] uppercase text-[#CC3DAA]">{temoignage.context}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+
+      <!-- Première cohorte -->
+      <section class="px-6 py-24 bg-[#FFFCF6] border-y border-[#1E3A8A]/10">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-[0.8fr_1.2fr] gap-12 items-start mb-12">
+          <div>
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Pourquoi maintenant</p>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-6">Une première cohorte pour transformer l'oracle en pratique vivante.</h2>
+            <p class="text-xl leading-relaxed text-[#1E3A8A]/75">L'Étuve ouvre avec des femmes qui ne veulent pas seulement consommer un programme. Elles veulent entrer dans une pratique, essayer vraiment, faire retour, et participer à la naissance d'un espace vivant.</p>
+          </div>
+          <div class="grid gap-4">
+            {[...preuves, ...premieresCohortes.slice(0, 2)].map((item) => (
+              <div class="bg-[#FFFCF6] border border-[#1E3A8A]/10 p-5 rounded-sm flex gap-4">
+                <span class="text-[#2AACCB] mt-1">*</span>
+                <p class="text-lg leading-relaxed text-[#1E3A8A]/78">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Pricing -->
+      <section id="prix" class="py-32 px-6 bg-[#1E3A8A] relative overflow-hidden">
+        <div class="absolute inset-0 bg-grain opacity-20"></div>
+        <div class="relative z-10 max-w-3xl mx-auto text-center">
+          <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#C9A96E] mb-6">Rejoindre la première cohorte</p>
+          <h2 class="text-4xl md:text-5xl font-serif text-white mb-10 leading-tight tracking-tight">
+            Ce que tu reçois
+          </h2>
+
+          <div class="grid sm:grid-cols-3 gap-4 mb-12 text-left">
+            <div class="bg-white/7 border border-white/10 rounded-sm p-5">
+              <p class="ui-text text-[0.65rem] tracking-[0.18em] uppercase text-[#C9A96E] mb-2">Durée</p>
+              <p class="text-xl text-white">6 semaines</p>
+            </div>
+            <div class="bg-white/7 border border-white/10 rounded-sm p-5">
+              <p class="ui-text text-[0.65rem] tracking-[0.18em] uppercase text-[#C9A96E] mb-2">Format</p>
+              <p class="text-xl text-white">Cohorte vivante</p>
+            </div>
+            <div class="bg-white/7 border border-white/10 rounded-sm p-5">
+              <p class="ui-text text-[0.65rem] tracking-[0.18em] uppercase text-[#C9A96E] mb-2">Objet inclus</p>
+              <p class="text-xl text-white">Oracle physique</p>
+            </div>
+          </div>
+
+          <ul class="text-left max-w-xl mx-auto space-y-4 mb-12">
+            {recus.map((item) => (
+              <li class="flex items-start gap-4 text-[#F1D9A7]/95 text-lg font-light">
+                <div class="w-5 h-5 rounded-full bg-[#CC3DAA]/20 flex items-center justify-center shrink-0 mt-1 text-[#CC3DAA]">
+                  <iconify-icon icon="solar:check-circle-linear" width="12" height="12"></iconify-icon>
+                </div>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div class="bg-[#F7F4EE] p-8 md:p-10 rounded-sm shadow-2xl max-w-md mx-auto">
+            <div class="text-6xl font-serif text-[#1E3A8A] mb-2">245</div>
+            <div class="ui-text text-sm tracking-[0.18em] uppercase text-[#1E3A8A]/60 mb-8">CHF, oracle inclus</div>
+            <a href={ctaHref} class="w-full inline-flex justify-center items-center gap-3 py-4 px-6 bg-[#CC3DAA] text-[#F7F4EE] font-semibold text-xs uppercase tracking-[0.2em] hover:bg-[#D4845A] transition-colors rounded-sm">
+              Rejoindre L'Étuve
+              <iconify-icon icon="solar:arrow-right-linear" width="14" height="14"></iconify-icon>
+            </a>
+            <p class="text-xs text-[#1E3A8A]/60 mt-6 leading-relaxed">
+              Tarif fondateur de la première cohorte. Si tu as déjà l'oracle D'une Rive à l'Autre, écris-moi avant de t'inscrire pour recevoir une réduction adaptée.
+            </p>
+          </div>
+
+          <p class="text-[#F1D9A7]/80 text-sm mt-10 leading-relaxed">
+            Première cohorte du 1er septembre au 12 octobre 2026 · 10 places minimum pour ouvrir la cohorte · inscription à prévoir avant l'expédition de l'oracle
+          </p>
+        </div>
+      </section>
+
+      <!-- Mon engagement -->
+      <section class="px-6 py-24 bg-[#FFFCF6] border-y border-[#1E3A8A]/10">
+        <div class="max-w-3xl mx-auto text-center">
+          <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Mon engagement</p>
+          <p class="text-2xl md:text-3xl font-serif italic leading-relaxed text-[#1E3A8A] mb-8">
+            Je m'engage à t'offrir un espace de pratique clair, sensible et structuré pour écouter ton intuition sans la confondre avec la peur ou le mental, apprendre à transformer ce que tu entends en action faisable, et devenir plus autonome dans cette écoute.
+          </p>
+          <p class="text-lg text-[#1E3A8A]/70 leading-relaxed">
+            Comme l'oracle physique est inclus et expédié, L'Étuve n'est pas construite autour d'une promesse de remboursement automatique. Si tu hésites, écris-moi avant de rejoindre : je préfère qu'on vérifie ensemble plutôt que tu entres dans un cadre qui ne te correspond pas.
+          </p>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="py-24 px-6 bg-[#F7F4EE]">
+        <div class="max-w-3xl mx-auto">
+          <div class="text-center mb-16">
+            <span class="text-[#CC3DAA] font-bold text-[0.65rem] tracking-[0.2em] uppercase mb-4 block">Des questions ?</span>
+            <h2 class="text-4xl font-serif text-[#1E3A8A] tracking-tight">Questions fréquentes</h2>
+          </div>
+
+          <div class="space-y-6">
+            {faqs.map((faq) => (
+              <div class="bg-white border border-[#1E3A8A]/12 p-8 rounded-sm">
+                <h3 class="text-lg font-serif text-[#1E3A8A] mb-3">{faq.q}</h3>
+                <p class="text-[#1E3A8A]/80 leading-relaxed text-sm font-light">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA final -->
+      <section class="py-32 px-6 bg-[#CC3DAA] relative overflow-hidden">
+        <div class="absolute inset-0 bg-grain opacity-10"></div>
+        <div class="relative z-10 max-w-4xl mx-auto text-center">
+          <h2 class="text-4xl md:text-6xl font-serif text-white mb-8 leading-[1.1] tracking-tight">
+            Retrouve ce qui est<br /><span class="italic">vraiment à toi.</span>
+          </h2>
+          <p class="text-lg text-white/90 font-light max-w-2xl mx-auto mb-12 leading-relaxed">
+            Pas pour forcer. Pas pour te pousser à faire plus. Pour apprendre à entendre ton vrai signal, le fixer, poser une action faisable, et continuer ensuite en autonomie.
+          </p>
+          <a href={ctaHref} class="inline-flex items-center gap-4 px-12 py-6 bg-[#1E3A8A] text-[#F7F4EE] font-semibold text-xs uppercase tracking-[0.2em] hover:bg-[#1E3A8A]/90 transition-all hover:-translate-y-1 shadow-2xl shadow-black/20 rounded-sm">
+            <iconify-icon icon="solar:stars-minimalistic-linear" width="18" height="18" stroke-width="1.5"></iconify-icon>
+            Rejoindre L'Étuve
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="py-16 px-6 bg-[#1E3A8A] border-t border-white/5">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+          <div class="flex items-center gap-4">
+            <iconify-icon icon="solar:stars-minimalistic-linear" class="text-[#CC3DAA]" width="20" height="20" stroke-width="1.5"></iconify-icon>
+            <span class="text-white font-serif text-lg">L'Atelier <span class="font-light opacity-60">de Lucette</span></span>
+          </div>
+          <div class="flex items-center gap-8 text-xs uppercase tracking-widest text-white/70">
+            <a href="#probleme" class="hover:text-[#CC3DAA] transition-colors">Le problème</a>
+            <a href="#parcours" class="hover:text-[#CC3DAA] transition-colors">Le parcours</a>
+            <a href="#prix" class="hover:text-[#CC3DAA] transition-colors">Prix</a>
+          </div>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p class="text-xs text-white/65 font-light tracking-wide">
+            &copy; 2026 L'Atelier de Lucette. Tous droits réservés.
+            <span class="mx-2 opacity-40">|</span>
+            <a href="/mentions-legales" class="hover:text-[#CC3DAA] transition-colors">Mentions légales</a>
+            <span class="mx-2 opacity-40">|</span>
+            <a href="/cgv" class="hover:text-[#CC3DAA] transition-colors">CGV</a>
+          </p>
+          <p class="text-[0.6rem] text-white/55 uppercase tracking-widest font-light">
+            Intuition · Peur · Mental · Bruit extérieur
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
