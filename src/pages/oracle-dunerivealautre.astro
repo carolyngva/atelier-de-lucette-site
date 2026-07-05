@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
 
 const ctaHref = 'https://buy.stripe.com/28EaEX6m61t57qAdbz7bW02';
 
@@ -70,18 +72,7 @@ const modules = [
       </svg>
     </div>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 inset-x-0 z-50 h-20 flex items-center border-b border-[#1E3A8A]/15 bg-[#F7F4EE]/90 backdrop-blur-md">
-      <div class="max-w-7xl mx-auto w-full px-6 flex items-center justify-between">
-        <a href="/" class="text-xl font-serif tracking-tight text-[#1E3A8A]">L'Atelier <span class="opacity-70">de Lucette</span></a>
-        <div class="hidden md:flex items-center gap-9">
-          <a href="#histoire" class="ui-text text-xs tracking-[0.2em] uppercase text-[#1E3A8A]/70 hover:text-[#CC3DAA] transition-colors">L'histoire</a>
-          <a href="#specs" class="ui-text text-xs tracking-[0.2em] uppercase text-[#1E3A8A]/70 hover:text-[#CC3DAA] transition-colors">Spécifications</a>
-          <a href="#prix" class="ui-text text-xs tracking-[0.2em] uppercase text-[#1E3A8A]/70 hover:text-[#CC3DAA] transition-colors">Prix</a>
-        </div>
-        <a href={ctaHref} class="bg-[#CC3DAA] text-[#F7F4EE] ui-text text-xs tracking-[0.18em] uppercase px-5 py-3 rounded-sm hover:bg-[#D4845A] transition-colors">Acheter</a>
-      </div>
-    </nav>
+    <Nav current="/oracle-dunerivealautre/" ctaHref={ctaHref} ctaLabel="Acheter" />
 
     <main class="relative z-10">
       <!-- Hero -->
@@ -398,33 +389,6 @@ const modules = [
       </section>
     </main>
 
-    <footer class="py-16 px-6 bg-[#1E3A8A] border-t border-white/5">
-      <div class="max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-          <div class="flex items-center gap-4">
-            <iconify-icon icon="solar:stars-minimalistic-linear" class="text-[#CC3DAA]" width="20" height="20" stroke-width="1.5"></iconify-icon>
-            <span class="text-white font-serif text-lg">L'Atelier <span class="font-light opacity-60">de Lucette</span></span>
-          </div>
-          <div class="flex items-center gap-8 text-xs uppercase tracking-widest text-white/70">
-            <a href="/" class="hover:text-[#CC3DAA] transition-colors">Accueil</a>
-            <a href="/etuve" class="hover:text-[#CC3DAA] transition-colors">L'Étuve</a>
-            <a href="/tirage" class="hover:text-[#CC3DAA] transition-colors">Tirage gratuit</a>
-          </div>
-        </div>
-
-        <div class="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p class="text-xs text-white/65 font-light tracking-wide">
-            &copy; 2026 L'Atelier de Lucette. Tous droits réservés.
-            <span class="mx-2 opacity-40">|</span>
-            <a href="/mentions-legales" class="hover:text-[#CC3DAA] transition-colors">Mentions légales</a>
-            <span class="mx-2 opacity-40">|</span>
-            <a href="/cgv" class="hover:text-[#CC3DAA] transition-colors">CGV</a>
-          </p>
-          <p class="text-[0.6rem] text-white/55 uppercase tracking-widest font-light">
-            Oracle D'une Rive à l'Autre
-          </p>
-        </div>
-      </div>
-    </footer>
+    <Footer />
   </body>
 </html>

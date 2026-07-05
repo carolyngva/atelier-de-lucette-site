@@ -1,5 +1,7 @@
 ---
 import '../../styles/global.css';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
 ---
 
 <!doctype html>
@@ -94,17 +96,7 @@ import '../../styles/global.css';
   <body class="selection:bg-[#CC3DAA] selection:text-[#F7F4EE]">
     <div class="bg-grain fixed inset-0 pointer-events-none z-0"></div>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 inset-x-0 z-30 h-20 flex items-center border-b border-[#1E3A8A]/15 bg-[#F7F4EE]/90 backdrop-blur-md">
-      <div class="max-w-4xl mx-auto w-full px-6 flex items-center justify-between">
-        <a href="/" class="flex items-center gap-3 group">
-          <span class="text-xl font-serif font-normal tracking-tight text-[#1E3A8A]">L'Atelier <span class="font-light opacity-70">de Lucette</span></span>
-        </a>
-        <a href="/mini-rituel" class="stamp text-[0.6rem] tracking-[0.25em] uppercase text-[#1E3A8A]/70 hover:text-[#CC3DAA] transition-colors">
-          Mini-rituel
-        </a>
-      </div>
-    </nav>
+    <Nav current="/mini-rituel/" />
 
     <!-- Main -->
     <main class="relative z-10 pt-28 pb-24 px-6 min-h-screen flex flex-col items-center">
@@ -216,5 +208,6 @@ import '../../styles/global.css';
         </div>
       </div>
     </main>
+    <Footer />
   </body>
 </html>

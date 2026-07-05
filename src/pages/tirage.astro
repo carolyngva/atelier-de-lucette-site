@@ -2,6 +2,8 @@
 import fs from 'fs';
 import path from 'path';
 import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
 
 const cardsData = JSON.parse(fs.readFileSync(path.resolve('public/data/cards.json'), 'utf-8'));
 const totalCards = cardsData.total;
@@ -321,17 +323,7 @@ const cardsList = cardsData.cards;
       </div>
     </div>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 inset-x-0 z-30 h-20 flex items-center border-b border-[#1E3A8A]/15 bg-[#F7F4EE]/90 backdrop-blur-md">
-      <div class="max-w-6xl mx-auto w-full px-6 flex items-center justify-between">
-        <a href="/" class="flex items-center gap-3 group">
-          <span class="text-xl font-serif font-normal tracking-tight text-[#1E3A8A]">L'Atelier <span class="font-light opacity-70">de Lucette</span></span>
-        </a>
-        <a href="/mini-rituel" class="stamp text-[0.6rem] tracking-[0.25em] uppercase text-[#1E3A8A]/70 hover:text-[#CC3DAA] transition-colors">
-          Mini-rituel
-        </a>
-      </div>
-    </nav>
+    <Nav current="/tirage/" />
 
     <!-- Main -->
     <main class="pt-28 pb-24 px-6 min-h-screen flex flex-col items-center overflow-x-hidden">
@@ -676,5 +668,6 @@ const cardsList = cardsData.cards;
 
     document.addEventListener('DOMContentLoaded', init);
     </script>
+    <Footer />
   </body>
 </html>

@@ -1,5 +1,7 @@
 ---
 import '../../styles/global.css';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
 
 const resources = [
   {
@@ -76,12 +78,7 @@ const resources = [
   <body class="selection:bg-[#CC3DAA] selection:text-[#F7F4EE] bg-[#F7F4EE] text-[#1E3A8A] overflow-x-hidden">
     <div class="bg-grain fixed inset-0 pointer-events-none z-0"></div>
 
-    <nav class="fixed top-0 inset-x-0 z-50 h-20 flex items-center border-b border-[#1E3A8A]/15 bg-[#F7F4EE]/90 backdrop-blur-md">
-      <div class="max-w-5xl mx-auto w-full px-6 flex items-center justify-between">
-        <a href="/" class="text-xl font-serif tracking-tight text-[#1E3A8A]">L'Atelier <span class="opacity-70">de Lucette</span></a>
-        <a href="/rencontrer-lame-de-ton-oracle" class="ui-text text-xs tracking-[0.22em] uppercase text-[#1E3A8A]/70 hover:text-[#CC3DAA] transition-colors">Le parcours</a>
-      </div>
-    </nav>
+    <Nav current="/rencontrer-lame-de-ton-oracle/" />
 
     <main class="relative z-10 min-h-screen pt-28 pb-20 px-6">
       <div class="max-w-4xl mx-auto">
@@ -156,5 +153,6 @@ const resources = [
         </section>
       </div>
     </main>
+    <Footer />
   </body>
 </html>

@@ -1,21 +1,213 @@
 ---
-const destination = '/etuve/';
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const ctaEtuve = '/etuve/';
+const ctaSubstack = 'https://carolineverdier.substack.com';
+
+const sections = [
+  { icon: '✦', title: "L'Étuve", desc: 'Un parcours guidé de 6 semaines pour distinguer intuition, peur, mental et bruit extérieur, et poser une action juste.', href: '/etuve/' },
+  { icon: '◈', title: "L'oracle D'une Rive à l'Autre", desc: '42 cartes, un chemin de retour à soi. Un oracle pour dialoguer avec ce qui se passe en vous.', href: '/oracle-dunerivealautre/' },
+  { icon: '✧', title: 'Le Substack', desc: 'Chaque dimanche soir, un article pour retrouver sa voix intérieure quand le monde autour est trop bruyant.', href: ctaSubstack, external: true },
+  { icon: '★', title: 'Le tirage gratuit', desc: '3 cartes en ligne — Situation, blocage, conseil. Une pause dans le bruit.', href: '/tirage/' },
+  { icon: '♡', title: 'Qui suis-je', desc: "Resource planner dans l'aviation, créatrice d'oracle et constellatrice. Mon chemin entre logistique et intuition.", href: '/qui-suis-je/' },
+  { icon: '∞', title: 'Les constellations', desc: "Rendre visible ce qui agit en dessous — les places, les loyautés, les attachements, les mouvements bloqués.", href: '/qui-suis-je/#chemin' },
+];
 ---
 
 <!doctype html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="refresh" content={`0; url=${destination}`} />
-    <meta name="robots" content="noindex, follow" />
-    <link rel="canonical" href="https://latelierdelucette.com/etuve/" />
-    <title>Redirection vers L'Étuve</title>
-    <script is:inline define:vars={{ destination }}>
-      window.location.replace(destination);
+    <title>L'Atelier de Lucette — Retrouver ta voix intérieure</title>
+    <meta
+      name="description"
+      content="Un espace pour les femmes sensibles et actives qui veulent retrouver leur voix intérieure dans un monde saturé de bruit. Intuition, oracle, constellations, écriture."
+    />
+    <link rel="canonical" href="https://latelierdelucette.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_CH" />
+    <meta property="og:site_name" content="L'Atelier de Lucette" />
+    <meta property="og:title" content="L'Atelier de Lucette — Retrouver ta voix intérieure" />
+    <meta property="og:description" content="Un espace pour retrouver ta voix intérieure dans un monde saturé de bruit. Intuition, oracle, constellations, écriture." />
+    <meta property="og:url" content="https://latelierdelucette.com/" />
+    <meta property="og:image" content="https://latelierdelucette.com/images/portrait-caroline.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="L'Atelier de Lucette — Retrouver ta voix intérieure" />
+    <meta name="twitter:description" content="Un espace pour retrouver ta voix intérieure dans un monde saturé de bruit." />
+    <meta name="twitter:image" content="https://latelierdelucette.com/images/portrait-caroline.png" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
+    <script is:inline src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "L'Atelier de Lucette",
+        "url": "https://latelierdelucette.com",
+        "description": "Un espace pour les femmes sensibles et actives qui veulent retrouver leur voix intérieure dans un monde saturé de bruit."
+      }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SNKPGHZL0Y"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      if (window.location.search.includes('tr=internal')) {
+        try { localStorage.setItem('__internal', '1'); } catch(e) {}
+      }
+      var __int = false;
+      try { __int = localStorage.getItem('__internal') === '1'; } catch(e) {}
+      gtag('config', 'G-SNKPGHZL0Y', __int ? { 'traffic_type': 'internal' } : {});
     </script>
   </head>
-  <body>
-    <p>Redirection vers <a href={destination}>L'Étuve</a>.</p>
+
+  <body class="selection:bg-[#CC3DAA] selection:text-[#F7F4EE] overflow-x-hidden bg-[#F7F4EE] text-[#1E3A8A]">
+    <div class="bg-grain fixed inset-0 pointer-events-none z-0"></div>
+    <div class="arch-lines">
+      <svg width="100%" height="100%" viewBox="0 0 1440 900" preserveAspectRatio="none">
+        <line x1="10%" y1="0" x2="10%" y2="100%" stroke="#1E3A8A" stroke-width="0.5" />
+        <line x1="90%" y1="0" x2="90%" y2="100%" stroke="#1E3A8A" stroke-width="0.5" />
+        <line x1="0" y1="800" x2="1440" y2="360" stroke="#CC3DAA" stroke-width="0.5" opacity="0.5" />
+      </svg>
+    </div>
+
+    <Nav current="/" />
+
+    <main class="relative z-10">
+      <!-- Hero -->
+      <header class="min-h-screen flex items-center px-6 pt-28 pb-20">
+        <div class="max-w-4xl mx-auto text-center">
+          <div class="inline-flex items-center gap-4 mb-8">
+            <div class="h-px w-10 bg-[#2AACCB]"></div>
+            <span class="ui-text text-xs tracking-[0.22em] uppercase text-[#1E3A8A]/70">Bienvenue</span>
+            <div class="h-px w-10 bg-[#CC3DAA]"></div>
+          </div>
+
+          <h1 class="text-5xl md:text-7xl leading-[1.05] font-normal tracking-tight mb-6">
+            L'Atelier <span class="italic">de Lucette</span>
+          </h1>
+
+          <p class="text-2xl md:text-3xl italic leading-tight text-[#CC3DAA] mb-8">
+            Un espace pour retrouver ta voix intérieure<br />dans un monde qui va trop vite.
+          </p>
+
+          <p class="text-lg md:text-xl leading-relaxed text-[#1E3A8A]/80 max-w-2xl mx-auto mb-12">
+            Ici, on n'ajoute pas une réponse de plus. On apprend à reconnaître ce qui est encore vraiment à soi — au milieu du bruit, des avis, des algorithmes et des décisions qui s'accumulent.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
+            <a href={ctaEtuve} class="inline-flex items-center gap-3 bg-[#CC3DAA] text-[#F7F4EE] ui-text text-xs tracking-[0.18em] uppercase px-9 py-4 rounded-sm hover:bg-[#D4845A] transition-colors">
+              <iconify-icon icon="solar:stars-minimalistic-linear" width="14" height="14" stroke-width="1.5"></iconify-icon>
+              Découvrir L'Étuve
+            </a>
+            <a href={ctaSubstack} target="_blank" rel="noopener" class="inline-flex items-center gap-3 border border-[#1E3A8A]/25 text-[#1E3A8A] ui-text text-xs tracking-[0.18em] uppercase px-9 py-4 rounded-sm hover:border-[#CC3DAA] hover:text-[#CC3DAA] transition-colors">
+              <iconify-icon icon="solar:letter-linear" width="14" height="14"></iconify-icon>
+              Lire la newsletter
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <!-- Explore -->
+      <section class="px-6 py-24 bg-[#FFFCF6] border-y border-[#1E3A8A]/10">
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-14">
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Explorer</p>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal">Les portes de l'atelier</h2>
+          </div>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {sections.map((s) => (
+              <a
+                href={s.href}
+                {...(s.external ? { target: '_blank', rel: 'noopener' } : {})}
+                class="bg-[#F7F4EE] border border-[#1E3A8A]/10 rounded-sm p-7 hover:border-[#CC3DAA]/30 hover:shadow-lg transition-all group block"
+              >
+                <span class="text-2xl text-[#CC3DAA] block mb-3">{s.icon}</span>
+                <h3 class="text-xl font-serif text-[#1E3A8A] mb-2 group-hover:text-[#CC3DAA] transition-colors">{s.title}</h3>
+                <p class="text-base leading-relaxed text-[#1E3A8A]/70">{s.desc}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Pour qui -->
+      <section class="px-6 py-24">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-14">
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Pour qui</p>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-6">Tu es peut-être une femme qui...</h2>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-5">
+            <div class="bg-[#FFFCF6] border border-[#1E3A8A]/10 rounded-sm p-6 flex gap-4">
+              <span class="text-[#CC3DAA]">*</span>
+              <p class="text-lg leading-relaxed text-[#1E3A8A]/78">Tient beaucoup — famille, couple, travail — et commence à sentir le poids de porter seule.</p>
+            </div>
+            <div class="bg-[#FFFCF6] border border-[#1E3A8A]/10 rounded-sm p-6 flex gap-4">
+              <span class="text-[#CC3DAA]">*</span>
+              <p class="text-lg leading-relaxed text-[#1E3A8A]/78">Ne sait plus si ce qu'elle ressent est son intuition, sa peur, son mental ou la fatigue.</p>
+            </div>
+            <div class="bg-[#FFFCF6] border border-[#1E3A8A]/10 rounded-sm p-6 flex gap-4">
+              <span class="text-[#CC3DAA]">*</span>
+              <p class="text-lg leading-relaxed text-[#1E3A8A]/78">A trop de réponses, trop d'avis, trop de contenus sauvegardés — et plus assez de silence.</p>
+            </div>
+            <div class="bg-[#FFFCF6] border border-[#1E3A8A]/10 rounded-sm p-6 flex gap-4">
+              <span class="text-[#CC3DAA]">*</span>
+              <p class="text-lg leading-relaxed text-[#1E3A8A]/78">Veut écouter son intuition sans se couper du monde réel, des écrans et de sa vie active.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pourquoi Lucette -->
+      <section class="px-6 py-24 bg-[#FFFCF6] border-y border-[#1E3A8A]/10">
+        <div class="max-w-4xl mx-auto grid md:grid-cols-[0.9fr_1.1fr] gap-14 items-center">
+          <div>
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#2AACCB] mb-6">Pourquoi Lucette ?</p>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-6">L'histoire derrière le nom</h2>
+          </div>
+          <div class="text-lg md:text-xl leading-relaxed text-[#1E3A8A]/75 space-y-5">
+            <p>Lucette, c'était ma grand-mère. Une femme créative, sensible, talentueuse, qui n'a pas toujours eu la place qu'elle méritait.</p>
+            <p>L'Atelier de Lucette, c'est un hommage. Et une promesse : ne pas laisser nos élans, nos désirs et notre vérité rester coincés dans une vie trop petite.</p>
+            <p class="text-xl italic text-[#CC3DAA]">Lucette, c'est le rappel que ce qui veut naître à travers nous mérite une place dans le monde.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA final -->
+      <section class="py-28 px-6 bg-[#CC3DAA] relative overflow-hidden">
+        <div class="absolute inset-0 bg-grain opacity-10"></div>
+        <div class="relative z-10 max-w-3xl mx-auto text-center">
+          <h2 class="text-4xl md:text-6xl font-serif text-white mb-8 leading-[1.1] tracking-tight">
+            Prête à retrouver<br /><span class="italic">le fil ?</span>
+          </h2>
+          <p class="text-lg text-white/90 font-light max-w-2xl mx-auto mb-12 leading-relaxed">
+            Deux façons d'entrer dans l'atelier : lire chaque dimanche sur Substack, ou plonger dans un parcours guidé avec L'Étuve.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
+            <a href={ctaEtuve} class="inline-flex items-center gap-4 px-10 py-5 bg-[#1E3A8A] text-[#F7F4EE] font-semibold text-xs uppercase tracking-[0.2em] hover:bg-[#1E3A8A]/90 transition-all hover:-translate-y-1 shadow-2xl shadow-black/20 rounded-sm">
+              <iconify-icon icon="solar:stars-minimalistic-linear" width="16" height="16" stroke-width="1.5"></iconify-icon>
+              Découvrir L'Étuve
+            </a>
+            <a href={ctaSubstack} target="_blank" rel="noopener" class="inline-flex items-center gap-3 px-10 py-5 border border-white/30 text-white text-xs uppercase tracking-[0.2em] hover:bg-white/10 transition-all rounded-sm">
+              <iconify-icon icon="solar:letter-linear" width="16" height="16"></iconify-icon>
+              S'abonner au Substack
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
   </body>
 </html>

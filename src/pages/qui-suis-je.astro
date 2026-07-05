@@ -2,6 +2,8 @@
 // L'Atelier de Lucette — Page À propos / Qui suis-je
 // Caroline Verdier : intuition, oracle, constellations, supply chain, IA
 import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
 
 const ctaEtuve = '/etuve/';
 
@@ -29,7 +31,7 @@ const timeline = [
     text: "Création de son activité indépendante : accompagnement des femmes sur les relations, la communication, l'audace de se lancer. Ça fonctionnait. Puis deux burn-out. Une vérité traversée : le corps n'est pas le problème. Il est le traducteur que l'intuition utilise pour se faire entendre. C'est aussi là que naît l'oracle D'une Rive à l'Autre — 42 cartes, un chemin de retour à soi.",
     formations: ['Certificat de facilitatrice en hypnose spirituelle — Institut IIHS (2018)', 'Relationship Coach Certificate — The Relationship School (2021)'],
     image: '/images/ecoute-toi-caroline-drize.jpg',
-    imageAlt: 'Caroline Verdier avec l\'oracle D\'une Rive à l\'Autre',
+    imageAlt: "Caroline Verdier avec l'oracle D'une Rive à l'Autre",
   },
   {
     period: '2025 — 2026',
@@ -139,18 +141,7 @@ const croyances = [
       </svg>
     </div>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 inset-x-0 z-50 h-20 flex items-center border-b border-[#1E3A8A]/15 bg-[#F7F4EE]/90 backdrop-blur-md">
-      <div class="max-w-7xl mx-auto w-full px-6 flex items-center justify-between">
-        <a href="/" class="text-xl font-serif tracking-tight text-[#1E3A8A]">L'Atelier <span class="opacity-70">de Lucette</span></a>
-        <div class="hidden md:flex items-center gap-9">
-          <a href="#chemin" class="ui-text text-xs tracking-[0.2em] uppercase text-[#1E3A8A]/70 hover:text-[#CC3DAA] transition-colors">Mon chemin</a>
-          <a href="#croyances" class="ui-text text-xs tracking-[0.2em] uppercase text-[#1E3A8A]/70 hover:text-[#CC3DAA] transition-colors">Ce en quoi je crois</a>
-          <a href="#lucette" class="ui-text text-xs tracking-[0.2em] uppercase text-[#1E3A8A]/70 hover:text-[#CC3DAA] transition-colors">Lucette</a>
-        </div>
-        <a href={ctaEtuve} class="bg-[#CC3DAA] text-[#F7F4EE] ui-text text-xs tracking-[0.18em] uppercase px-5 py-3 rounded-sm hover:bg-[#D4845A] transition-colors">Découvrir L'Étuve</a>
-      </div>
-    </nav>
+    <Nav current="/qui-suis-je/" />
 
     <main class="relative z-10">
       <!-- Hero -->
@@ -225,7 +216,6 @@ const croyances = [
               <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
                 {i % 2 === 0 ? (
                   <>
-                    <!-- Image side (left on even steps) -->
                     <div class="order-1">
                       {etape.image ? (
                         <div class="relative group">
@@ -245,7 +235,6 @@ const croyances = [
                         </div>
                       )}
                     </div>
-                    <!-- Text side -->
                     <div class="order-2">
                       <span class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA]">{etape.period}</span>
                       <h3 class="text-3xl md:text-4xl leading-tight font-normal mt-3 mb-1">{etape.title}</h3>
@@ -268,7 +257,6 @@ const croyances = [
                   </>
                 ) : (
                   <>
-                    <!-- Text side (left on odd steps) -->
                     <div class="order-2 md:order-1">
                       <span class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA]">{etape.period}</span>
                       <h3 class="text-3xl md:text-4xl leading-tight font-normal mt-3 mb-1">{etape.title}</h3>
@@ -288,7 +276,6 @@ const croyances = [
                         </div>
                       )}
                     </div>
-                    <!-- Image side (right on odd steps) -->
                     <div class="order-1 md:order-2">
                       {etape.image ? (
                         <div class="relative group">
@@ -372,33 +359,6 @@ const croyances = [
       </section>
     </main>
 
-    <footer class="py-16 px-6 bg-[#1E3A8A] border-t border-white/5">
-      <div class="max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-          <div class="flex items-center gap-4">
-            <iconify-icon icon="solar:stars-minimalistic-linear" class="text-[#CC3DAA]" width="20" height="20" stroke-width="1.5"></iconify-icon>
-            <span class="text-white font-serif text-lg">L'Atelier <span class="font-light opacity-60">de Lucette</span></span>
-          </div>
-          <div class="flex items-center gap-8 text-xs uppercase tracking-widest text-white/70">
-            <a href="https://carolineverdier.substack.com" target="_blank" rel="noopener" class="hover:text-[#CC3DAA] transition-colors">Substack</a>
-            <a href="https://instagram.com/caroline.verdier" target="_blank" rel="noopener" class="hover:text-[#CC3DAA] transition-colors">Instagram</a>
-            <a href={ctaEtuve} class="hover:text-[#CC3DAA] transition-colors">L'Étuve</a>
-          </div>
-        </div>
-
-        <div class="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p class="text-xs text-white/65 font-light tracking-wide">
-            &copy; 2026 L'Atelier de Lucette. Tous droits réservés.
-            <span class="mx-2 opacity-40">|</span>
-            <a href="/mentions-legales" class="hover:text-[#CC3DAA] transition-colors">Mentions légales</a>
-            <span class="mx-2 opacity-40">|</span>
-            <a href="/cgv" class="hover:text-[#CC3DAA] transition-colors">CGV</a>
-          </p>
-          <p class="text-[0.6rem] text-white/55 uppercase tracking-widest font-light">
-            Intuition · Peur · Mental · Bruit extérieur
-          </p>
-        </div>
-      </div>
-    </footer>
+    <Footer />
   </body>
 </html>

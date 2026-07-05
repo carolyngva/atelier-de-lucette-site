@@ -1,0 +1,46 @@
+---
+export interface Props {
+  ctaHref?: string;
+  ctaLabel?: string;
+  current?: string;
+}
+
+const { ctaHref = '/etuve/', ctaLabel = "Découvrir L'Étuve", current = '' } = Astro.props;
+const links = [
+  { href: '/', label: 'Accueil' },
+  { href: '/etuve/', label: "L'Étuve" },
+  { href: '/qui-suis-je/', label: 'Qui suis-je' },
+  { href: '/oracle-dunerivealautre/', label: 'Oracle' },
+  { href: 'https://carolineverdier.substack.com', label: 'Blog', external: true },
+];
+---
+
+<nav class="fixed top-0 inset-x-0 z-50 h-20 flex items-center border-b border-[#1E3A8A]/15 bg-[#F7F4EE]/90 backdrop-blur-md">
+  <div class="max-w-7xl mx-auto w-full px-6 flex items-center justify-between">
+    <a href="/" class="text-xl font-serif tracking-tight text-[#1E3A8A]">
+      L'Atelier <span class="opacity-70">de Lucette</span>
+    </a>
+    <div class="hidden md:flex items-center gap-9">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          {...(link.external ? { target: '_blank', rel: 'noopener' } : {})}
+          class:list={[
+            'ui-text text-xs tracking-[0.2em] uppercase transition-colors',
+            current === link.href
+              ? 'text-[#CC3DAA]'
+              : 'text-[#1E3A8A]/70 hover:text-[#CC3DAA]',
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+    <a
+      href={ctaHref}
+      class="bg-[#CC3DAA] text-[#F7F4EE] ui-text text-xs tracking-[0.18em] uppercase px-5 py-3 rounded-sm hover:bg-[#D4845A] transition-colors"
+    >
+      {ctaLabel}
+    </a>
+  </div>
+</nav>

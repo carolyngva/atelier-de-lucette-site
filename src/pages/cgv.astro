@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <!doctype html>
@@ -66,23 +68,7 @@ import '../styles/global.css';
   </head>
 
   <body class="selection:bg-[#CC3DAA] selection:text-[#F7F4EE] text-lg">
-    <!-- Navigation -->
-    <nav class="fixed top-0 inset-x-0 z-50 h-24 flex items-center border-b border-[#1E3A8A]/20 bg-[#F7F4EE]/90 backdrop-blur-md">
-      <div class="max-w-7xl mx-auto w-full px-8 flex items-center justify-between">
-        <a href="/" class="flex items-center gap-4 group">
-          <div class="text-[#1E3A8A] group-hover:text-[#CC3DAA] transition-colors duration-500">
-            <iconify-icon icon="solar:stars-minimalistic-linear" width="24" height="24" stroke-width="1.5"></iconify-icon>
-          </div>
-          <span class="text-xl font-serif font-normal tracking-tight text-[#1E3A8A]">L'Atelier <span class="font-light opacity-70">de Lucette</span></span>
-        </a>
-
-        <div class="flex items-center">
-          <a href="/#pricing" class="bg-[#CC3DAA] text-[#F7F4EE] text-xs font-medium tracking-widest uppercase px-8 py-4 hover:bg-[#D4845A] transition-all duration-500 rounded-sm">
-            Recevoir
-          </a>
-        </div>
-      </div>
-    </nav>
+    <Nav current="/cgv/" />
 
     <!-- Content -->
     <main class="pt-40 pb-32 px-6 max-w-4xl mx-auto">
@@ -202,35 +188,6 @@ import '../styles/global.css';
       </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="py-16 px-6 bg-[#1E3A8A] border-t border-white/5">
-      <div class="max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-          <a href="/" class="flex items-center gap-4 group">
-            <iconify-icon icon="solar:stars-minimalistic-linear" class="text-[#CC3DAA] group-hover:text-[#D4845A] transition-colors" width="20" height="20" stroke-width="1.5"></iconify-icon>
-            <span class="text-white font-serif text-lg">L'Atelier <span class="font-light opacity-60">de Lucette</span></span>
-          </a>
-
-          <div class="flex items-center gap-12 text-xs uppercase tracking-widest text-white/70">
-            <a href="/" class="hover:text-[#CC3DAA] transition-colors">M&eacute;thode</a>
-            <a href="/#rituel" class="hover:text-[#CC3DAA] transition-colors">Rituel</a>
-            <a href="/#histoire" class="hover:text-[#CC3DAA] transition-colors">Histoire</a>
-          </div>
-        </div>
-
-        <div class="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p class="text-xs text-white/65 font-light tracking-wide">
-            &copy; 2026 L'Atelier de Lucette. Tous droits r&eacute;serv&eacute;s.
-            <span class="mx-2 opacity-40">|</span>
-            <a href="/mentions-legales" class="hover:text-[#CC3DAA] transition-colors">Mentions l&eacute;gales</a>
-            <span class="mx-2 opacity-40">|</span>
-            <a href="/cgv" class="hover:text-[#CC3DAA] transition-colors">CGV</a>
-          </p>
-          <p class="text-[0.6rem] text-white/55 uppercase tracking-widest font-light">
-            Discernement &mdash; Intuition &mdash; Action
-          </p>
-        </div>
-      </div>
-    </footer>
+    <Footer />
   </body>
 </html>
