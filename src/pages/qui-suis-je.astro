@@ -1,0 +1,404 @@
+---
+// L'Atelier de Lucette — Page À propos / Qui suis-je
+// Caroline Verdier : intuition, oracle, constellations, supply chain, IA
+import '../styles/global.css';
+
+const ctaEtuve = '/etuve/';
+
+const timeline = [
+  {
+    period: '2003 — 2014',
+    title: 'Les racines',
+    subtitle: 'Supply Chain & Coordination',
+    text: "Plus de 10 ans dans la logistique internationale et la supply chain : coordination de flux, gestion de commandes, ERP, process, KPI et coordination cross-fonctionnelle. De la logistique à Genève aux arômes chez Firmenich, de la medtech chez BD à la pharma cold chain chez Aptissen.",
+    formations: ['BTS Commerce International', 'Cambridge English / Business English'],
+    image: null,
+  },
+  {
+    period: '2014 — 2016',
+    title: 'Le grand large',
+    subtitle: 'Voyages et reconnexion',
+    text: "Deux années de sabbatique et de voyage. Un moment fondateur : retrouver le corps, la nature, la lenteur. Apprendre à être sans produire. Une reconnexion à elle-même qui deviendra le fil invisible de tout le reste. Pérou, Bolivie, Argentine, Chili, Île de Pâques, Polynésie Française, Thaïlande, Japon — des territoires qui ont ouvert des espaces intérieurs.",
+    formations: ['Hatha Vinyasa Yoga Teacher Training — Bhakti Healing School'],
+    image: null,
+  },
+  {
+    period: '2018 — 2023',
+    title: "L'éveil",
+    subtitle: 'Accompagnement, burn-out, création',
+    text: "Création de son activité indépendante : accompagnement des femmes sur les relations, la communication, l'audace de se lancer. Ça fonctionnait. Puis deux burn-out. Une vérité traversée : le corps n'est pas le problème. Il est le traducteur que l'intuition utilise pour se faire entendre. C'est aussi là que naît l'oracle D'une Rive à l'Autre — 42 cartes, un chemin de retour à soi.",
+    formations: ['Certificat de facilitatrice en hypnose spirituelle — Institut IIHS (2018)', 'Relationship Coach Certificate — The Relationship School (2021)'],
+    image: '/images/ecoute-toi-caroline-drize.jpg',
+    imageAlt: 'Caroline Verdier avec l\'oracle D\'une Rive à l\'Autre',
+  },
+  {
+    period: '2025 — 2026',
+    title: 'L\'invisible',
+    subtitle: 'Constellations et système nerveux',
+    text: "Formation en constellations familiales et systémiques, puis spécialisation sur l'eau. BodyWise pour comprendre les mécanismes du système nerveux. Un nouveau territoire s'ouvre : rendre visible ce qui agit en dessous — les places, les loyautés, les attachements, les mouvements bloqués, les forces invisibles qui façonnent nos vies.",
+    formations: ['BodyWise — Régulation du système nerveux (2025)', 'Constellations Familiales et Systémiques — L\'Athanor (2026)', 'Spécialisation constellations sur l\'eau — Paula Eskinazi (2026)'],
+    image: null,
+  },
+  {
+    period: '2026',
+    title: 'La voie du milieu',
+    subtitle: "L'Atelier de Lucette",
+    text: "Aujourd'hui, Caroline travaille à 60% comme Resource Planner dans l'aviation (Skyguide) tout en développant L'Atelier de Lucette : le Substack, l'offre L'Étuve, les constellations, l'oracle, l'accompagnement. Elle explore l'IA comme levier avec le Prisme One Bootcamp. L'enjeu : trouver le rythme juste. Ne pas se brûler, ne pas renoncer. Avancer sans que l'armure se referme.",
+    formations: ['Prisme One Bootcamp IA (2026)'],
+    image: null,
+  },
+];
+
+const croyances = [
+  "S'isoler n'est pas le chemin. Me laisser happer par le monde non plus. J'explore la voie du milieu.",
+  "On peut décider de déconstruire son armure avant qu'elle nous brise. Le choix précède la souffrance.",
+  'Le corps n\'est pas le problème. Il est le traducteur que l\'intuition utilise pour se faire entendre.',
+];
+---
+
+<!doctype html>
+<html lang="fr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Caroline Verdier — Intuition, oracle et constellations — L'Atelier de Lucette</title>
+    <meta
+      name="description"
+      content="Resource planner dans l'aviation, créatrice de l'oracle D'une Rive à l'Autre et constellatrice. Caroline aide les femmes sensibles et actives à retrouver leur voix intérieure dans un monde saturé de bruit, sans se couper du réel."
+    />
+    <link rel="canonical" href="https://latelierdelucette.com/qui-suis-je/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_CH" />
+    <meta property="og:site_name" content="L'Atelier de Lucette" />
+    <meta property="og:title" content="Caroline Verdier — Intuition, oracle et constellations" />
+    <meta property="og:description" content="Resource planner dans l'aviation, créatrice de l'oracle D'une Rive à l'Autre et constellatrice. Caroline aide les femmes sensibles et actives à retrouver leur voix intérieure." />
+    <meta property="og:url" content="https://latelierdelucette.com/qui-suis-je/" />
+    <meta property="og:image" content="https://latelierdelucette.com/images/portrait-caroline.png" />
+    <meta property="og:image:width" content="1080" />
+    <meta property="og:image:height" content="1080" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Caroline Verdier — Intuition, oracle et constellations" />
+    <meta name="twitter:description" content="Resource planner dans l'aviation, créatrice de l'oracle D'une Rive à l'Autre et constellatrice." />
+    <meta name="twitter:image" content="https://latelierdelucette.com/images/portrait-caroline.png" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
+    <script is:inline src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script type="application/ld+json" is:inline>
+      [
+        {
+          "@context": "https://schema.org",
+          "@type": "Person",
+          "name": "Caroline Verdier",
+          "description": "Resource planner dans l'aviation, créatrice de l'oracle D'une Rive à l'Autre et constellatrice. J'aide les femmes sensibles et actives à retrouver leur voix intérieure dans un monde saturé de bruit.",
+          "url": "https://latelierdelucette.com/qui-suis-je/",
+          "image": "https://latelierdelucette.com/images/portrait-caroline.png",
+          "knowsAbout": ["Intuition", "Oracle", "Constellations familiales", "Supply chain", "Intelligence artificielle"],
+          "sameAs": [
+            "https://carolineverdier.substack.com",
+            "https://instagram.com/caroline.verdier"
+          ]
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "name": "À propos de Caroline Verdier",
+          "description": "Resource planner dans l'aviation, créatrice de l'oracle D'une Rive à l'Autre et constellatrice.",
+          "mainEntity": {
+            "@type": "Person",
+            "name": "Caroline Verdier"
+          }
+        }
+      ]
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SNKPGHZL0Y"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      if (window.location.search.includes('tr=internal')) {
+        try { localStorage.setItem('__internal', '1'); } catch(e) {}
+      }
+      var __int = false;
+      try { __int = localStorage.getItem('__internal') === '1'; } catch(e) {}
+      gtag('config', 'G-SNKPGHZL0Y', __int ? { 'traffic_type': 'internal' } : {});
+    </script>
+  </head>
+
+  <body class="selection:bg-[#CC3DAA] selection:text-[#F7F4EE] overflow-x-hidden bg-[#F7F4EE] text-[#1E3A8A]">
+    <div class="bg-grain fixed inset-0 pointer-events-none z-0"></div>
+    <div class="arch-lines">
+      <svg width="100%" height="100%" viewBox="0 0 1440 900" preserveAspectRatio="none">
+        <line x1="10%" y1="0" x2="10%" y2="100%" stroke="#1E3A8A" stroke-width="0.5" />
+        <line x1="90%" y1="0" x2="90%" y2="100%" stroke="#1E3A8A" stroke-width="0.5" />
+        <line x1="0" y1="800" x2="1440" y2="360" stroke="#CC3DAA" stroke-width="0.5" opacity="0.5" />
+      </svg>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 inset-x-0 z-50 h-20 flex items-center border-b border-[#1E3A8A]/15 bg-[#F7F4EE]/90 backdrop-blur-md">
+      <div class="max-w-7xl mx-auto w-full px-6 flex items-center justify-between">
+        <a href="/" class="text-xl font-serif tracking-tight text-[#1E3A8A]">L'Atelier <span class="opacity-70">de Lucette</span></a>
+        <div class="hidden md:flex items-center gap-9">
+          <a href="#chemin" class="ui-text text-xs tracking-[0.2em] uppercase text-[#1E3A8A]/70 hover:text-[#CC3DAA] transition-colors">Mon chemin</a>
+          <a href="#croyances" class="ui-text text-xs tracking-[0.2em] uppercase text-[#1E3A8A]/70 hover:text-[#CC3DAA] transition-colors">Ce en quoi je crois</a>
+          <a href="#lucette" class="ui-text text-xs tracking-[0.2em] uppercase text-[#1E3A8A]/70 hover:text-[#CC3DAA] transition-colors">Lucette</a>
+        </div>
+        <a href={ctaEtuve} class="bg-[#CC3DAA] text-[#F7F4EE] ui-text text-xs tracking-[0.18em] uppercase px-5 py-3 rounded-sm hover:bg-[#D4845A] transition-colors">Découvrir L'Étuve</a>
+      </div>
+    </nav>
+
+    <main class="relative z-10">
+      <!-- Hero -->
+      <header class="min-h-screen flex items-center px-6 pt-28 pb-20">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-[1.05fr_0.95fr] gap-14 items-center">
+          <div class="text-center lg:text-left">
+            <div class="inline-flex items-center gap-4 mb-8">
+              <div class="h-px w-10 bg-[#2AACCB]"></div>
+              <span class="ui-text text-xs tracking-[0.22em] uppercase text-[#1E3A8A]/70">Qui je suis</span>
+              <div class="h-px w-10 bg-[#CC3DAA]"></div>
+            </div>
+
+            <h1 class="text-5xl md:text-7xl leading-[1.05] font-normal tracking-tight mb-6">
+              Caroline <span class="italic">Verdier</span>
+            </h1>
+
+            <p class="text-2xl md:text-3xl italic leading-tight text-[#CC3DAA] mb-10">
+              S'isoler n'est pas le chemin.<br />Me laisser happer par le monde non plus.<br />J'explore la voie du milieu.
+            </p>
+
+            <div class="space-y-4">
+              <div class="flex items-center gap-4 text-lg md:text-xl text-[#1E3A8A]/80">
+                <span class="text-[#CC3DAA] shrink-0">✦</span>
+                <span>Resource planner dans l'aviation</span>
+              </div>
+              <div class="flex items-center gap-4 text-lg md:text-xl text-[#1E3A8A]/80">
+                <span class="text-[#CC3DAA] shrink-0">✦</span>
+                <span>Créatrice de l'oracle <em>D'une Rive à l'Autre</em></span>
+              </div>
+              <div class="flex items-center gap-4 text-lg md:text-xl text-[#1E3A8A]/80">
+                <span class="text-[#CC3DAA] shrink-0">✦</span>
+                <span>Constellatrice</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative max-w-xl mx-auto lg:mx-0 w-full">
+            <div class="absolute inset-0 bg-[#CC3DAA] translate-x-5 translate-y-5 rounded-sm"></div>
+            <div class="relative aspect-[4/5] overflow-hidden rounded-sm border border-[#1E3A8A]/10 shadow-2xl bg-[#C9A96E]">
+              <img src="/images/portrait-caroline.png" alt="Caroline Verdier" class="w-full h-full object-cover" style="object-position: center 32%;" />
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Intro — Je suis Caroline -->
+      <section class="px-6 py-24 bg-[#FFFCF6] border-y border-[#1E3A8A]/10">
+        <div class="max-w-4xl mx-auto">
+          <div class="max-w-3xl">
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Je suis Caroline</p>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-8">Une planificatrice qui croit aux forces invisibles.</h2>
+          </div>
+          <div class="text-lg md:text-xl leading-relaxed text-[#1E3A8A]/78 space-y-6 max-w-4xl">
+            <p>Je planifie des ressources dans l'aviation. Je crée des oracles. Je fais des constellations. Je parle à l'IA comme à mon assistante. Et au milieu de tout ça, j'apprends à écouter mon corps et à faire confiance à ce que je sens.</p>
+            <p>Pendant plus de 20 ans, j'ai coordonné des flux logistiques, déployé des ERP, géré des plannings, optimisé des process dans des multinationales — l'aviation, la medtech, les biens de consommation, le transport international. J'aime les systèmes, la rigueur, l'organisation. C'est une vraie partie de moi.</p>
+            <p>Parallèlement, j'ai créé une activité indépendante autour des relations, des oracles, des constellations et de l'accompagnement des femmes. J'ai traversé deux burn-out qui m'ont appris ce que mon mental seul ne pouvait pas m'enseigner : mon corps me parle. Et quand je l'écoute, mes décisions deviennent plus justes.</p>
+            <p class="text-2xl font-serif italic text-[#CC3DAA]">Je crois aux oracles et à l'IA. Je crois au corps et aux systèmes. Je crois aux signes et à l'action concrète. Je crois qu'on peut être intuitive sans être hors-sol.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Timeline — Mon chemin -->
+      <section id="chemin" class="py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-16">
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Mon chemin</p>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal">Les étapes qui m'ont construite</h2>
+          </div>
+
+          <div class="space-y-20 md:space-y-28">
+            {timeline.map((etape, i) => (
+              <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+                {i % 2 === 0 ? (
+                  <>
+                    <!-- Image side (left on even steps) -->
+                    <div class="order-1">
+                      {etape.image ? (
+                        <div class="relative group">
+                          <div class="absolute inset-0 bg-[#CC3DAA] translate-x-4 translate-y-4 rounded-sm transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2"></div>
+                          <div class="relative aspect-[4/5] overflow-hidden rounded-sm border border-[#1E3A8A]/10 shadow-xl bg-[#C9A96E]">
+                            <img src={etape.image} alt={etape.imageAlt || etape.title} class="w-full h-full object-cover" loading="lazy" />
+                          </div>
+                        </div>
+                      ) : (
+                        <div class="aspect-[4/5] bg-[#FFFCF6] border border-[#1E3A8A]/10 rounded-sm flex items-center justify-center p-8">
+                          <div class="text-center">
+                            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-[#CC3DAA]/10 flex items-center justify-center">
+                              <span class="text-3xl font-serif italic text-[#CC3DAA]">{String(i + 1).padStart(2, '0')}</span>
+                            </div>
+                            <p class="text-xl font-serif text-[#1E3A8A]/50 italic">{etape.period}</p>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                    <!-- Text side -->
+                    <div class="order-2">
+                      <span class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA]">{etape.period}</span>
+                      <h3 class="text-3xl md:text-4xl leading-tight font-normal mt-3 mb-1">{etape.title}</h3>
+                      <p class="text-lg text-[#2AACCB] font-light mb-6">{etape.subtitle}</p>
+                      <p class="text-lg md:text-xl leading-relaxed text-[#1E3A8A]/78 mb-6">{etape.text}</p>
+                      {etape.formations.length > 0 && (
+                        <div class="border-t border-[#1E3A8A]/10 pt-5">
+                          <p class="ui-text text-[0.65rem] tracking-[0.18em] uppercase text-[#C9A96E] mb-3">Formations</p>
+                          <div class="space-y-2">
+                            {etape.formations.map((f) => (
+                              <div class="flex gap-3 text-[#1E3A8A]/65 text-base">
+                                <span class="text-[#C9A96E] shrink-0">—</span>
+                                <span>{f}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <!-- Text side (left on odd steps) -->
+                    <div class="order-2 md:order-1">
+                      <span class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA]">{etape.period}</span>
+                      <h3 class="text-3xl md:text-4xl leading-tight font-normal mt-3 mb-1">{etape.title}</h3>
+                      <p class="text-lg text-[#2AACCB] font-light mb-6">{etape.subtitle}</p>
+                      <p class="text-lg md:text-xl leading-relaxed text-[#1E3A8A]/78 mb-6">{etape.text}</p>
+                      {etape.formations.length > 0 && (
+                        <div class="border-t border-[#1E3A8A]/10 pt-5">
+                          <p class="ui-text text-[0.65rem] tracking-[0.18em] uppercase text-[#C9A96E] mb-3">Formations</p>
+                          <div class="space-y-2">
+                            {etape.formations.map((f) => (
+                              <div class="flex gap-3 text-[#1E3A8A]/65 text-base">
+                                <span class="text-[#C9A96E] shrink-0">—</span>
+                                <span>{f}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                    <!-- Image side (right on odd steps) -->
+                    <div class="order-1 md:order-2">
+                      {etape.image ? (
+                        <div class="relative group">
+                          <div class="absolute inset-0 bg-[#CC3DAA] translate-x-4 translate-y-4 rounded-sm transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2"></div>
+                          <div class="relative aspect-[4/5] overflow-hidden rounded-sm border border-[#1E3A8A]/10 shadow-xl bg-[#C9A96E]">
+                            <img src={etape.image} alt={etape.imageAlt || etape.title} class="w-full h-full object-cover" loading="lazy" />
+                          </div>
+                        </div>
+                      ) : (
+                        <div class="aspect-[4/5] bg-[#FFFCF6] border border-[#1E3A8A]/10 rounded-sm flex items-center justify-center p-8">
+                          <div class="text-center">
+                            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-[#CC3DAA]/10 flex items-center justify-center">
+                              <span class="text-3xl font-serif italic text-[#CC3DAA]">{String(i + 1).padStart(2, '0')}</span>
+                            </div>
+                            <p class="text-xl font-serif text-[#1E3A8A]/50 italic">{etape.period}</p>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Ce en quoi je crois -->
+      <section id="croyances" class="px-6 py-24 bg-[#1E3A8A] text-[#F7F4EE]">
+        <div class="max-w-5xl mx-auto">
+          <div class="text-center mb-14">
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#C9A96E] mb-6">Ce en quoi je crois</p>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-6">Quelques phrases qui me guident</h2>
+          </div>
+          <div class="space-y-8">
+            {croyances.map((citation) => (
+              <div class="border-l-2 border-[#CC3DAA] pl-8 md:pl-12 py-2">
+                <p class="text-2xl md:text-3xl font-serif italic leading-snug text-[#F1D9A7]">{citation}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Pourquoi Lucette -->
+      <section id="lucette" class="px-6 py-24 bg-[#FFFCF6] border-y border-[#1E3A8A]/10">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-12">
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Pourquoi Lucette ?</p>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal">L'histoire derrière le nom</h2>
+          </div>
+          <div class="text-lg md:text-xl leading-relaxed text-[#1E3A8A]/78 space-y-6 max-w-3xl mx-auto">
+            <p>Lucette, c'était ma grand-mère. Une femme créative, sensible, talentueuse, qui n'a pas toujours eu la place qu'elle méritait. Je me souviens d'elle dans son atelier de peinture sur soie — les couleurs, la patience, la beauté qui naissait entre ses mains.</p>
+            <p>L'Atelier de Lucette, c'est un hommage. Et une promesse : ne pas laisser nos élans, nos désirs et notre vérité rester coincés dans une vie trop petite. Ne pas attendre que quelqu'un nous donne la permission de créer, d'oser, d'exister pleinement.</p>
+            <p class="text-2xl font-serif italic text-[#CC3DAA]">Lucette, c'est le rappel que ce qui veut naître à travers nous mérite une place dans le monde.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tu veux travailler avec moi ? -->
+      <section class="py-28 px-6 bg-[#CC3DAA] relative overflow-hidden">
+        <div class="absolute inset-0 bg-grain opacity-10"></div>
+        <div class="relative z-10 max-w-3xl mx-auto text-center">
+          <h2 class="text-4xl md:text-6xl font-serif text-white mb-8 leading-[1.1] tracking-tight">
+            Tu veux travailler<br /><span class="italic">avec moi ?</span>
+          </h2>
+          <p class="text-lg text-white/90 font-light max-w-2xl mx-auto mb-12 leading-relaxed">
+            Si tu te reconnais dans ce chemin — cette fatigue d'avoir trop de réponses et pas assez de silence, cette envie de retrouver ce qui est vraiment à toi — j'ai créé un espace pour ça.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
+            <a href={ctaEtuve} class="inline-flex items-center gap-4 px-10 py-5 bg-[#1E3A8A] text-[#F7F4EE] font-semibold text-xs uppercase tracking-[0.2em] hover:bg-[#1E3A8A]/90 transition-all hover:-translate-y-1 shadow-2xl shadow-black/20 rounded-sm">
+              <iconify-icon icon="solar:stars-minimalistic-linear" width="16" height="16" stroke-width="1.5"></iconify-icon>
+              Découvrir L'Étuve
+            </a>
+            <a href="https://carolineverdier.substack.com" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-10 py-5 border border-white/30 text-white text-xs uppercase tracking-[0.2em] hover:bg-white/10 transition-all rounded-sm">
+              <iconify-icon icon="solar:letter-linear" width="16" height="16"></iconify-icon>
+              Lire la newsletter
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="py-16 px-6 bg-[#1E3A8A] border-t border-white/5">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+          <div class="flex items-center gap-4">
+            <iconify-icon icon="solar:stars-minimalistic-linear" class="text-[#CC3DAA]" width="20" height="20" stroke-width="1.5"></iconify-icon>
+            <span class="text-white font-serif text-lg">L'Atelier <span class="font-light opacity-60">de Lucette</span></span>
+          </div>
+          <div class="flex items-center gap-8 text-xs uppercase tracking-widest text-white/70">
+            <a href="https://carolineverdier.substack.com" target="_blank" rel="noopener" class="hover:text-[#CC3DAA] transition-colors">Substack</a>
+            <a href="https://instagram.com/caroline.verdier" target="_blank" rel="noopener" class="hover:text-[#CC3DAA] transition-colors">Instagram</a>
+            <a href={ctaEtuve} class="hover:text-[#CC3DAA] transition-colors">L'Étuve</a>
+          </div>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p class="text-xs text-white/65 font-light tracking-wide">
+            &copy; 2026 L'Atelier de Lucette. Tous droits réservés.
+            <span class="mx-2 opacity-40">|</span>
+            <a href="/mentions-legales" class="hover:text-[#CC3DAA] transition-colors">Mentions légales</a>
+            <span class="mx-2 opacity-40">|</span>
+            <a href="/cgv" class="hover:text-[#CC3DAA] transition-colors">CGV</a>
+          </p>
+          <p class="text-[0.6rem] text-white/55 uppercase tracking-widest font-light">
+            Intuition · Peur · Mental · Bruit extérieur
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
