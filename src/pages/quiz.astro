@@ -1,0 +1,446 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const metaPixelId = import.meta.env.PUBLIC_META_PIXEL_ID || '118700902141020';
+const nocodbUrl = "https://sheets.carolineverdier.com/api/v2/tables/mjjy0pte1nkeysv/records";
+const nocodbToken = "nc_pat_XORUeEnILbscyeuZmowWsS6Wwr9Wx5TTWYPmnR7m";
+const mlFormId = "190600034032551146";
+const mlAccountId = "131564";
+---
+
+<!doctype html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quel est ton archétype intuitif ? — L'Atelier de Lucette</title>
+  <meta name="description" content="Découvre ton archétype intuitif en 3 minutes. Quiz pour comprendre comment tu écoutes ta voix intérieure." />
+  <link rel="canonical" href="https://latelierdelucette.com/quiz/" />
+  <meta property="og:title" content="Quel est ton archétype intuitif ?" />
+  <meta property="og:description" content="Découvre ton archétype intuitif en 3 minutes." />
+  <meta property="og:image" content="https://latelierdelucette.com/images/portrait-caroline.png" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Special+Elite&display=swap" rel="stylesheet" />
+  <script is:inline src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <style>
+    .fade-in { animation: fi 0.35s ease-out both; }
+    @keyframes fi { from { opacity:0;transform:translateY(16px) } to { opacity:1;transform:translateY(0) } }
+    .pr-bar { transition: width 0.4s ease-out; }
+    .opt-btn { transition: all 0.2s ease; cursor:pointer; }
+    .opt-btn:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(0,0,0,0.08); }
+    .opt-btn:active { transform:scale(0.97); }
+  </style>
+</head>
+
+<body class="selection:bg-[#CC3DAA] selection:text-[#F7F4EE] overflow-x-hidden bg-[#F7F4EE] text-[#1E3A8A]">
+  <Nav current="/quiz/" />
+
+  <main class="relative z-10 pt-28 pb-20 px-4 min-h-screen flex items-center" id="app">
+    <div class="max-w-2xl mx-auto w-full">
+
+      <!-- Intro -->
+      <div id="s-intro" class="text-center fade-in">
+        <div class="inline-flex items-center gap-4 mb-8"><div class="h-px w-10 bg-[#2AACCB]"></div><span class="ui-text text-xs tracking-[0.22em] uppercase text-[#1E3A8A]/70">Quiz</span><div class="h-px w-10 bg-[#CC3DAA]"></div></div>
+        <h1 class="text-4xl md:text-5xl leading-[1.1] font-normal tracking-tight mb-6">Quel est ton <span class="italic text-[#CC3DAA]">archétype intuitif</span> ?</h1>
+        <p class="text-lg md:text-xl text-[#1E3A8A]/75 max-w-lg mx-auto mb-8 leading-relaxed">21 questions pour découvrir comment tu écoutes ta voix intérieure. À la fin, reçois un message audio personnalisé.</p>
+        <div class="flex items-center justify-center gap-6 text-sm text-[#1E3A8A]/60 mb-10"><span>✦ 3 minutes</span><span>✦ 7 archétypes</span><span>✦ Audio offert</span></div>
+        <button onclick="qStart()" class="px-10 py-5 bg-[#CC3DAA] text-[#F7F4EE] text-xs uppercase tracking-[0.2em] hover:bg-[#D4845A] transition-all rounded-sm">Commencer le quiz</button>
+      </div>
+
+      <!-- Quiz -->
+      <div id="s-quiz" class="hidden">
+        <div class="mb-8">
+          <div class="flex justify-between text-xs text-[#1E3A8A]/60 mb-2"><span id="q-num">Question 1/21</span><span id="q-pct">0%</span></div>
+          <div class="h-1 bg-[#1E3A8A]/10 rounded-full overflow-hidden"><div id="pr-bar" class="pr-bar h-full bg-[#CC3DAA] rounded-full" style="width:0%"></div></div>
+        </div>
+        <div id="q-box"></div>
+      </div>
+
+      <!-- Result -->
+      <div id="s-result" class="hidden"></div>
+    </div>
+  </main>
+
+  <Footer />
+
+  <script define:vars={{ nocodbUrl, nocodbToken, mlFormId, mlAccountId, metaPixelId }}>
+  const A = [
+    {id:'innocente',nom:"Innocente Incarnée",couleur:'#2AACCB',ico:'✦'},
+    {id:'hedoniste',nom:"Hédoniste Passionné",couleur:'#CC3DAA',ico:'◇'},
+    {id:'divine_mere',nom:"Divine Mère",couleur:'#C9A96E',ico:'★'},
+    {id:'artiste',nom:"Artiste Ingénue",couleur:'#D4845A',ico:'♡'},
+    {id:'sage_leader',nom:"Sage Leader",couleur:'#1E3A8A',ico:'△'},
+    {id:'guerrier',nom:"Guerrier Lumineux",couleur:'#2AACCB',ico:'◈'},
+    {id:'explorateur',nom:"Explorateur Conscient",couleur:'#C9A96E',ico:'∞'},
+  ];
+
+  const Q = [
+    {q:"Si tu étais une saison, tu serais…",g:true,
+     r:[
+      {t:"Le printemps",g:"#a8e6cf",s:{innocente:1}},
+      {t:"L'été",g:"#f6d365",s:{hedoniste:1}},
+      {t:"L'automne",g:"#d4a373",s:{divine_mere:1,sage_leader:1}},
+      {t:"L'hiver",g:"#e0e7ff",s:{artiste:1,explorateur:1}}
+    ]},
+    {q:"Quel est ton besoin prioritaire ?",g:false,
+     r:[
+      {t:"Besoin de plaire",s:{hedoniste:1}},
+      {t:"Besoin d'attention",s:{innocente:1,artiste:1}},
+      {t:"Besoin de comprendre",s:{divine_mere:1,sage_leader:1}},
+      {t:"Besoin de reconnaissance",s:{guerrier:1,explorateur:1}}
+    ]},
+    {q:"Au sein d'une équipe, tu es plutôt…",g:false,
+     r:[
+      {t:"Celle qui dirige et ordonne",s:{divine_mere:1,sage_leader:1}},
+      {t:"Celle qui crée et s'exprime",s:{innocente:1,artiste:1}},
+      {t:"Celle qui structure",s:{guerrier:1}},
+      {t:"Celle qui n'en fait qu'à sa tête",s:{hedoniste:1,explorateur:1}}
+    ]},
+    {q:"Qu'est-ce que tu préfères manger ?",g:true,
+     r:[
+      {t:"Un plat exotique et nouveau",g:"#f9d423",s:{artiste:1,explorateur:1}},
+      {t:"Burger ou steak-frites",g:"#d4a373",s:{hedoniste:1}},
+      {t:"Selon l'envie du moment",g:"#a1c4fd",s:{innocente:1,hedoniste:1}},
+      {t:"Une soupe réconfortante",g:"#f7d486",s:{divine_mere:1}},
+      {t:"Vegan ou raw food",g:"#6bcf7f",s:{guerrier:1}}
+    ]},
+    {q:"Quelle voiture ferait ton bonheur ?",g:true,
+     r:[
+      {t:"Porsche décapotable",g:"#f857a6",s:{hedoniste:1}},
+      {t:"Jeep tout-terrain",g:"#606c88",s:{explorateur:1}},
+      {t:"Confortable, 6 places",g:"#f5af19",s:{divine_mere:1}},
+      {t:"Mini trop mimi",g:"#f093fb",s:{artiste:1}},
+      {t:"Grosse BMW",g:"#203a43",s:{sage_leader:1}},
+      {t:"Peu importe, chauffeur",g:"#d3cce3",s:{innocente:1}},
+      {t:"Hybride écologique",g:"#11998e",s:{guerrier:1}}
+    ]},
+    {q:"Si tu étais un animal, tu serais…",g:true,
+     r:[
+      {t:"Étoile de mer",g:"#4facfe",s:{innocente:1}},
+      {t:"Guêpe",g:"#f093fb",s:{hedoniste:1}},
+      {t:"Marmotte",g:"#c9a96e",s:{divine_mere:1}},
+      {t:"Ours",g:"#5d4037",s:{artiste:1}},
+      {t:"Bécasse",g:"#a8c0ff",s:{sage_leader:1}},
+      {t:"Renard",g:"#f2994a",s:{guerrier:1}},
+      {t:"Souris",g:"#a8c0ff",s:{explorateur:1}}
+    ]},
+    {q:"Avec quel élément as-tu le plus d'affinités ?",g:true,
+     r:[
+      {t:"L'eau",g:"#4facfe",s:{divine_mere:1}},
+      {t:"L'air",g:"#e0eafc",s:{artiste:1,sage_leader:1}},
+      {t:"La terre",g:"#8d6e63",s:{guerrier:1,explorateur:1}},
+      {t:"Le feu",g:"#ff6b6b",s:{innocente:1,hedoniste:1}}
+    ]},
+    {q:"Quel environnement te parle le plus ?",g:true,
+     r:[
+      {t:"Burning Man",g:"#f857a6",s:{hedoniste:1}},
+      {t:"Forêt enchantée",g:"#11998e",s:{innocente:1}},
+      {t:"Cour avec fontaine",g:"#c9a96e",s:{divine_mere:1}},
+      {t:"Rivière agitée",g:"#4facfe",s:{artiste:1}},
+      {t:"Sommet montagne",g:"#606c88",s:{sage_leader:1}},
+      {t:"Réserve naturelle",g:"#6bcf7f",s:{guerrier:1}},
+      {t:"Lieu inconnu",g:"#d3cce3",s:{explorateur:1}}
+    ]},
+    {q:"Quelle émotion vis-tu le plus souvent ?",g:false,
+     r:[
+      {t:"La colère",s:{sage_leader:1,guerrier:1}},
+      {t:"La tristesse",s:{divine_mere:1,artiste:1}},
+      {t:"L'indifférence",s:{hedoniste:1,explorateur:1}},
+      {t:"La joie",s:{innocente:1,hedoniste:1}}
+    ]},
+    {q:"Quel type de films préfères-tu ?",g:true,
+     r:[
+      {t:"Romantique",g:"#f857a6",s:{divine_mere:1}},
+      {t:"Aventure",g:"#f9d423",s:{hedoniste:1}},
+      {t:"Science-fiction",g:"#203a43",s:{sage_leader:1}},
+      {t:"Dessins animés",g:"#a8e6cf",s:{innocente:1}},
+      {t:"Policier",g:"#5d4037",s:{guerrier:1}},
+      {t:"Documentaire",g:"#606c88",s:{explorateur:1}},
+      {t:"Film d'auteur",g:"#d3cce3",s:{artiste:1}}
+    ]},
+    {q:"En conflit, tu es plutôt…",g:false,
+     r:[
+      {t:"C'est pas ma faute",s:{innocente:1}},
+      {t:"Je quitte, ça me saoule",s:{hedoniste:1,artiste:1}},
+      {t:"Je me tais, c'est ma faute",s:{divine_mere:1}},
+      {t:"J'observe, je trouve la faille",s:{sage_leader:1,explorateur:1}},
+      {t:"J'impose ma vérité",s:{guerrier:1}}
+    ]},
+    {q:"Quelle affirmation te convient le mieux ?",g:false,
+     r:[
+      {t:"Je vois le positif et je sais ma valeur",s:{innocente:1}},
+      {t:"On m'apprécie, j'ai ma place",s:{hedoniste:1}},
+      {t:"Je me fais confiance",s:{divine_mere:1}},
+      {t:"Je vois le système",s:{sage_leader:1}},
+      {t:"J'exprime qui je suis",s:{artiste:1}},
+      {t:"Je respecte mes limites",s:{guerrier:1}},
+      {t:"Je connais mes cycles",s:{explorateur:1}}
+    ]},
+    {q:"En relation, tu…",g:false,
+     r:[
+      {t:"Es ouverte à toutes les expériences",s:{innocente:1}},
+      {t:"Exaltée au début, la routine t'ennuie",s:{hedoniste:1,artiste:1}},
+      {t:"Préserves l'harmonie",s:{divine_mere:1}},
+      {t:"Amènes les ressources",s:{sage_leader:1,guerrier:1}},
+      {t:"Excelle en communication",s:{explorateur:1}}
+    ]},
+    {q:"Quelle musique parle à ton âme ?",g:false,
+     r:[
+      {t:"Man I feel like a woman — Shania Twain",s:{artiste:1}},
+      {t:"Tôt le matin — Gaël Faye",s:{explorateur:1}},
+      {t:"Ain't no mountain — Marvin Gaye",s:{hedoniste:1}},
+      {t:"La liste — Rose",s:{innocente:1}},
+      {t:"Wild World — Cat Stevens",s:{sage_leader:1}},
+      {t:"Thunderstruck — AC/DC",s:{guerrier:1}},
+      {t:"Je nous veux — Céline Dion",s:{divine_mere:1}}
+    ]},
+    {q:"Devant une décision importante…",g:false,
+     r:[
+      {t:"Je pèse le pour et le contre",s:{sage_leader:1}},
+      {t:"Je demande l'avis des autres",s:{divine_mere:1}},
+      {t:"J'écoute mon corps",s:{innocente:1}},
+      {t:"Je cherche un signe",s:{artiste:1}},
+      {t:"Je passe à l'action",s:{guerrier:1}},
+      {t:"J'explore toutes les options",s:{explorateur:1}},
+      {t:"Ce qui me fait envie",s:{hedoniste:1}}
+    ]},
+    {q:"Le silence pour toi, c'est…",g:false,
+     r:[
+      {t:"Un moment précieux",s:{artiste:1,sage_leader:1}},
+      {t:"Je le remplis vite",s:{hedoniste:1}},
+      {t:"Un peu angoissant",s:{divine_mere:1}},
+      {t:"Un luxe trop rare",s:{innocente:1}},
+      {t:"Un espace vital",s:{guerrier:1}},
+      {t:"Le moment de me reconnecter",s:{explorateur:1}}
+    ]},
+    {q:"Ton intuition en ce moment…",g:false,
+     r:[
+      {t:"Forte et claire",s:{sage_leader:1}},
+      {t:"Présente mais je doute",s:{divine_mere:1,artiste:1}},
+      {t:"Étouffée",s:{innocente:1}},
+      {t:"Mélangée à la peur",s:{guerrier:1}},
+      {t:"Je ne sais pas",s:{hedoniste:1}},
+      {t:"Me guide mais je résiste",s:{explorateur:1}}
+    ]},
+    {q:"Ta bonne trajectoire de vie…",g:false,
+     r:[
+      {t:"Je sais mais je n'y vais pas",s:{artiste:1}},
+      {t:"Je ne sais plus ce que c'est",s:{innocente:1}},
+      {t:"Je la sens sans savoir comment",s:{divine_mere:1}},
+      {t:"Dessus mais je doute",s:{sage_leader:1}},
+      {t:"Je sais et j'y vais",s:{guerrier:1}},
+      {t:"Je l'explore",s:{explorateur:1,hedoniste:1}}
+    ]},
+    {q:"Ce qui te freine le plus…",g:false,
+     r:[
+      {t:"Le manque de temps",s:{sage_leader:1}},
+      {t:"Le manque de confiance",s:{artiste:1}},
+      {t:"Le bruit extérieur",s:{divine_mere:1}},
+      {t:"La peur du mauvais choix",s:{innocente:1}},
+      {t:"Mon mental qui analyse",s:{explorateur:1}},
+      {t:"La fatigue",s:{hedoniste:1}},
+      {t:"Je ne sais pas par où",s:{guerrier:1}}
+    ]},
+    {q:"Un message pour toi, tu aimerais…",g:false,
+     r:[
+      {t:"Être rassurée sur ma direction",s:{innocente:1}},
+      {t:"Oser ce que je n'ose pas",s:{artiste:1,hedoniste:1}},
+      {t:"Un cadre pour m'écouter",s:{divine_mere:1,sage_leader:1}},
+      {t:"Des clés concrètes",s:{guerrier:1}},
+      {t:"Une perspective inédite",s:{explorateur:1}}
+    ]},
+    {q:"Aujourd'hui, le plus important…",g:false,
+     r:[
+      {t:"Retrouver la joie",s:{innocente:1}},
+      {t:"Vivre pleinement",s:{hedoniste:1}},
+      {t:"Prendre soin",s:{divine_mere:1}},
+      {t:"Créer et exprimer",s:{artiste:1}},
+      {t:"Construire du solide",s:{sage_leader:1}},
+      {t:"Avancer, me dépasser",s:{guerrier:1}},
+      {t:"Explorer",s:{explorateur:1}}
+    ]},
+  ];
+
+  const R = {
+    innocente:{t:"Innocente Incarnée",st:"Tu es connectée à tes besoins profonds",
+      f:"Tu as une capacité naturelle à ressentir ce qui est bon pour toi. Ton intuition est pure, directe — comme un enfant qui sait ce qu'il veut sans hésiter. Tu vois le positif partout et ta joie est contagieuse.",
+      d:"Tu peux douter de ta valeur et te laisser submerger par tes émotions. Parfois tu manques de vision à long terme.",
+      bg:"#2AACCB",ico:"✦"},
+    hedoniste:{t:"Hédoniste Passionné",st:"Tu sais ce que tu veux",
+      f:"Ton magnétisme et ta confiance en toi font de toi une personne profondément vivante. Tu suis tes désirs avec intensité.",
+      d:"Tu brûles les étapes et remplis le vide par l'action. Le silence te confronte à tes peurs.",
+      bg:"#CC3DAA",ico:"◇"},
+    divine_mere:{t:"Divine Mère",st:"Ton intuition est un don",
+      f:"Ton intuition naturelle est puissante, surtout pour prendre soin et créer l'harmonie. Tu es un phare.",
+      d:"Tu t'oublies dans la relation à l'autre. Tu utilises ton intuition pour les autres, pas pour toi.",
+      bg:"#C9A96E",ico:"★"},
+    artiste:{t:"Artiste Ingénue",st:"Tu vois la beauté partout",
+      f:"Ta créativité et ta sensibilité sont des super-pouvoirs. Tu exprimes ta vérité avec authenticité.",
+      d:"Tu doutes de ta légitimité. Le regard des autres t'impacte plus que tu ne le montres.",
+      bg:"#D4845A",ico:"♡"},
+    sage_leader:{t:"Sage Leader",st:"Tu construis des systèmes solides",
+      f:"Tu as le sens du cadre et de la responsabilité. Tu es un roc sur qui les autres peuvent compter.",
+      d:"Tu écoutes ta tête plus que ton corps. Descendre de la tour de contrôle est ton défi.",
+      bg:"#1E3A8A",ico:"△"},
+    guerrier:{t:"Guerrier Lumineux",st:"Tu te bats pour ce qui est juste",
+      f:"Tu passes à l'action rapidement et tu défends tes valeurs avec intégrité.",
+      d:"Tu confonds action et écoute. Tu fonces sans prendre le temps de sentir la direction.",
+      bg:"#2AACCB",ico:"◈"},
+    explorateur:{t:"Explorateur Conscient",st:"Tu es libre par nature",
+      f:"Tu t'adaptes partout. Tu sais concilier liberté et connexion.",
+      d:"Tu as du mal à t'ancrer dans une pratique régulière. Ta liberté t'empêche d'approfondir.",
+      bg:"#C9A96E",ico:"∞"}
+  };
+
+  let qi = 0, sc = {}, ans = {};
+  A.forEach(a => sc[a.id] = 0);
+
+  function qStart() {
+    gi('s-intro').classList.add('hidden');
+    gi('s-quiz').classList.remove('hidden');
+    showQ(0);
+  }
+
+  function showQ(i) {
+    qi = i; const q = Q[i];
+    gi('q-num').textContent = 'Question '+(i+1)+'/'+Q.length;
+    const p = Math.round(i/Q.length*100);
+    gi('q-pct').textContent = p+'%';
+    gi('pr-bar').style.width = p+'%';
+
+    const c = q.g ? 3 : 2;
+    gi('q-box').innerHTML =
+      `<div class="fade-in"><p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Question ${i+1}</p>
+      <h2 class="text-2xl md:text-3xl leading-tight font-normal mb-8">${q.q}</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-${q.r.length >= 5 ? 3 : 2} gap-2 sm:gap-3">
+        ${q.r.map((r,j) =>
+          q.g
+            ? `<button class="opt-btn rounded-sm border border-[#1E3A8A]/10 overflow-hidden h-[120px] sm:h-[140px]" style="background:${r.g}" onclick="pick(${i},${j})">
+                <div class="w-full h-full flex items-center justify-center p-2"><span class="text-white text-sm sm:text-base font-medium leading-tight text-center" style="text-shadow:0 1px 3px rgba(0,0,0,0.35)">${r.t}</span></div>
+              </button>`
+            : `<button class="opt-btn rounded-sm border border-[#1E3A8A]/10 bg-white p-4 sm:p-5 text-left hover:border-[#CC3DAA]/30" onclick="pick(${i},${j})">
+                <span class="text-sm sm:text-base text-[#1E3A8A]/85 leading-snug">${r.t}</span>
+              </button>`
+        ).join('')}
+      </div></div>`;
+  }
+
+  function pick(qi, ri) {
+    const q = Q[qi], r = q.r[ri];
+    Object.keys(r.s).forEach(k => { sc[k] = (sc[k]||0) + r.s[k]; });
+    ans[qi] = ri;
+    qi+1 < Q.length ? showQ(qi+1) : showResult();
+  }
+
+  function showResult() {
+    let max=0, w='innocente';
+    A.forEach(a => { if(sc[a.id] > max) { max=sc[a.id]; w=a.id; } });
+    const res = R[w], arch = A.find(a => a.id === w);
+    gi('s-quiz').classList.add('hidden');
+
+    gi('s-result').innerHTML =
+      `<div class="fade-in text-center">
+        <div class="w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center text-3xl" style="background:${arch.couleur}20;color:${arch.couleur}">${arch.ico}</div>
+        <p class="ui-text text-xs tracking-[0.22em] uppercase mb-2" style="color:${arch.couleur}">Ton archétype intuitif</p>
+        <h2 class="text-3xl md:text-4xl font-normal mb-2">${res.t}</h2>
+        <p class="text-lg text-[#1E3A8A]/70 mb-10 italic">${res.st}</p>
+
+        <div class="text-left max-w-lg mx-auto space-y-4 mb-10">
+          <div class="bg-white border border-[#1E3A8A]/10 rounded-sm p-5">
+            <p class="ui-text text-[0.65rem] tracking-[0.18em] uppercase text-[#2AACCB] mb-2">Ta force intuitive</p>
+            <p class="text-[#1E3A8A]/80 leading-relaxed">${res.f}</p>
+          </div>
+          <div class="bg-white border border-[#1E3A8A]/10 rounded-sm p-5">
+            <p class="ui-text text-[0.65rem] tracking-[0.18em] uppercase text-[#CC3DAA] mb-2">Ton défi</p>
+            <p class="text-[#1E3A8A]/80 leading-relaxed">${res.d}</p>
+          </div>
+        </div>
+
+        <div class="max-w-md mx-auto mb-10" style="background:${res.bg};border-radius:4px;padding:2px">
+          <div class="bg-white p-6 rounded-sm text-center">
+            <p class="ui-text text-[0.65rem] tracking-[0.18em] uppercase text-[#CC3DAA] mb-3">Ton audio personnalisé</p>
+            <p class="text-lg leading-relaxed text-[#1E3A8A]/80 mb-4">Un message audio de 3 minutes, créé pour ton archétype, pour t'aider à dépasser ton défi et activer ta force.</p>
+          </div>
+        </div>
+
+        <form id="qf" onsubmit="subQ(event,'${w}')" class="max-w-sm mx-auto">
+          <input type="text" id="fn" placeholder="Ton prénom" required
+            class="w-full px-4 py-3 mb-3 border border-[#1E3A8A]/20 rounded-sm text-sm text-[#1E3A8A] placeholder-[#1E3A8A]/40 bg-white focus:outline-none focus:border-[#CC3DAA] transition-colors">
+          <input type="email" id="fe" placeholder="Ton email" required
+            class="w-full px-4 py-3 mb-4 border border-[#1E3A8A]/20 rounded-sm text-sm text-[#1E3A8A] placeholder-[#1E3A8A]/40 bg-white focus:outline-none focus:border-[#CC3DAA] transition-colors">
+          <button type="submit" id="sb" class="w-full py-4 px-6 bg-[#CC3DAA] text-white text-xs uppercase tracking-[0.2em] hover:bg-[#D4845A] transition-all rounded-sm">Recevoir mon audio</button>
+          <p class="text-xs text-[#1E3A8A]/50 mt-4">Gratuit. Je peux me désinscrire à tout moment.</p>
+        </form>
+        <div id="fm" class="hidden mt-6"></div>
+      </div>`;
+    gi('s-result').classList.remove('hidden');
+  }
+
+  async function subQ(e, wid) {
+    e.preventDefault();
+    const btn = gi('sb'), msg = gi('fm');
+    btn.disabled = true; btn.textContent = 'Envoi…';
+
+    const prenom = gi('fn').value.trim();
+    const email = gi('fe').value.trim();
+
+    try {
+      // Submit to NocoDB
+      fetch(nocodbUrl, {
+        method:'POST',
+        headers:{'Content-Type':'application/json','xc-token':nocodbToken},
+        body:JSON.stringify({
+          email, prenom,
+          resultat: R[wid].t,
+          score_innocente: sc.innocente||0,
+          score_hedoniste: sc.hedoniste||0,
+          score_divine_mere: sc.divine_mere||0,
+          score_artiste: sc.artiste||0,
+          score_sage_leader: sc.sage_leader||0,
+          score_guerrier: sc.guerrier||0,
+          score_explorateur: sc.explorateur||0,
+          reponses: JSON.stringify(ans),
+          referrer: document.referrer||'',
+        })
+      }).catch(()=>{});
+
+      // Subscribe to MailerLite
+      const mlBody = new URLSearchParams();
+      mlBody.append('fields[name]', prenom);
+      mlBody.append('fields[email]', email);
+      mlBody.append('ml-submit', '1');
+      mlBody.append('anticsrf', 'true');
+      fetch('https://assets.mailerlite.com/jsonp/'+mlAccountId+'/forms/'+mlFormId+'/subscribe', {
+        method:'POST', body:mlBody
+      }).catch(()=>{});
+
+      // Track
+      if(typeof fbq === 'function') fbq('track','Lead',{content_name:'Quiz - '+R[wid].t});
+
+      btn.textContent = '✅ C'est parti !';
+      msg.classList.remove('hidden');
+      msg.innerHTML =
+        '<div class="p-6 bg-white border border-[#2AACCB]/20 rounded-sm text-center">'+
+        '<p class="text-lg font-serif text-[#1E3A8A] mb-3">Merci ' + prenom + ' !</p>'+
+        '<p class="text-[#1E3A8A]/70 leading-relaxed">Vérifie ta boîte mail dans les prochaines minutes.<br/>Ton audio personnalisé t\'attend.</p>'+
+        '<div class="mt-6 border-t border-[#1E3A8A]/10 pt-6">'+
+        '<p class="text-sm text-[#1E3A8A]/60 mb-4">En attendant, découvre L\'Étuve — un espace de pratique de 6 semaines pour approfondir ce que ce quiz a commencé.</p>'+
+        '<a href="/etuve/" class="inline-flex px-8 py-4 bg-[#CC3DAA] text-white text-xs uppercase tracking-[0.2em] hover:bg-[#D4845A] transition-all rounded-sm">Découvrir L\'Étuve</a>'+
+        '</div></div>';
+      gi('qf').classList.add('hidden');
+
+    } catch(e) {
+      msg.classList.remove('hidden');
+      msg.innerHTML = '<div class="p-4 bg-white border border-[#1E3A8A]/10 rounded-sm text-center text-[#1E3A8A]/80">Merci ! Vérifie tes emails.</div>';
+      btn.textContent = '✅ Fait';
+    }
+  }
+
+  function gi(id) { return document.getElementById(id); }
+  </script>
+</body>
+</html>
