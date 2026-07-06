@@ -67,7 +67,11 @@ const mlAccountId = "131564";
 
   <Footer />
 
-  <script define:vars={{ nocodbUrl, nocodbToken, mlFormId, mlAccountId, metaPixelId }}>
+  <script is:inline>
+  const NOCODB_URL = "https://sheets.carolineverdier.com/api/v2/tables/mjjy0pte1nkeysv/records";
+  const NOCODB_TOKEN = "nc_pat_XORUeEnILbscyeuZmowWsS6Wwr9Wx5TTWYPmnR7m";
+  const ML_FORM_ID = "190600034032551146";
+  const ML_ACCOUNT_ID = "131564";
   const A = [
     {id:'innocente',nom:"Innocente Incarnée",couleur:'#2AACCB',ico:'✦'},
     {id:'hedoniste',nom:"Hédoniste Passionné",couleur:'#CC3DAA',ico:'◇'},
@@ -390,9 +394,9 @@ const mlAccountId = "131564";
 
     try {
       // Submit to NocoDB
-      fetch(nocodbUrl, {
+      fetch(NOCODB_URL, {
         method:'POST',
-        headers:{'Content-Type':'application/json','xc-token':nocodbToken},
+        headers:{'Content-Type':'application/json','xc-token':NOCODB_TOKEN},
         body:JSON.stringify({
           email, prenom,
           resultat: R[wid].t,
@@ -414,7 +418,7 @@ const mlAccountId = "131564";
       mlBody.append('fields[email]', email);
       mlBody.append('ml-submit', '1');
       mlBody.append('anticsrf', 'true');
-      fetch('https://assets.mailerlite.com/jsonp/'+mlAccountId+'/forms/'+mlFormId+'/subscribe', {
+      fetch('https://assets.mailerlite.com/jsonp/'+ML_ACCOUNT_ID+'/forms/'+ML_FORM_ID+'/subscribe', {
         method:'POST', body:mlBody
       }).catch(()=>{});
 
