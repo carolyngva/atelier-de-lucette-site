@@ -54,7 +54,15 @@ const mlAccountId = "131564";
       <!-- Quiz -->
       <div id="s-quiz" class="hidden">
         <div class="mb-8">
-          <div class="flex justify-between text-xs text-[#1E3A8A]/60 mb-2"><span id="q-num">Question 1/21</span><span id="q-pct">0%</span></div>
+          <div class="flex justify-between items-center text-xs text-[#1E3A8A]/60 mb-2">
+            <div class="flex items-center gap-3">
+              <button id="back-btn" onclick="goBack()" class="hidden hover:text-[#CC3DAA] transition-colors p-1 -ml-1" title="Question précédente">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <span id="q-num">Question 1/21</span>
+            </div>
+            <span id="q-pct">0%</span>
+          </div>
           <div class="h-1 bg-[#1E3A8A]/10 rounded-full overflow-hidden"><div id="pr-bar" class="pr-bar h-full bg-[#CC3DAA] rounded-full" style="width:0%"></div></div>
         </div>
         <div id="q-box"></div>
@@ -300,7 +308,7 @@ const mlAccountId = "131564";
       bg:"#C9A96E",ico:"∞"}
   };
 
-  let qi = 0, sc = {}, ans = {};
+  let qi = 0, sc = {}, ans = {}, scLog = [];
   A.forEach(a => sc[a.id] = 0);
 
   function qStart() {
@@ -315,6 +323,7 @@ const mlAccountId = "131564";
     const p = Math.round(i/Q.length*100);
     gi('q-pct').textContent = p+'%';
     gi('pr-bar').style.width = p+'%';
+    gi('back-btn').classList.toggle('hidden', i === 0);
 
     const c = q.g ? 3 : 2;
     gi('q-box').innerHTML =
@@ -335,9 +344,22 @@ const mlAccountId = "131564";
 
   function pick(qi, ri) {
     const q = Q[qi], r = q.r[ri];
-    Object.keys(r.s).forEach(k => { sc[k] = (sc[k]||0) + r.s[k]; });
+    const added = {};
+    Object.keys(r.s).forEach(k => { const v = r.s[k]; sc[k] = (sc[k]||0) + v; added[k] = v; });
+    scLog[qi] = added;
     ans[qi] = ri;
     qi+1 < Q.length ? showQ(qi+1) : showResult();
+  }
+
+function goBack() {
+    if (qi <= 0) return;
+    const prevIdx = qi - 1;
+    if (ans[prevIdx] !== undefined && scLog[prevIdx]) {
+      Object.keys(scLog[prevIdx]).forEach(k => { sc[k] = (sc[k]||0) - scLog[prevIdx][k]; });
+    }
+    delete ans[prevIdx];
+    delete scLog[prevIdx];
+    showQ(prevIdx);
   }
 
   function showResult() {
