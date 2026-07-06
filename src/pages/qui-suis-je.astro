@@ -13,7 +13,7 @@ const timeline = [
     title: 'Les racines',
     subtitle: 'Supply Chain & Coordination',
     text: "Plus de 10 ans dans la logistique internationale et la supply chain : coordination de flux, gestion de commandes, ERP, process, KPI et coordination cross-fonctionnelle. De la logistique à Genève aux arômes chez Firmenich, de la medtech chez BD à la pharma cold chain chez Aptissen.",
-    formations: ['BTS Commerce International', 'Cambridge English / Business English'],
+    formations: [{ text: 'BTS Commerce International' }, { text: 'Cambridge English / Business English' }],
     image: null,
   },
   {
@@ -21,7 +21,7 @@ const timeline = [
     title: 'Le grand large',
     subtitle: 'Voyages et reconnexion',
     text: "Deux années de sabbatique et de voyage. Un moment fondateur : retrouver le corps, la nature, la lenteur. Apprendre à être sans produire. Une reconnexion à elle-même qui deviendra le fil invisible de tout le reste. Pérou, Bolivie, Argentine, Chili, Île de Pâques, Polynésie Française, Thaïlande, Japon — des territoires qui ont ouvert des espaces intérieurs.",
-    formations: ['Hatha Vinyasa Yoga Teacher Training — Bhakti Healing School'],
+    formations: [{ text: 'Hatha Vinyasa Yoga Teacher Training — Bhakti Healing School' }],
     image: null,
   },
   {
@@ -29,7 +29,7 @@ const timeline = [
     title: "L'éveil",
     subtitle: 'Accompagnement, burn-out, création',
     text: "Création de son activité indépendante : accompagnement des femmes sur les relations, la communication, l'audace de se lancer. Ça fonctionnait. Puis deux burn-out. Une vérité traversée : le corps n'est pas le problème. Il est le traducteur que l'intuition utilise pour se faire entendre. C'est aussi là que naît l'oracle D'une Rive à l'Autre — 42 cartes, un chemin de retour à soi.",
-    formations: ['Certificat de facilitatrice en hypnose spirituelle — Institut IIHS (2018)', 'Relationship Coach Certificate — The Relationship School (2021)'],
+    formations: [{ text: 'Certificat de facilitatrice en hypnose spirituelle — Institut IIHS (2018)', href: '/lignes-de-temps/' }, { text: 'Relationship Coach Certificate — The Relationship School (2021)', href: '/coaching-de-relations/' }],
     image: '/images/ecoute-toi-caroline-drize.jpg',
     imageAlt: "Caroline Verdier avec l'oracle D'une Rive à l'Autre",
   },
@@ -38,7 +38,7 @@ const timeline = [
     title: 'L\'invisible',
     subtitle: 'Constellations et système nerveux',
     text: "Formation en constellations familiales et systémiques, puis spécialisation sur l'eau. BodyWise pour comprendre les mécanismes du système nerveux. Un nouveau territoire s'ouvre : rendre visible ce qui agit en dessous — les places, les loyautés, les attachements, les mouvements bloqués, les forces invisibles qui façonnent nos vies.",
-    formations: ['BodyWise — Régulation du système nerveux (2025)', 'Constellations Familiales et Systémiques — L\'Athanor (2026)', 'Spécialisation constellations sur l\'eau — Paula Eskinazi (2026)'],
+    formations: [{ text: 'BodyWise — Régulation du système nerveux (2025)', href: '/systeme-nerveux/' }, { text: 'Constellations Familiales et Systémiques — L\'Athanor (2026)', href: '/constellations/' }, { text: 'Spécialisation constellations sur l\'eau — Paula Eskinazi (2026)', href: '/constellations/' }],
     image: null,
   },
   {
@@ -46,7 +46,7 @@ const timeline = [
     title: 'La voie du milieu',
     subtitle: "L'Atelier de Lucette",
     text: "Aujourd'hui, Caroline travaille à 60% comme Resource Planner dans l'aviation (Skyguide) tout en développant L'Atelier de Lucette : le Substack, l'offre L'Étuve, les constellations, l'oracle, l'accompagnement. Elle explore l'IA comme levier avec le Prisme One Bootcamp. L'enjeu : trouver le rythme juste. Ne pas se brûler, ne pas renoncer. Avancer sans que l'armure se referme.",
-    formations: ['Prisme One Bootcamp IA (2026)'],
+    formations: [{ text: 'Prisme One Bootcamp IA (2026)' }],
     image: null,
   },
 ];
@@ -72,7 +72,7 @@ const croyances = [
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="fr_CH" />
     <meta property="og:site_name" content="L'Atelier de Lucette" />
-    <meta property="og:title" content="Caroline Verdier — Intuition, oracle et constellations" />
+    <meta property="og:title" content="Caroline Verdier — Intuition, oracle et constellations — L'Atelier de Lucette" />
     <meta property="og:description" content="Resource planner dans l'aviation, créatrice de l'oracle D'une Rive à l'Autre et constellatrice. Caroline aide les femmes sensibles et actives à retrouver leur voix intérieure." />
     <meta property="og:url" content="https://latelierdelucette.com/qui-suis-je/" />
     <meta property="og:image" content="https://latelierdelucette.com/images/portrait-caroline.png" />
@@ -114,6 +114,60 @@ const croyances = [
             "@type": "Person",
             "name": "Caroline Verdier"
           }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "C'est quoi la différence entre intuition, peur et mental ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "L'intuition est une sensation (calme, juste, cohérente). La peur est une contraction (protection, survie, connu). Le mental est un moulin (répétition, contrôle, scénarios). Leur point commun : elles parlent toutes les trois dans le corps. Ce qui les distingue ? La sensation qui les accompagne. Mon travail est de t'aider à reconnaître la signature corporelle de chacune — pour ne plus les confondre."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Est-ce qu'il faut déjà savoir écouter son intuition ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "La plupart des femmes qui viennent me voir savent écouter leur intuition. Mais elles sont dans une phase de vie où elles n'y arrivent plus vraiment — le bruit, les responsabilités, la fatigue ont pris le dessus. L'atelier est fait pour ça : retrouver une voie que tu connais déjà, mais que tu n'entends plus clairement. Pas besoin de prérequis, juste l'envie de retrouver le fil."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Je travaille dans un milieu cartésien, est-ce que c'est pour moi ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Je planifie des ressources dans l'aviation. Je déploie des ERP et des process. Je parle à l'IA. Si j'ai pu concilier intuition et cartesianisme, c'est que c'est possible. L'Atelier de Lucette est fait pour les femmes qui vivent dans le réel, pas pour celles qui veulent fuir le monde."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "C'est quoi la différence avec du coaching ou une thérapie ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Ce n'est pas une thérapie. Et c'est plus qu'un coaching. Une thérapeute s'occupe de blessures et de traumatismes. Un coach t'accompagne vers un objectif. Moi, je commence par une étape qui vient avant : t'aider à distinguer ta voix de la peur, du mental et du bruit extérieur. C'est seulement après ce discernement que l'accompagnement vers l'action a du sens."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Tu fais des constellations, c'est quoi exactement ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Les constellations sont un outil pour rendre visible les dynamiques invisibles — les places, les loyautés, les blocages qui se jouent dans une famille, un couple, une organisation. Je ne les utilise pas comme une thérapie, mais comme un miroir : voir ce qui est là pour pouvoir choisir autre chose. C'est un complément aux approches plus classiques, pas un substitut."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Je ne sais pas par où commencer, vous proposez quoi ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Si tu veux pratiquer en groupe sur 6 semaines : L'Étuve est l'espace idéal. Si tu veux découvrir l'oracle : D'une Rive à l'Autre est un outil de 42 cartes pour t'aider à voir ce que tu sais déjà. Tu peux aussi lire la newsletter pour voir si mon approche te parle."
+              }
+            }
+          ]
         }
       ]
     </script>
@@ -247,7 +301,7 @@ const croyances = [
                             {etape.formations.map((f) => (
                               <div class="flex gap-3 text-[#1E3A8A]/65 text-base">
                                 <span class="text-[#C9A96E] shrink-0">—</span>
-                                <span>{f}</span>
+                                {f.href ? <a href={f.href} class="hover:text-[#CC3DAA] transition-colors underline underline-offset-2 decoration-[#1E3A8A]/20 hover:decoration-[#CC3DAA]/50">{f.text}</a> : <span>{f.text}</span>}
                               </div>
                             ))}
                           </div>
@@ -269,7 +323,7 @@ const croyances = [
                             {etape.formations.map((f) => (
                               <div class="flex gap-3 text-[#1E3A8A]/65 text-base">
                                 <span class="text-[#C9A96E] shrink-0">—</span>
-                                <span>{f}</span>
+                                {f.href ? <a href={f.href} class="hover:text-[#CC3DAA] transition-colors underline underline-offset-2 decoration-[#1E3A8A]/20 hover:decoration-[#CC3DAA]/50">{f.text}</a> : <span>{f.text}</span>}
                               </div>
                             ))}
                           </div>

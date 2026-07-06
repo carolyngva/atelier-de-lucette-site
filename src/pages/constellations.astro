@@ -1,0 +1,242 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<!doctype html>
+<html lang="fr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Constellations familiales et systémiques — L'Atelier de Lucette</title>
+    <meta
+      name="description"
+      content="Les constellations rendent visible ce qui agit en dessous : les places, les loyautés, les blocages invisibles. Caroline Verdier propose des constellations en ligne et en groupe."
+    />
+    <link rel="canonical" href="https://latelierdelucette.com/constellations/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_CH" />
+    <meta property="og:site_name" content="L'Atelier de Lucette" />
+    <meta property="og:title" content="Constellations familiales et systémiques — L'Atelier de Lucette" />
+    <meta property="og:description" content="Rendre visible ce qui agit en dessous — les places, les loyautés, les blocages invisibles." />
+    <meta property="og:url" content="https://latelierdelucette.com/constellations/" />
+    <meta property="og:image" content="https://latelierdelucette.com/images/portrait-caroline.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Constellations familiales et systémiques — L'Atelier de Lucette" />
+    <meta name="twitter:description" content="Rendre visible ce qui agit en dessous." />
+    <meta name="twitter:image" content="https://latelierdelucette.com/images/portrait-caroline.png" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
+    <script is:inline src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Constellations familiales et systémiques",
+        "description": "Les constellations rendent visible ce qui agit en dessous : les places, les loyautés, les blocages invisibles.",
+        "author": {
+          "@type": "Person",
+          "name": "Caroline Verdier",
+          "url": "https://latelierdelucette.com/qui-suis-je/"
+        },
+        "url": "https://latelierdelucette.com/constellations/"
+      }
+    </script>
+  </head>
+
+  <body class="selection:bg-[#CC3DAA] selection:text-[#F7F4EE] overflow-x-hidden bg-[#F7F4EE] text-[#1E3A8A]">
+    <div class="bg-grain fixed inset-0 pointer-events-none z-0"></div>
+    <div class="arch-lines">
+      <svg width="100%" height="100%" viewBox="0 0 1440 900" preserveAspectRatio="none">
+        <line x1="10%" y1="0" x2="10%" y2="100%" stroke="#1E3A8A" stroke-width="0.5" />
+        <line x1="90%" y1="0" x2="90%" y2="100%" stroke="#1E3A8A" stroke-width="0.5" />
+        <line x1="0" y1="800" x2="1440" y2="360" stroke="#CC3DAA" stroke-width="0.5" opacity="0.5" />
+      </svg>
+    </div>
+
+    <Nav current="/constellations/" />
+
+    <main class="relative z-10">
+      <!-- Hero -->
+      <header class="min-h-[80vh] flex items-center px-6 pt-28 pb-20">
+        <div class="max-w-4xl mx-auto text-center">
+          <div class="inline-flex items-center gap-4 mb-8">
+            <div class="h-px w-10 bg-[#2AACCB]"></div>
+            <span class="ui-text text-xs tracking-[0.22em] uppercase text-[#1E3A8A]/70">Outil</span>
+            <div class="h-px w-10 bg-[#CC3DAA]"></div>
+          </div>
+
+          <h1 class="text-5xl md:text-7xl leading-[1.05] font-normal tracking-tight mb-8">
+            Constellations<br />
+            <span class="italic text-[#CC3DAA]">familiales et systémiques</span>
+          </h1>
+
+          <p class="text-xl md:text-2xl text-[#1E3A8A]/75 max-w-3xl mx-auto leading-relaxed mb-12">
+            Rendre visible ce qui agit en dessous. Les places, les loyautés, les
+            attachements, les mouvements bloqués que l'introspection seule ne peut pas atteindre.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
+            <a href="#decouvrir" class="inline-flex items-center gap-4 px-10 py-5 bg-[#1E3A8A] text-[#F7F4EE] font-semibold text-xs uppercase tracking-[0.2em] hover:bg-[#1E3A8A]/90 transition-all hover:-translate-y-1 shadow-2xl shadow-black/20 rounded-sm">
+              <iconify-icon icon="solar:stars-minimalistic-linear" width="16" height="16" stroke-width="1.5"></iconify-icon>
+              Découvrir mon approche
+            </a>
+            <a href="/qui-suis-je/" class="inline-flex items-center gap-2 px-10 py-5 border border-[#1E3A8A]/30 text-[#1E3A8A] text-xs uppercase tracking-[0.2em] hover:bg-[#1E3A8A]/5 transition-all rounded-sm">
+              <iconify-icon icon="solar:letter-linear" width="16" height="16"></iconify-icon>
+              Qui suis-je
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <!-- C'est quoi -->
+      <section id="decouvrir" class="px-6 py-24 bg-[#FFFCF6] border-y border-[#1E3A8A]/10">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-14">
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Comprendre</p>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal">Qu'est-ce qu'une constellation ?</h2>
+          </div>
+          <div class="text-lg md:text-xl leading-relaxed text-[#1E3A8A]/78 space-y-6 max-w-3xl mx-auto">
+            <p>Une constellation, c'est une photographie en trois dimensions de ce qui se joue dans un système — une famille, un couple, une organisation. On place des personnes ou des objets dans l'espace pour représenter les éléments du système. Ce qui émerge n'est pas une théorie : c'est une réalité ressentie, qui parle à tout le monde dans la pièce.</p>
+            <p>Contrairement à une conversation où le mental garde le contrôle, la constellation contourne la censure intérieure. Les blocages, les places volées, les loyautés invisibles deviennent soudain lisibles. Et une fois qu'on les voit, on peut commencer à choisir autre chose.</p>
+            <p>Les constellations sont une approche profondément thérapeutique : elles mettent en lumière, elles réveillent, elles restaurent des places. Ce n'est pas une thérapie clinique — je ne pose pas de diagnostic, je ne traite pas de pathologie. C'est un complément puissant, un espace où la révélation devient levier de transformation. Parfois, voir suffit pour que ça bouge.</p>
+            <p class="text-2xl font-serif italic text-[#CC3DAA]">Les constellations sont un art de préciser l'invisible. Elles ne sont pas une fin en soi, mais un révélateur de chemins possibles.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- La formation -->
+      <section class="px-6 py-24 bg-[#F7F4EE]">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-14">
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Ma formation</p>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-6">Un équilibre entre le soin, le savoir et l'intuition technique</h2>
+          </div>
+          <div class="text-lg md:text-xl leading-relaxed text-[#1E3A8A]/78 space-y-6 max-w-3xl mx-auto">
+            <p>J'ai été formée aux constellations familiales et systémiques chez <strong><a href="https://www.lathanor.com" target="_blank" rel="noopener" class="text-[#CC3DAA] underline hover:no-underline">Charlotte L'Athanor</a></strong>. Ce qui m'a marquée dans son enseignement, c'est cette définition du métier de constellatrice : <strong>jongler avec trois plans simultanés</strong>.</p>
+
+            <div class="grid md:grid-cols-3 gap-6 my-10">
+              <div class="bg-[#FFFCF6] border border-[#1E3A8A]/10 rounded-sm p-6">
+                <span class="text-xs tracking-[0.22em] uppercase text-[#CC3DAA] block mb-3">L'humain</span>
+                <p class="text-lg text-[#1E3A8A]/80">Prendre soin du groupe, des émotions et du visible.</p>
+              </div>
+              <div class="bg-[#FFFCF6] border border-[#1E3A8A]/10 rounded-sm p-6">
+                <span class="text-xs tracking-[0.22em] uppercase text-[#2AACCB] block mb-3">La théorie</span>
+                <p class="text-lg text-[#1E3A8A]/80">Maîtriser les lois systémiques qui agissent dans l'ombre.</p>
+              </div>
+              <div class="bg-[#FFFCF6] border border-[#1E3A8A]/10 rounded-sm p-6">
+                <span class="text-xs tracking-[0.22em] uppercase text-[#C9A96E] block mb-3">La technique</span>
+                <p class="text-lg text-[#1E3A8A]/80">Identifier le sujet le plus chaud, savoir quel dossier ouvrir.</p>
+              </div>
+            </div>
+
+            <p class="text-xl font-serif italic text-[#CC3DAA]">"Cette hiérarchie intérieure transforme une simple séance en un acte de précision."</p>
+
+            <p>Je trouve cette vision profondément juste. On ne s'improvise pas constellatrice. Il y a un savoir, une technique, une pratique. À ce jour, j'ai donné <strong>50 constellations</strong> — je suis en chemin vers les 100 dont parle Anne-Chantal Junot dans le podcast <em>Métamorphose</em>, ce seuil où l'on est considérée comme une praticienne aguerrie. Chaque constellation affine mon regard et ma précision.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Mes formats -->
+      <section class="py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-16">
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Mes formats</p>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-6">Constellations en ligne et en groupe</h2>
+            <p class="text-lg md:text-xl text-[#1E3A8A]/65 max-w-2xl mx-auto">Deux façons de vivre l'expérience, selon ce qui te correspond.</p>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-[#FFFCF6] border border-[#1E3A8A]/10 rounded-sm p-8 md:p-10">
+              <span class="text-3xl text-[#CC3DAA] block mb-4">◈</span>
+              <h3 class="text-2xl font-normal mb-4">Constellations en groupe</h3>
+              <p class="text-lg leading-relaxed text-[#1E3A8A]/75">En ligne, en petit collectif. Chaque participante peut amener son sujet. Le groupe devient le champ de résonance — ce qui se joue pour une personne éclaire tout le groupe. Un format puissant où l'on constelle ensemble.</p>
+            </div>
+            <div class="bg-[#FFFCF6] border border-[#1E3A8A]/10 rounded-sm p-8 md:p-10">
+              <span class="text-3xl text-[#2AACCB] block mb-4">~</span>
+              <h3 class="text-2xl font-normal mb-4">Constellations sur l'eau</h3>
+              <p class="text-lg leading-relaxed text-[#1E3A8A]/75">Ma spécialisation avec Paula Eskinazi (2026). L'eau permet un mouvement continu, une circulation que le sol ne donne pas. Les places se déposent, les tensions se dissolvent, les informations émergent différemment. Idéal pour les blocages qui résistent aux approches plus structurées.</p>
+            </div>
+            <div class="bg-[#FFFCF6] border border-[#1E3A8A]/10 rounded-sm p-8 md:p-10">
+              <span class="text-3xl text-[#C9A96E] block mb-4">✦</span>
+              <h3 class="text-2xl font-normal mb-4">Quand venir ?</h3>
+              <p class="text-lg leading-relaxed text-[#1E3A8A]/75">Quand tu tournes en rond sur une question relationnelle, familiale ou professionnelle. Quand tu sens qu'il y a quelque chose en dessous, mais que tu ne peux pas le toucher avec des mots. Les constellations sont faites pour rendre visible cet invisible-là.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Être représentant -->
+      <section class="px-6 py-24 bg-[#F7F4EE]">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-14">
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Pratique</p>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-6">Être représentant : un laboratoire d'écoute de soi</h2>
+          </div>
+          <div class="text-lg md:text-xl leading-relaxed text-[#1E3A8A]/78 space-y-6 max-w-3xl mx-auto">
+            <p>Dans une constellation, les participants ne sont pas que des observateurs. Ils sont invités à représenter des personnes, des éléments ou des concepts du système de la personne qui constelle. Et c'est là que quelque chose de puissant se joue pour eux aussi.</p>
+            <p>Quand tu représentes quelqu'un d'autre, ton corps et ton intuition se mettent à parler — pas ton mental. Tu ressens des sensations, des émotions, des impulsions qui ne viennent pas de ta réflexion. C'est un espace d'entraînement unique pour apprendre à distinguer ce qui est intuition, ce qui est peur, et ce qui est mental. Parce que justement, "ce n'est pas toi" — donc tu ne peux pas intellectualiser. Tu es obligée de faire confiance à ce que tu ressens.</p>
+            <p>Pour les femmes qui veulent apprendre à écouter leur corps et leur intuition, être représentante dans une constellation est un des meilleurs terrains de pratique qu'il existe. On lâche le mental, on écoute ce qui vient, et on vérifie. Encore et encore.</p>
+            <p class="text-2xl font-serif italic text-[#CC3DAA]">Représenter l'autre, c'est s'entraîner à s'écouter soi-même.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pour qui -->
+      <section class="px-6 py-24 bg-[#1E3A8A] text-[#F7F4EE]">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-14">
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#C9A96E] mb-6">Pour qui</p>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-6">Les constellations sont pour toi si...</h2>
+          </div>
+          <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            <div class="border-l-2 border-[#CC3DAA] pl-6 py-2">
+              <p class="text-lg leading-relaxed text-[#F7F4EE]/85">Tu répètes les mêmes schémas relationnels sans comprendre pourquoi.</p>
+            </div>
+            <div class="border-l-2 border-[#CC3DAA] pl-6 py-2">
+              <p class="text-lg leading-relaxed text-[#F7F4EE]/85">Tu portes un poids familial dont tu n'arrives pas à te défaire.</p>
+            </div>
+            <div class="border-l-2 border-[#CC3DAA] pl-6 py-2">
+              <p class="text-lg leading-relaxed text-[#F7F4EE]/85">Tu sens des loyautés invisibles qui dictent tes choix.</p>
+            </div>
+            <div class="border-l-2 border-[#CC3DAA] pl-6 py-2">
+              <p class="text-lg leading-relaxed text-[#F7F4EE]/85">Tu as exploré beaucoup d'approches mais il reste quelque chose que les mots n'atteignent pas.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="py-28 px-6 bg-[#CC3DAA] relative overflow-hidden">
+        <div class="absolute inset-0 bg-grain opacity-10"></div>
+        <div class="relative z-10 max-w-3xl mx-auto text-center">
+          <h2 class="text-4xl md:text-6xl font-serif text-white mb-8 leading-[1.1] tracking-tight">
+            Tu sens qu'il y a quelque chose<span class="italic"><br />sous la surface ?</span>
+          </h2>
+          <p class="text-lg text-white/90 font-light max-w-2xl mx-auto mb-12 leading-relaxed">
+            Les constellations sont un outil puissant, mais elles ne sont pas la seule porte.
+            Explore mon approche pour trouver celle qui te correspond.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
+            <a href="/qui-suis-je/" class="inline-flex items-center gap-4 px-10 py-5 bg-[#1E3A8A] text-[#F7F4EE] font-semibold text-xs uppercase tracking-[0.2em] hover:bg-[#1E3A8A]/90 transition-all hover:-translate-y-1 shadow-2xl shadow-black/20 rounded-sm">
+              <iconify-icon icon="solar:stars-minimalistic-linear" width="16" height="16" stroke-width="1.5"></iconify-icon>
+              Decouvrir mon approche
+            </a>
+            <a href="/intuition-peur-mental/" class="inline-flex items-center gap-2 px-10 py-5 border border-white/30 text-white text-xs uppercase tracking-[0.2em] hover:bg-white/10 transition-all rounded-sm">
+              <iconify-icon icon="solar:letter-linear" width="16" height="16"></iconify-icon>
+              Distinguer intuition, peur, mental
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>
