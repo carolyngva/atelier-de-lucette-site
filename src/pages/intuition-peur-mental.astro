@@ -1,0 +1,286 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const signatures = [
+  {
+    nom: "L'intuition",
+    emoji: "✦",
+    couleur: "text-[#2AACCB]",
+    bg: "bg-[#2AACCB]/5",
+    bord: "border-[#2AACCB]/20",
+    desc: "Calme, stable, coherente. Elle ne discute pas, elle indique.",
+    sensations: "Detente, evidence tranquille, clarte qui vient avant la pensee, sensation de justesse dans le corps.",
+    question: "Cette sensation est-elle presente quoi qu'il arrive, meme quand je me pose ?",
+    fonctionnement: "Elle ouvre, meme si le chemin qu'elle indique est inconfortable. Une fois entendue, elle laisse un calme, meme bref.",
+  },
+  {
+    nom: "La peur",
+    emoji: "△",
+    couleur: "text-[#CC3DAA]",
+    bg: "bg-[#CC3DAA]/5",
+    bord: "border-[#CC3DAA]/20",
+    desc: "Contractee, urgente, repetitive. Elle cherche a te proteger du connu.",
+    sensations: "Gorge serree, ventre noue, envie de fuir ou de figer, scenarios catastrophes, 'et si...' en boucle.",
+    question: "Est-ce que cette voix parle de ce qui pourrait mal tourner, ou de ce qui est la maintenant ?",
+    fonctionnement: "Elle retrecit, ferme des options. Elle est ancree dans des blessures passees et projette un futur menace.",
+  },
+  {
+    nom: "Le mental",
+    emoji: "◇",
+    couleur: "text-[#C9A96E]",
+    bg: "bg-[#C9A96E]/5",
+    bord: "border-[#C9A96E]/20",
+    desc: "Bavard, argumente, pesc le pour et le contre sans fin.",
+    sensations: "Pensees qui tournent en boucle, besoin de controle, de certitude, de raisons. Fatigue cerebrale.",
+    question: "Est-ce que cette pensee est nouvelle, ou est-ce que je l'ai deja cent fois ?",
+    fonctionnement: "Il ne s'arrete jamais tout seul. Il a besoin d'avoir raison. Il recycle les memes scenarios sans avancer.",
+  },
+];
+
+const exercices = [
+  {
+    titre: "Le test du corps",
+    texte: "Prends une respiration. Formule chaque option a voix haute ou dans ta tete. Observe ce qui se passe dans ton corps : est-ce que ca ouvre ou ca ferme ? Est-ce que ca detend ou ca contracte ? Le corps ne ment pas sur l'instant.",
+  },
+  {
+    titre: "Si je retire toute peur",
+    texte: "Ferme les yeux. Imagine que la peur n'existe pas — ni celle d'echouer, ni celle de decevoir, ni celle de regretter. Maintenant : qu'est-ce que tu veux faire ? La premiere reponse qui vient est souvent la plus juste.",
+  },
+  {
+    titre: "Le test du mois suivant",
+    texte: "Pour chaque option, imagine-toi un mois apres l'avoir choisie. Pas en train de peser les arguments, mais vivant dans cette realite-la. Quelle version de toi te semble plus legere ? C'est souvent ta reponse.",
+  },
+];
+---
+
+<!doctype html>
+<html lang="fr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intuition, peur ou mental : comment distinguer ce qui parle en toi — L'Atelier de Lucette</title>
+    <meta
+      name="description"
+      content="Tu ne sais plus si c'est ton intuition, ta peur ou ton mental qui parle ? Apprends a reconnaitre la signature corporelle de chaque voix — avec des exercices pratiques pour y voir plus clair."
+    />
+    <link rel="canonical" href="https://latelierdelucette.com/intuition-peur-mental/" />
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content="fr_CH" />
+    <meta property="og:site_name" content="L'Atelier de Lucette" />
+    <meta property="og:title" content="Intuition, peur ou mental : comment distinguer ce qui parle en toi" />
+    <meta property="og:description" content="Apprends a reconnaitre la signature corporelle de chaque voix — avec des exercices pratiques pour y voir plus clair." />
+    <meta property="og:url" content="https://latelierdelucette.com/intuition-peur-mental/" />
+    <meta property="og:image" content="https://latelierdelucette.com/images/portrait-caroline.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Intuition, peur ou mental : comment distinguer ce qui parle en toi" />
+    <meta name="twitter:description" content="Apprends a reconnaitre la signature corporelle de chaque voix." />
+    <meta name="twitter:image" content="https://latelierdelucette.com/images/portrait-caroline.png" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
+    <script is:inline src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script type="application/ld+json" is:inline>
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Intuition, peur ou mental : comment distinguer ce qui parle en toi",
+        "description": "Tu ne sais plus si c'est ton intuition, ta peur ou ton mental qui parle ? Apprends a reconnaitre la signature corporelle de chaque voix.",
+        "author": {
+          "@type": "Person",
+          "name": "Caroline Verdier",
+          "url": "https://latelierdelucette.com/qui-suis-je/"
+        },
+        "url": "https://latelierdelucette.com/intuition-peur-mental/"
+      }
+    </script>
+  </head>
+
+  <body class="selection:bg-[#CC3DAA] selection:text-[#F7F4EE] overflow-x-hidden bg-[#F7F4EE] text-[#1E3A8A]">
+    <div class="bg-grain fixed inset-0 pointer-events-none z-0"></div>
+    <div class="arch-lines">
+      <svg width="100%" height="100%" viewBox="0 0 1440 900" preserveAspectRatio="none">
+        <line x1="10%" y1="0" x2="10%" y2="100%" stroke="#1E3A8A" stroke-width="0.5" />
+        <line x1="90%" y1="0" x2="90%" y2="100%" stroke="#1E3A8A" stroke-width="0.5" />
+        <line x1="0" y1="800" x2="1440" y2="360" stroke="#CC3DAA" stroke-width="0.5" opacity="0.5" />
+      </svg>
+    </div>
+
+    <Nav current="/intuition-peur-mental/" />
+
+    <main class="relative z-10">
+      <!-- Hero -->
+      <header class="min-h-[80vh] flex items-center px-6 pt-28 pb-20">
+        <div class="max-w-4xl mx-auto text-center">
+          <div class="inline-flex items-center gap-4 mb-8">
+            <div class="h-px w-10 bg-[#2AACCB]"></div>
+            <span class="ui-text text-xs tracking-[0.22em] uppercase text-[#1E3A8A]/70">Pratique</span>
+            <div class="h-px w-10 bg-[#CC3DAA]"></div>
+          </div>
+
+          <h1 class="text-5xl md:text-7xl leading-[1.05] font-normal tracking-tight mb-8">
+            Intuition, peur ou mental&thinsp;:<br />
+            <span class="italic text-[#CC3DAA]">comment distinguer</span><br />
+            ce qui parle en toi&thinsp;?
+          </h1>
+
+          <p class="text-xl md:text-2xl text-[#1E3A8A]/75 max-w-3xl mx-auto leading-relaxed mb-12">
+            Tu sens les choses, mais tu ne sais plus a quelle voix te fier. Peur, mental, intuition, bruit exterieur&thinsp;: tout parle en meme temps. Et au milieu de tout ca, il faut decider. Voici comment retrouver le fil.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
+            <a href="#signatures" class="inline-flex items-center gap-4 px-10 py-5 bg-[#1E3A8A] text-[#F7F4EE] font-semibold text-xs uppercase tracking-[0.2em] hover:bg-[#1E3A8A]/90 transition-all hover:-translate-y-1 shadow-2xl shadow-black/20 rounded-sm">
+              <iconify-icon icon="solar:stars-minimalistic-linear" width="16" height="16" stroke-width="1.5"></iconify-icon>
+              Decouvrir les 3 signatures
+            </a>
+            <a href="#pratique" class="inline-flex items-center gap-2 px-10 py-5 border border-[#1E3A8A]/30 text-[#1E3A8A] text-xs uppercase tracking-[0.2em] hover:bg-[#1E3A8A]/5 transition-all rounded-sm">
+              <iconify-icon icon="solar:letter-linear" width="16" height="16"></iconify-icon>
+              Aller aux exercices
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <!-- Pourquoi c'est si dur -->
+      <section class="px-6 py-24 bg-[#FFFCF6] border-y border-[#1E3A8A]/10">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-14">
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Le probleme</p>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal">Pourquoi c'est si dur de les distinguer&thinsp;?</h2>
+          </div>
+          <div class="text-lg md:text-xl leading-relaxed text-[#1E3A8A]/78 space-y-6 max-w-3xl mx-auto">
+            <p>Parce que tout parle en meme temps. L'intuition, la peur et le mental ne prennent pas la parole l'un apres l'autre. Ils parlent en ch&oelig;ur, sur des tons differents, et c'est a toi de demeler les voix.</p>
+            <p>La plupart des contenus te disent "fais confiance a ton intuition". Mais personne ne t'explique comment la reconnaitre quand la peur crie aussi fort. Et si tu as passe des annees en mode survie, ton systeme nerveux est habitue a proteger — pas a ecouter. Ce n'est pas un manque de talent. C'est un manque de securite interieure.</p>
+            <p class="text-2xl font-serif italic text-[#CC3DAA]">Le probleme n'est pas que tu n'ecoutes pas assez. Le probleme est que trop de voix parlent en meme temps. Et personne ne t'a appris a les distinguer.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Les 3 signatures -->
+      <section id="signatures" class="py-24 px-6">
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-16">
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Les 3 signatures</p>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-6">Reconnaitre chaque voix</h2>
+            <p class="text-lg md:text-xl text-[#1E3A8A]/65 max-w-2xl mx-auto">Chacune a sa signature corporelle, son fonctionnement et sa question-repere.</p>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-8">
+            {signatures.map((s) => (
+              <div class={`${s.bg} ${s.bord} border rounded-sm p-8 md:p-10`}>
+                <div class="flex items-center gap-3 mb-6">
+                  <span class={`text-2xl ${s.couleur}`}>{s.emoji}</span>
+                  <h3 class={`text-2xl md:text-3xl font-normal ${s.couleur}`}>{s.nom}</h3>
+                </div>
+                <p class="text-lg text-[#1E3A8A]/80 mb-6 italic">&ldquo;{s.desc}&rdquo;</p>
+                <div class="space-y-5">
+                  <div>
+                    <p class="text-xs tracking-[0.2em] uppercase text-[#1E3A8A]/50 mb-2">Comment elle se manifeste</p>
+                    <p class="text-[#1E3A8A]/75">{s.sensations}</p>
+                  </div>
+                  <div>
+                    <p class="text-xs tracking-[0.2em] uppercase text-[#1E3A8A]/50 mb-2">Question-repere</p>
+                    <p class="text-[#1E3A8A]/90 font-medium">{s.question}</p>
+                  </div>
+                  <div>
+                    <p class="text-xs tracking-[0.2em] uppercase text-[#1E3A8A]/50 mb-2">Son fonctionnement</p>
+                    <p class="text-[#1E3A8A]/75">{s.fonctionnement}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Le corps comme traducteur -->
+      <section class="px-6 py-24 bg-[#1E3A8A] text-[#F7F4EE]">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-14">
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#C9A96E] mb-6">La cle&thinsp;: le corps</p>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-6">Ton systeme nerveux decide ce que tu peux entendre</h2>
+          </div>
+          <div class="text-lg md:text-xl leading-relaxed text-[#F7F4EE]/80 space-y-6 max-w-3xl mx-auto">
+            <p>Si ton systeme nerveux est en protection (stress, fatigue, hypervigilance), tu ne PEUX PAS entendre ton intuition. Ce n'est pas un manque de bonne volonte. C'est de la physiologie. Ton corps est occupe a te maintenir en vie. L'ecoute fine, c'est pour apres.</p>
+            <p>L'intuition ne parle pas d'abord en mots. Elle parle en sensations corporelles : une detente, une expansion, une evidence qui n'a pas besoin d'etre prouvee. La peur, elle, contracte. Le mental, lui, tourne. Si tu passes ta journee dans la tete, tu rates le seul traducteur fiable : ton corps.</p>
+            <p class="text-2xl font-serif italic text-[#F1D9A7]">Je ne dis pas "fais confiance a ton intuition". Je dis : ton systeme nerveux te protege. Avant d'ecouter, encore faut-il pouvoir creer un espace de securite.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Exercices pratiques -->
+      <section id="pratique" class="py-24 px-6 bg-[#FFFCF6] border-y border-[#1E3A8A]/10">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-16">
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Pratique</p>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-6">3 exercices pour y voir plus clair</h2>
+            <p class="text-lg md:text-xl text-[#1E3A8A]/65 max-w-2xl mx-auto">Pas des concepts. Des choses a faire, la, tout de suite.</p>
+          </div>
+
+          <div class="space-y-8">
+            {exercices.map((ex, i) => (
+              <div class="bg-[#F7F4EE] border border-[#1E3A8A]/10 rounded-sm p-8 md:p-10">
+                <div class="flex items-start gap-5">
+                  <span class="w-10 h-10 rounded-full bg-[#CC3DAA]/10 flex items-center justify-center shrink-0 text-[#CC3DAA] font-serif text-lg">0{i + 1}</span>
+                  <div>
+                    <h3 class="text-2xl md:text-3xl font-normal mb-4">{ex.titre}</h3>
+                    <p class="text-lg leading-relaxed text-[#1E3A8A]/78">{ex.texte}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Et quand rien n'est clair -->
+      <section class="py-24 px-6">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-14">
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Et apres&thinsp;?</p>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-6">Quand rien n'est clair malgre les exercices</h2>
+          </div>
+          <div class="text-lg md:text-xl leading-relaxed text-[#1E3A8A]/78 space-y-6 max-w-3xl mx-auto">
+            <p>Parfois, le silence ne suffit pas. Parfois, les voix sont tellement emmelees que tu ne peux pas les demeler seule. Ce n'est pas un echec. C'est le signe que le veritable blocage n'est peut-etre pas dans la question que tu te poses.</p>
+            <p>Dans ces moments-la, un <strong>tirage oracle</strong> peut agir comme un miroir : il ne te dit pas quoi faire, mais il bouscule le mental assez pour que ta propre reponse emerge. La reaction que la carte declenche en toi ("ah non, pas ca", ou au contraire un soulagement) en dit parfois plus que trois heures d'hesitation.</p>
+            <p>Les <strong>constellations</strong>, elles, rendent visible ce qui agit en dessous : les loyaute, les places, les blocages systemiques qu'aucune introspection seule ne peut atteindre.</p>
+            <p>Et si tu veux pratiquer en groupe pendant 6 semaines, <strong>L'Etuve</strong> est un espace ou on ne reste pas dans la theorie — on apprend a distinguer peur, mental et intuition pour poser une action juste dans sa vraie vie.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="py-28 px-6 bg-[#CC3DAA] relative overflow-hidden">
+        <div class="absolute inset-0 bg-grain opacity-10"></div>
+        <div class="relative z-10 max-w-3xl mx-auto text-center">
+          <h2 class="text-4xl md:text-6xl font-serif text-white mb-8 leading-[1.1] tracking-tight">
+            Tu veux pratiquer<span class="italic"><br />ces distinctions&thinsp;?</span>
+          </h2>
+          <p class="text-lg text-white/90 font-light max-w-2xl mx-auto mb-12 leading-relaxed">
+            Dans L'Etuve, on ne parle pas de l'intuition. On apprend a la reconnaitre dans son corps, a la distinguer de la peur et du mental, et a poser une action juste. En groupe, sur 6 semaines, avec l'oracle comme laboratoire.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
+            <a href="/etuve/" class="inline-flex items-center gap-4 px-10 py-5 bg-[#1E3A8A] text-[#F7F4EE] font-semibold text-xs uppercase tracking-[0.2em] hover:bg-[#1E3A8A]/90 transition-all hover:-translate-y-1 shadow-2xl shadow-black/20 rounded-sm">
+              <iconify-icon icon="solar:stars-minimalistic-linear" width="16" height="16" stroke-width="1.5"></iconify-icon>
+              Decouvrir L'Etuve
+            </a>
+            <a href="https://carolineverdier.substack.com" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-10 py-5 border border-white/30 text-white text-xs uppercase tracking-[0.2em] hover:bg-white/10 transition-all rounded-sm">
+              <iconify-icon icon="solar:letter-linear" width="16" height="16"></iconify-icon>
+              Lire la newsletter
+            </a>
+          </div>
+          <p class="text-white/60 text-sm mt-8">
+            Tu peux aussi decouvrir <a href="/oracle-dunerivealautre/" class="text-white underline hover:no-underline">l'oracle D'une Rive a l'Autre</a> ou explorer <a href="/qui-suis-je/" class="text-white underline hover:no-underline">mon approche</a>.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>
