@@ -5,10 +5,10 @@ export interface Props {
   current?: string;
 }
 
-const { ctaHref = '/etuve/', ctaLabel = "Découvrir L'Étuve", current = '' } = Astro.props;
+const { ctaHref = '/la-nouvelle-ligne-de-temps/', ctaLabel = "La nouvelle ligne de temps", current = '' } = Astro.props;
 const links = [
   { href: '/', label: 'Accueil' },
-  { href: '/etuve/', label: "L'Étuve" },
+  { href: '/la-nouvelle-ligne-de-temps/', label: 'La nouvelle ligne de temps' },
   { href: '/qui-suis-je/', label: 'Qui suis-je' },
   { href: '/oracle-dunerivealautre/', label: 'Oracle' },
   { href: 'https://carolineverdier.substack.com', label: 'Blog', external: true },
