@@ -11,12 +11,12 @@ const symptomes = [
   "Tu prends des pauses, tu as peut-être des routines, mais ton cerveau continue de tourner en arrière-plan.",
   "Tu as l'impression que certaines choses prennent beaucoup trop de place dans ta tête, ton agenda ou ta vie.",
   "Tu vois le temps passer et tu sens que ce qui compte pour toi reste encore repoussé.",
-  "Tu as déjà essayé des agendas, listes, carnets, routines ou outils, sans sentir que ça déposait vraiment la charge.",
+  "Tu as déjà essayé des agendas, listes, carnets ou routines, sans sentir que ça déposait vraiment la charge.",
 ];
 
 const vraieVie = [
   "Une nouvelle demande arrive et tu sais où la poser avant qu'elle prenne toute la place dans ta tête.",
-  "Une semaine déborde et ta structure ne s'effondre pas parce qu'elle a été pensée pour les imprévus.",
+  "Une semaine déborde et tu sais comment revenir au tri, sans devoir tout reprendre depuis zéro.",
   "Un projet te revient en mémoire et tu le retrouves sans fouiller dans dix carnets, applis ou listes.",
   "Un temps pour toi arrive et tu n'as plus besoin de surveiller tout le reste en arrière-plan.",
 ];
@@ -46,7 +46,7 @@ const couches = [
   },
   {
     title: 'Trier ce qui prend trop de place',
-    text: "Ce qui est urgent, ce qui peut attendre, ce qui t'appartient vraiment, ce qui appartient à quelqu'un d'autre, ce qui prend beaucoup plus de place qu'il ne devrait. Le système doit pouvoir s'adapter à là où tu en es dans ta vie, pas seulement à une semaine idéale.",
+    text: "Ce qui est urgent, ce qui peut attendre, ce qui t'appartient vraiment, ce qui appartient à quelqu'un d'autre, ce qui prend beaucoup plus de place qu'il ne devrait. Le tri doit partir de là où tu en es dans ta vie, pas d'une semaine idéale.",
   },
   {
     title: "Rendre ce qui n'est pas à toi",
@@ -54,14 +54,14 @@ const couches = [
   },
   {
     title: 'Créer ta nouvelle ligne de temps',
-    text: "Une structure flexible, sensible et praticable, qui suit ta vraie vie au lieu de t'enfermer dans une méthode rigide. Elle t'aide à revenir à ta place, même quand la semaine change.",
+    text: "Une façon simple, sensible et praticable de déposer ce qui tourne, de retrouver ce qui compte, et de revenir à ta place même quand la semaine change.",
   },
 ];
 
 const croyances = [
   {
-    depart: "Le problème, c'est moi. Je suis trop dispersée, je ne tiens jamais les systèmes.",
-    arrivee: "Et si tu n'étais pas désorganisée, mais simplement soutenue par des structures trop rigides ou pas faites pour ta vraie vie ?",
+    depart: "Le problème, c'est moi. Je suis trop dispersée, je n'arrive jamais à tenir ce que je mets en place.",
+    arrivee: "Et si tu n'étais pas désorganisée, mais simplement en train d'essayer de tenir avec des cadres trop rigides ou pas faits pour ta vraie vie ?",
   },
   {
     depart: "Si je ne pense pas à tout, quelque chose va forcément s'écrouler.",
@@ -69,7 +69,7 @@ const croyances = [
   },
   {
     depart: "Je n'ai déjà pas le temps. Je ne peux pas ajouter un accompagnement de plus.",
-    arrivee: "Déposer ce que tu portes dans une structure flexible peut te rendre de l'espace au lieu de t'en prendre.",
+    arrivee: "Déposer ce que tu portes dans un cadre clair peut te rendre de l'espace au lieu de t'en prendre.",
   },
   {
     depart: "Même quand j'ai du temps pour moi, ça ne me nourrit pas vraiment.",
@@ -87,8 +87,8 @@ const alternatives = [
     text: "Ils sont utiles, mais ils ne montrent pas toute la charge mentale invisible : les idées, les projets pas encore mûrs, les rappels pour les autres, les choses qui prennent de la place sans être de vraies tâches. Ils planifient, mais ils ne contiennent pas tout ce que tu portes.",
   },
   {
-    title: 'Les templates Notion ou outils tout faits',
-    text: "Ils peuvent être puissants, mais souvent trop techniques, trop rigides ou trop lourds à maintenir quand ta vraie vie déborde. Une structure utile doit pouvoir bouger avec toi.",
+    title: 'Les cadres tout faits',
+    text: "Ils peuvent être utiles, mais souvent trop rigides ou trop lourds à maintenir quand ta vraie vie déborde. Un cadre utile doit pouvoir bouger avec toi.",
   },
   {
     title: 'Les routines, le yoga, la méditation, le journaling',
@@ -96,7 +96,7 @@ const alternatives = [
   },
   {
     title: 'La thérapie ou le coaching seuls',
-    text: "Ils peuvent libérer et éclairer beaucoup de choses, mais ne se traduisent pas toujours dans un système concret : agenda, projets, rappels, décisions, limites.",
+    text: "Ils peuvent libérer et éclairer beaucoup de choses, mais ne se traduisent pas toujours dans la matière concrète : agenda, projets, rappels, décisions, limites.",
   },
 ];
 
@@ -132,10 +132,10 @@ const inclus = [
   '5 sessions au total : 4 sessions individuelles sur 1 mois, puis une session de rappel à 3 mois.',
   'Des sessions de 1h à 2h selon le besoin et la matière du moment.',
   'Un support WhatsApp entre les sessions, dans un cadre clair.',
-  "La mise en place d'une structure flexible, simple et adaptée à ta manière de fonctionner.",
+  "La mise en place d'un cadre de tri flexible, simple et adapté à ta manière de fonctionner.",
   "Un temps de constellation ou de travail transgénérationnel autour de ce que tu portes.",
   "Des audios d'hypnose de reprogrammation ou de guidance pour soutenir l'intégration.",
-  "Une 5e session de rappel à 3 mois pour ajuster la structure après usage réel.",
+  "Une 5e session de rappel à 3 mois pour ajuster ce qui a été mis en place après usage réel.",
 ];
 
 const sessions = [
@@ -153,7 +153,7 @@ const sessions = [
   },
   {
     title: 'Session 4 · Stabiliser',
-    text: "On installe ta structure vivante : simple, flexible, reliée à ton agenda, à tes projets, à ton énergie et à ton moment de vie.",
+    text: "On installe une façon de fonctionner simple, flexible, reliée à ton agenda, à tes projets, à ton énergie et à ton moment de vie.",
   },
   {
     title: 'Session 5 · Ajuster à 3 mois',
@@ -164,42 +164,38 @@ const sessions = [
 const resultats = [
   'Une tête plus rangée, avec un endroit fiable où déposer ce que tu portais seule.',
   'Un agenda plus lisible, plus cohérent avec ta vraie vie.',
-  'Une structure flexible pour retrouver tes projets, idées, rappels et priorités.',
+  'Une façon plus simple de retrouver tes projets, idées, rappels et priorités.',
   "Plus de clarté sur ce qui est à toi, ce qui ne l'est pas, et ce qui demande peut-être à changer.",
   "La sensation d'avoir refait de la place dans ta tête, comme quand on a enfin remis de l'ordre dans une pièce qui débordait.",
 ];
 
 const preuves = [
-  "J'utilise moi-même un système personnel pour ranger mes projets, mes idées et ce qui tournerait sinon en boucle dans ma tête.",
+  "J'ai appris à transformer mon propre bazar mental en repères clairs, sinon mes projets, mes idées et mes décisions tourneraient en boucle dans ma tête.",
   "J'ai plus de 20 ans d'expérience en coordination, supply chain, process, ERP et gestion de ressources.",
-  "Mon talent naturel est de faire émerger l'évidence dans ce qui semblait emmêlé : remettre de la structure, réagencer, optimiser et rendre les choses plus lisibles.",
+  "Mon talent naturel est de faire émerger l'évidence dans ce qui semblait emmêlé : trier, réagencer et rendre les choses plus lisibles.",
   "Mon approche relie le concret et l'invisible : organisation, constellations, intuition, transgénérationnel et retour à soi.",
 ];
 
 const deuxMondes = [
   "Le concret : agenda, rappels, projets, décisions, demandes, idées, priorités et organisation quotidienne.",
   "L'invisible : loyautés, culpabilité, habitudes familiales, rôle de celle qui pense à tout, difficulté à déposer.",
-  "Le lien entre les deux : une structure qui ne sert pas à mieux tenir, mais à voir ce qui doit être trié, déposé, déplacé ou rendu.",
+  "Le lien entre les deux : un tri qui ne sert pas à mieux tenir, mais à voir ce qui doit être déposé, déplacé ou rendu.",
 ];
 
 const pasPourToi = [
   "Tu cherches une méthode de productivité froide pour optimiser chaque minute.",
-  "Tu veux juste un template prêt à copier-coller sans regarder ta vraie vie.",
+  "Tu veux juste une solution toute faite sans regarder ta vraie vie.",
   "Tu n'as pas envie d'explorer ce qui se joue aussi émotionnellement dans ce que tu portes.",
 ];
 
 const faqs = [
-  {
-    q: "Est-ce que je dois déjà connaître Obsidian ?",
-    a: "Non. L'outil n'est pas le cœur de l'accompagnement. Le cœur, c'est de créer une structure flexible et adaptée à ta vraie vie. L'outil vient seulement soutenir cette structure.",
-  },
   {
     q: "Est-ce que c'est une formation d'organisation ?",
     a: "Non. On ne va pas seulement ranger ton agenda. On va regarder ce que tu portes, où le déposer, comment le retrouver, et ce qui ne devrait peut-être plus reposer uniquement sur toi.",
   },
   {
     q: "Est-ce qu'il y a une garantie ?",
-    a: "Pas de garantie satisfaite ou remboursée pour cette bêta d'accompagnement. En revanche, tu repars avec une structure installée et utilisable, et une session de rappel à 3 mois est incluse pour l'ajuster après usage réel.",
+    a: "Pas de garantie satisfaite ou remboursée pour cette bêta d'accompagnement. En revanche, tu repars avec un tri clair, des repères utilisables dans ta vraie vie, et une session de rappel à 3 mois pour ajuster après usage réel.",
   },
   {
     q: "Pourquoi seulement 5 places ?",
@@ -307,7 +303,7 @@ const faqs = [
             </p>
 
             <p class="text-xl md:text-2xl leading-relaxed text-[#1E3A8A]/78 max-w-2xl mb-10">
-              Un accompagnement d'un mois, avec un rappel à 3 mois, pour vider ta tête, trier ce qui prend trop de place, créer une structure flexible où le déposer, et regarder ce que tu portes qui ne t'appartient pas ou plus.
+              Un accompagnement d'un mois, avec un rappel à 3 mois, pour vider ta tête, trier ce qui prend trop de place, déposer ce qui tourne, et regarder ce que tu portes qui ne t'appartient pas ou plus.
             </p>
 
             <p class="text-lg md:text-xl leading-relaxed text-[#1E3A8A]/68 max-w-2xl mb-10">
@@ -330,7 +326,7 @@ const faqs = [
             <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Ce que c'est</p>
             <div class="space-y-4 text-xl md:text-2xl leading-snug text-[#1E3A8A]/80 relative z-10">
               <p>un endroit où déposer ce que tu gardais ouvert</p>
-              <p>une structure flexible pour ta vraie vie</p>
+              <p>un cadre de tri flexible pour ta vraie vie</p>
               <p>un accompagnement pour faire le tri dans ce qui t'appartient, et ce qui ne devrait plus reposer uniquement sur toi.</p>
             </div>
             <div class="h-px bg-[#1E3A8A]/15 my-8"></div>
@@ -394,10 +390,10 @@ const faqs = [
             <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#2AACCB] mb-6">Le vrai travail</p>
             <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-6">Faire le tri dans ta tête, sans t'enfermer dans une méthode.</h2>
             <p class="text-xl leading-relaxed text-[#1E3A8A]/75">
-              Pas seulement écrire une liste. Pas seulement faire une routine. Pas seulement comprendre un schéma. Tu as besoin d'une structure assez claire pour te soutenir, et assez flexible pour suivre ta vraie vie.
+              Pas seulement écrire une liste. Pas seulement faire une routine. Pas seulement comprendre un schéma. Tu as besoin d'un cadre assez clair pour te soutenir, et assez flexible pour suivre ta vraie vie.
             </p>
             <p class="text-xl leading-relaxed text-[#1E3A8A] mt-6 bg-[#FF5AD9]/25 border-l-4 border-[#FF2EC4] px-5 py-4 shadow-[0_0_24px_rgba(255,46,196,0.18)]">
-              On ne construit pas une structure pour ta meilleure semaine. On construit une structure qui peut survivre aux semaines pleines, aux imprévus, aux jours où ton cerveau est déjà saturé.
+              On ne trie pas ta vie comme si tu avais une semaine idéale. On crée des repères qui peuvent tenir dans les semaines pleines, les imprévus, les jours où ton cerveau est déjà saturé.
             </p>
           </div>
 
@@ -423,7 +419,7 @@ const faqs = [
             <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Pourquoi ça n'a pas suffi</p>
             <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-8">Tu as peut-être déjà essayé plein de choses.</h2>
             <p class="text-xl leading-relaxed text-[#1E3A8A]/75">
-              Et certaines t'ont probablement aidée. Le problème, c'est qu'elles traitent souvent une seule couche à la fois : l'outil, la routine, l'émotion, l'agenda. Ici, on remet ces couches dans une même structure vivante.
+              Et certaines t'ont probablement aidée. Le problème, c'est qu'elles traitent souvent une seule couche à la fois : la routine, l'émotion, l'agenda, la liste. Ici, on regarde tout ce qui prend de la place ensemble.
             </p>
           </div>
 
@@ -444,7 +440,7 @@ const faqs = [
             <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#2AACCB] mb-6">Ce que ça change</p>
             <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-8">Plus de place dans ta tête, sans disparaître de ta vraie vie.</h2>
             <p class="text-xl leading-relaxed text-[#1E3A8A]/75">
-              La durabilité ne vient pas d'une méthode parfaite. Elle vient d'un endroit assez simple pour être utilisé quand tout va bien, et assez souple pour rester utile quand la semaine change.
+              Ce qui tient ne vient pas d'une méthode parfaite. Ça vient de repères assez simples pour être utilisés quand tout va bien, et assez souples pour rester utiles quand la semaine change.
             </p>
           </div>
 
@@ -555,10 +551,10 @@ const faqs = [
             <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Pourquoi moi</p>
             <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-8">Je connais les deux mondes.</h2>
             <p class="text-xl leading-relaxed text-[#1E3A8A]/75">
-              Le monde très concret des systèmes, des process et de l'organisation. Et le monde plus invisible de ce qu'on porte, de ce qui se rejoue, de ce qui demande à retrouver sa juste place.
+              Le monde très concret des process, de l'organisation et de la clarification. Et le monde plus invisible de ce qu'on porte, de ce qui se rejoue, de ce qui demande à retrouver sa juste place.
             </p>
             <p class="text-xl leading-relaxed text-[#1E3A8A]/75 mt-6">
-              Une structure concrète pour ta charge mentale, avec un espace pour regarder ce qui te pousse à tout porter.
+              Un tri concret de ta charge mentale, avec un espace pour regarder ce qui te pousse à tout porter.
             </p>
             <img src="/images/caro-2026.jpg" alt="Portrait de Caroline Verdier" class="w-full h-auto rounded-sm border border-[#1E3A8A]/10 shadow-xl shadow-[#1E3A8A]/10 mt-8" loading="lazy" />
           </div>
@@ -615,10 +611,10 @@ const faqs = [
             <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">La promesse honnête</p>
             <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-8">Je ne te promets pas une vie parfaite en 4 semaines.</h2>
           <p class="text-xl md:text-2xl leading-relaxed text-[#1E3A8A]/78 mb-8">
-            Je te propose de créer une nouvelle ligne de temps : une structure flexible où ce que tu portes peut enfin se déposer, pour que ta tête et ton temps pour toi puissent respirer à nouveau.
+            Je te propose de créer une nouvelle ligne de temps : une façon plus claire de déposer ce que tu portes, pour que ta tête et ton temps pour toi puissent respirer à nouveau.
           </p>
           <p class="text-2xl md:text-3xl italic leading-tight text-[#CC3DAA]">
-            La structure n'est pas une prison. C'est ce qui permet à ta vie de respirer à nouveau.
+            Le cadre n'est pas une prison. C'est ce qui permet à ta vie de respirer à nouveau.
           </p>
         </div>
       </section>
