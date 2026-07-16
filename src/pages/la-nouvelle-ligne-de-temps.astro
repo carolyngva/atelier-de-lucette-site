@@ -6,10 +6,10 @@ import Footer from '../components/Footer.astro';
 const ctaHref = 'https://buy.stripe.com/bJe14n7qafjVbGQ0oN7bW06';
 
 const symptomes = [
-  "Tu as déjà fait du chemin sur toi, tu comprends beaucoup de choses, et pourtant ta vie concrète reste trop pleine dans ta tête.",
+  "Tu as déjà fait du chemin sur toi, tu comprends beaucoup de choses, et pourtant ta tête reste saturée.",
   "Tu as du temps pour toi, mais tu n'arrives pas toujours à en profiter vraiment.",
   "Tu prends des pauses, tu as peut-être des routines, mais ton cerveau continue de tourner en arrière-plan.",
-  "Tu as l'impression que certaines choses prennent trop de place dans ta tête.",
+  "Tu as l'impression que certaines choses prennent beaucoup trop de place dans ta tête, ton agenda ou ta vie.",
   "Tu vois le temps passer et tu sens que ce qui compte pour toi reste encore repoussé.",
   "Tu as déjà essayé des agendas, listes, carnets, routines ou outils, sans sentir que ça déposait vraiment la charge.",
 ];
@@ -41,7 +41,7 @@ const possibles = [
 
 const couches = [
   {
-    title: 'Déposer ce qui tourne',
+    title: 'Vider la tête',
     text: "Les rappels, rendez-vous, idées, tâches, projets et choses à ne pas oublier qui restent actifs dans ta tête faute d'un endroit fiable où attendre, jusqu'au bon moment.",
   },
   {
@@ -50,7 +50,7 @@ const couches = [
   },
   {
     title: "Rendre ce qui n'est pas à toi",
-    text: "Les poids pris par loyauté, par habitude, par héritage familial ou parce que tu as longtemps été celle qui pense à tout.",
+    text: "Les poids pris par loyauté, par habitude, par héritage familial ou parce que tu as longtemps été celle qui pense à tout pour tout le monde.",
   },
   {
     title: 'Créer ta nouvelle ligne de temps',
@@ -162,11 +162,11 @@ const sessions = [
 ];
 
 const resultats = [
-  'Un endroit fiable où déposer ce que tu portais dans ta tête.',
+  'Une tête plus rangée, avec un endroit fiable où déposer ce que tu portais seule.',
   'Un agenda plus lisible, plus cohérent avec ta vraie vie.',
   'Une structure flexible pour retrouver tes projets, idées, rappels et priorités.',
   "Plus de clarté sur ce qui est à toi, ce qui ne l'est pas, et ce qui demande peut-être à changer.",
-  "La sensation d'une tête rangée, comme quand on a enfin remis de l'ordre dans une pièce qui débordait.",
+  "La sensation d'avoir refait de la place dans ta tête, comme quand on a enfin remis de l'ordre dans une pièce qui débordait.",
 ];
 
 const preuves = [
@@ -179,7 +179,7 @@ const preuves = [
 const deuxMondes = [
   "Le concret : agenda, rappels, projets, décisions, demandes, idées, priorités et organisation quotidienne.",
   "L'invisible : loyautés, culpabilité, habitudes familiales, rôle de celle qui pense à tout, difficulté à déposer.",
-  "Le lien entre les deux : une structure qui ne sert pas à mieux tenir, mais à voir ce qui doit être déposé, déplacé ou réorganisé.",
+  "Le lien entre les deux : une structure qui ne sert pas à mieux tenir, mais à voir ce qui doit être trié, déposé, déplacé ou rendu.",
 ];
 
 const pasPourToi = [
@@ -220,19 +220,19 @@ const faqs = [
     <title>La nouvelle ligne de temps — Accompagnement bêta 1:1 — L'Atelier de Lucette</title>
     <meta
       name="description"
-      content="La nouvelle ligne de temps : accompagnement bêta 1:1 pour déposer enfin ce que tu portes, créer une structure flexible et retrouver ta place dans ta propre vie."
+      content="La nouvelle ligne de temps : accompagnement bêta 1:1 pour faire le tri dans ta tête, déposer ce que tu portes et retrouver de la place pour toi dans ta vie."
     />
     <link rel="canonical" href="https://latelierdelucette.com/la-nouvelle-ligne-de-temps/" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="fr_CH" />
     <meta property="og:site_name" content="L'Atelier de Lucette" />
-    <meta property="og:title" content="La nouvelle ligne de temps — Déposer ce que tu portes" />
-    <meta property="og:description" content="Un accompagnement bêta 1:1 pour déposer enfin ce que tu portes, créer une structure flexible et retrouver ta place dans ta propre vie." />
+    <meta property="og:title" content="La nouvelle ligne de temps — Faire le tri dans ta tête" />
+    <meta property="og:description" content="Un accompagnement bêta 1:1 pour faire le tri dans ta tête, déposer ce que tu portes et retrouver de la place pour toi dans ta vie." />
     <meta property="og:url" content="https://latelierdelucette.com/la-nouvelle-ligne-de-temps/" />
     <meta property="og:image" content="https://latelierdelucette.com/images/portrait-caroline.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="La nouvelle ligne de temps — L'Atelier de Lucette" />
-    <meta name="twitter:description" content="Dépose enfin ce que tu portes, pour retrouver ta place dans ta propre vie." />
+    <meta name="twitter:description" content="Faire le tri dans ta tête pour retrouver de la place pour toi dans ta vie." />
     <meta name="twitter:image" content="https://latelierdelucette.com/images/portrait-caroline.png" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -247,7 +247,7 @@ const faqs = [
         "@context": "https://schema.org",
         "@type": "Service",
         "name": "La nouvelle ligne de temps",
-        "description": "Un accompagnement bêta 1:1 pour déposer enfin ce que tu portes, créer une structure flexible et retrouver ta place dans ta propre vie.",
+        "description": "Un accompagnement bêta 1:1 pour faire le tri dans ta tête, déposer ce que tu portes et retrouver de la place pour toi dans ta vie.",
         "provider": {
           "@type": "Organization",
           "name": "L'Atelier de Lucette",
@@ -303,15 +303,15 @@ const faqs = [
             </h1>
 
             <p class="text-2xl md:text-3xl italic leading-tight text-[#1E3A8A]/85 mb-8">
-              Dépose enfin ce que tu portes,<br class="hidden md:block" /> pour retrouver ta place dans ta propre vie.
+              Faire le tri dans ta tête,<br class="hidden md:block" /> pour retrouver de la place pour toi dans ta vie.
             </p>
 
             <p class="text-xl md:text-2xl leading-relaxed text-[#1E3A8A]/78 max-w-2xl mb-10">
-              Un accompagnement d'un mois, avec un rappel à 3 mois, pour vider ta tête, trier ce que tu portes, créer une structure flexible où le déposer, et regarder ce qui ne devrait plus reposer uniquement sur toi.
+              Un accompagnement d'un mois, avec un rappel à 3 mois, pour vider ta tête, trier ce qui prend trop de place, créer une structure flexible où le déposer, et regarder ce que tu portes qui ne t'appartient pas ou plus.
             </p>
 
             <p class="text-lg md:text-xl leading-relaxed text-[#1E3A8A]/68 max-w-2xl mb-10">
-              Pour les femmes qui ont déjà des moments pour elles, mais dont la tête reste pleine de rappels, de projets, de responsabilités et de choses à ne pas oublier.
+              Pour les femmes à l'agenda blindé, au cerveau saturé, qui ont parfois du temps pour elles mais pas assez de place intérieure pour respirer vraiment.
             </p>
 
             <div class="flex flex-col sm:flex-row gap-5">
@@ -331,11 +331,11 @@ const faqs = [
             <div class="space-y-4 text-xl md:text-2xl leading-snug text-[#1E3A8A]/80 relative z-10">
               <p>un endroit où déposer ce que tu gardais ouvert</p>
               <p>une structure flexible pour ta vraie vie</p>
-              <p>un accompagnement pour retrouver ta place sans devoir tout porter seule.</p>
+              <p>un accompagnement pour faire le tri dans ce qui t'appartient, et ce qui ne devrait plus reposer uniquement sur toi.</p>
             </div>
             <div class="h-px bg-[#1E3A8A]/15 my-8"></div>
             <p class="text-2xl md:text-3xl italic leading-tight text-[#CC3DAA] relative z-10">
-              C'est une structure vivante où déposer ce que tu portais seule.
+              C'est un grand tri accompagné, pour que ta tête puisse respirer à nouveau.
             </p>
           </aside>
         </div>
@@ -358,7 +358,7 @@ const faqs = [
           </div>
 
           <p class="text-2xl md:text-3xl italic leading-tight text-center text-[#1E3A8A] max-w-3xl mx-auto mt-16">
-            Ce n'est pas un problème d'organisation. C'est un problème de charge sans contenant.
+            Ce n'est pas seulement un problème d'organisation. C'est une tête pleine de choses qui n'ont pas encore trouvé leur juste place.
           </p>
         </div>
       </section>
@@ -392,12 +392,12 @@ const faqs = [
         <div class="max-w-5xl mx-auto grid lg:grid-cols-[0.85fr_1.15fr] gap-14 items-start">
           <div class="lg:sticky lg:top-28">
             <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#2AACCB] mb-6">Le vrai travail</p>
-            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-6">Remettre chaque chose à sa place, sans t'enfermer dans une méthode.</h2>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-6">Faire le tri dans ta tête, sans t'enfermer dans une méthode.</h2>
             <p class="text-xl leading-relaxed text-[#1E3A8A]/75">
               Pas seulement écrire une liste. Pas seulement faire une routine. Pas seulement comprendre un schéma. Tu as besoin d'une structure assez claire pour te soutenir, et assez flexible pour suivre ta vraie vie.
             </p>
             <p class="text-xl leading-relaxed text-[#1E3A8A] mt-6 bg-[#FF5AD9]/25 border-l-4 border-[#FF2EC4] px-5 py-4 shadow-[0_0_24px_rgba(255,46,196,0.18)]">
-              On ne construit pas une structure pour ta meilleure semaine. On construit une structure qui peut survivre aux semaines pleines, aux imprévus, aux jours où tu n'as pas l'énergie de tout bien faire.
+              On ne construit pas une structure pour ta meilleure semaine. On construit une structure qui peut survivre aux semaines pleines, aux imprévus, aux jours où ton cerveau est déjà saturé.
             </p>
           </div>
 
@@ -442,7 +442,7 @@ const faqs = [
         <div class="relative z-10 max-w-6xl mx-auto grid lg:grid-cols-[0.9fr_1.1fr] gap-12 items-start">
           <div>
             <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#2AACCB] mb-6">Ce que ça change</p>
-            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-8">Une structure qui tient dans ta vraie vie.</h2>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-8">Plus de place dans ta tête, sans disparaître de ta vraie vie.</h2>
             <p class="text-xl leading-relaxed text-[#1E3A8A]/75">
               La durabilité ne vient pas d'une méthode parfaite. Elle vient d'un endroit assez simple pour être utilisé quand tout va bien, et assez souple pour rester utile quand la semaine change.
             </p>
@@ -612,13 +612,13 @@ const faqs = [
 
       <section class="px-6 py-28 bg-[#FFFCF6] border-y border-[#1E3A8A]/10">
         <div class="max-w-4xl mx-auto text-center">
-          <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">La promesse honnête</p>
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">La promesse honnête</p>
             <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-8">Je ne te promets pas une vie parfaite en 4 semaines.</h2>
           <p class="text-xl md:text-2xl leading-relaxed text-[#1E3A8A]/78 mb-8">
-            Je te propose de créer une nouvelle ligne de temps : une structure flexible où ce que tu portes peut enfin se déposer, pour que ton temps pour toi puisse redevenir vraiment à toi.
+            Je te propose de créer une nouvelle ligne de temps : une structure flexible où ce que tu portes peut enfin se déposer, pour que ta tête et ton temps pour toi puissent respirer à nouveau.
           </p>
           <p class="text-2xl md:text-3xl italic leading-tight text-[#CC3DAA]">
-            La structure n'est pas une prison. C'est ce qui permet à ta vie de respirer.
+            La structure n'est pas une prison. C'est ce qui permet à ta vie de respirer à nouveau.
           </p>
         </div>
       </section>
@@ -649,7 +649,7 @@ const faqs = [
         <div class="relative z-10 max-w-3xl mx-auto text-center">
           <p class="ui-text text-xs tracking-[0.22em] uppercase text-white/75 mb-6">5 places bêta</p>
           <h2 class="text-4xl md:text-6xl font-serif text-white mb-8 leading-[1.1] tracking-tight">
-            Si ça t'appelle,<br /><span class="italic">tu peux rejoindre.</span>
+            Si tu veux faire de la place,<br /><span class="italic">tu peux rejoindre.</span>
           </h2>
           <a href={ctaHref} class="inline-flex items-center gap-4 px-10 py-5 bg-[#1E3A8A] text-[#F7F4EE] font-semibold text-xs uppercase tracking-[0.2em] hover:bg-[#1E3A8A]/90 transition-all hover:-translate-y-1 shadow-2xl shadow-black/20 rounded-sm">
             <iconify-icon icon="solar:letter-linear" width="16" height="16"></iconify-icon>
