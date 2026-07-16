@@ -1,0 +1,281 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<!doctype html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Qu'est-ce qui prend trop de place dans ta tête ? — L'Atelier de Lucette</title>
+  <meta name="description" content="Mini-diagnostic en 5 questions pour voir ce qui prend réellement le plus de place dans ta tête en ce moment." />
+  <link rel="canonical" href="https://latelierdelucette.com/diagnostic/" />
+  <meta property="og:title" content="Qu'est-ce qui prend trop de place dans ta tête ?" />
+  <meta property="og:description" content="Agenda archi blindé, cerveau saturé ? Fais le mini-diagnostic en 5 questions." />
+  <meta property="og:image" content="https://latelierdelucette.com/images/portrait-caroline.png" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Special+Elite&display=swap" rel="stylesheet" />
+  <script is:inline src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <style>
+    .fade-in { animation: fadeIn 0.35s ease-out both; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    .progress-bar { transition: width 0.35s ease-out; }
+    .answer-card { transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease; }
+    .answer-card:hover { transform: translateY(-3px); box-shadow: 0 16px 35px -20px rgba(30, 58, 138, 0.45); border-color: rgba(204, 61, 170, 0.35); }
+    .answer-card:active { transform: scale(0.98); }
+    .copy-status { min-height: 1.25rem; }
+  </style>
+</head>
+
+<body class="selection:bg-[#CC3DAA] selection:text-[#F7F4EE] overflow-x-hidden bg-[#F7F4EE] text-[#1E3A8A]">
+  <Nav current="/diagnostic/" ctaHref="/la-nouvelle-ligne-de-temps/" ctaLabel="L'accompagnement" />
+
+  <main class="relative z-10 pt-28 pb-20 px-4 min-h-screen flex items-center" id="app">
+    <div class="max-w-3xl mx-auto w-full">
+      <section id="intro" class="text-center fade-in">
+        <div class="inline-flex items-center gap-4 mb-8">
+          <div class="h-px w-10 bg-[#2AACCB]"></div>
+          <span class="ui-text text-xs tracking-[0.22em] uppercase text-[#1E3A8A]/70">Mini-diagnostic</span>
+          <div class="h-px w-10 bg-[#CC3DAA]"></div>
+        </div>
+        <h1 class="text-4xl md:text-6xl leading-[1.05] font-normal tracking-tight mb-6">
+          Agenda archi blindé,<br class="hidden md:block" /> <span class="italic text-[#CC3DAA]">cerveau saturé</span> ?
+        </h1>
+        <p class="text-lg md:text-xl text-[#1E3A8A]/75 max-w-2xl mx-auto mb-5 leading-relaxed">
+          Et si tu pouvais voir, en 5 questions, ce qui prend réellement le plus de place dans ta tête en ce moment ?
+        </p>
+        <p class="text-base md:text-lg text-[#1E3A8A]/65 max-w-xl mx-auto mb-10 leading-relaxed">
+          Pas pour te rajouter une méthode. Juste pour repérer où ça sature en premier. Résultat immédiat, rien à remplir.
+        </p>
+        <button onclick="startDiagnostic()" class="px-10 py-5 bg-[#CC3DAA] text-[#F7F4EE] text-xs uppercase tracking-[0.2em] hover:bg-[#D4845A] transition-all rounded-sm">
+          Faire le mini-diagnostic
+        </button>
+      </section>
+
+      <section id="quiz" class="hidden">
+        <div class="mb-8">
+          <div class="flex justify-between items-center text-xs text-[#1E3A8A]/60 mb-2">
+            <div class="flex items-center gap-3">
+              <button id="back-btn" onclick="goBack()" class="hidden hover:text-[#CC3DAA] transition-colors p-1 -ml-1" title="Question précédente">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <span id="q-num">Question 1/5</span>
+            </div>
+            <span id="q-pct">0%</span>
+          </div>
+          <div class="h-1 bg-[#1E3A8A]/10 rounded-full overflow-hidden"><div id="progress" class="progress-bar h-full bg-[#CC3DAA] rounded-full" style="width:0%"></div></div>
+        </div>
+        <div id="q-box"></div>
+      </section>
+
+      <section id="result" class="hidden"></section>
+    </div>
+  </main>
+
+  <Footer />
+
+  <script is:inline>
+    const profiles = {
+      agenda: {
+        title: 'Ton agenda déborde',
+        subtitle: 'Ce qui prend trop de place se voit déjà dans ta semaine.',
+        color: '#CC3DAA',
+        icon: '□',
+        text: "Ton premier point de saturation semble venir de l'espace visible : semaines pleines, week-ends remplis, agenda partagé, obligations qui s'empilent. Ton corps réagit avant même que tu aies commencé : il voit tout ce qui arrive et il se contracte.",
+        next: "Le premier tri à faire : distinguer ce qui doit vraiment rester dans ton agenda, ce qui peut être déplacé, et ce qui n'a pas besoin d'être visible partout pour exister."
+      },
+      anticipation: {
+        title: 'Ton cerveau anticipe tout',
+        subtitle: "Ce qui prend trop de place n'est pas encore arrivé.",
+        color: '#2AACCB',
+        icon: '△',
+        text: "Ton point de saturation semble venir de l'anticipation : prévoir, organiser, penser à la rentrée, aux inscriptions, aux cadeaux, aux prochains rendez-vous. Ton cerveau ouvre les dossiers très tôt, puis les garde actifs longtemps.",
+        next: "Le premier tri à faire : créer un endroit fiable où déposer ce qui n'est pas pour maintenant, pour que ton cerveau n'ait plus besoin de le garder ouvert en permanence."
+      },
+      autres: {
+        title: 'Tu portes pour les autres',
+        subtitle: "Ce qui prend trop de place n'est pas entièrement à toi.",
+        color: '#D4845A',
+        icon: '◇',
+        text: "Ton point de saturation semble venir de ce que tu gardes pour les autres : leurs oublis, leurs émotions, leurs besoins, leurs urgences, leurs contraintes. Même quand l'action finale n'est pas à toi, une partie reste active dans ta tête.",
+        next: "Le premier tri à faire : distinguer ce qui t'appartient vraiment, ce qui appartient aux autres, et ce que tu peux déposer sans abandonner personne."
+      },
+      temps: {
+        title: 'Ton temps pour toi ne respire plus',
+        subtitle: 'Le temps existe parfois, mais il ne te nourrit pas vraiment.',
+        color: '#C9A96E',
+        icon: '✦',
+        text: "Ton point de saturation semble venir de la qualité du repos. Tu peux avoir un moment libre, mais ton cerveau reste branché sur tout le reste. Le temps pour toi devient trop court, trop parasité, ou arrive quand tu es déjà épuisée.",
+        next: "Le premier tri à faire : libérer ce qui reste ouvert en arrière-plan, pour que tes moments à toi redeviennent vraiment habitables."
+      }
+    };
+
+    const questions = [
+      {
+        q: "Quand tu penses à ta semaine, à quoi tu penses en premier ?",
+        answers: [
+          { text: 'Mon agenda est blindé', score: 'agenda', bg: '#CC3DAA' },
+          { text: 'Je pense déjà à la semaine suivante, à ce qu’il faut faire après', score: 'anticipation', bg: '#2AACCB' },
+          { text: 'Je pense à tout ce que je dois gérer pour tout le monde', score: 'autres', bg: '#D4845A' },
+          { text: 'Même mes pauses ne me reposent pas', score: 'temps', bg: '#C9A96E' }
+        ]
+      },
+      {
+        q: "Ce qui tourne le plus dans ta tête en ce moment, c'est plutôt…",
+        answers: [
+          { text: 'Les rendez-vous, les horaires, les créneaux', score: 'agenda', bg: '#1E3A8A' },
+          { text: 'Les choses à prévoir avant qu’elles arrivent', score: 'anticipation', bg: '#2AACCB' },
+          { text: 'Les besoins ou oublis des autres', score: 'autres', bg: '#D4845A' },
+          { text: 'L’envie de souffler sans y arriver', score: 'temps', bg: '#C9A96E' }
+        ]
+      },
+      {
+        q: "Quand tu as enfin un moment pour toi, qu'est-ce qui se passe le plus souvent ?",
+        answers: [
+          { text: 'Je vois tout ce que je devrais encore faire', score: 'agenda', bg: '#CC3DAA' },
+          { text: 'Mon cerveau prépare déjà la suite', score: 'anticipation', bg: '#2AACCB' },
+          { text: 'Quelqu’un ou quelque chose me rattrape', score: 'autres', bg: '#D4845A' },
+          { text: 'Je suis trop vidée pour en profiter', score: 'temps', bg: '#C9A96E' }
+        ]
+      },
+      {
+        q: "Si tu pouvais enlever une couche de charge aujourd'hui, tu enlèverais d'abord…",
+        answers: [
+          { text: 'La pression visuelle de mon agenda', score: 'agenda', bg: '#1E3A8A' },
+          { text: 'Les dossiers ouverts dans ma tête', score: 'anticipation', bg: '#2AACCB' },
+          { text: 'Ce que je porte pour les autres', score: 'autres', bg: '#D4845A' },
+          { text: 'La fatigue qui mange mes moments libres', score: 'temps', bg: '#C9A96E' }
+        ]
+      },
+      {
+        q: "La sensation que tu aimerais retrouver, c'est surtout…",
+        answers: [
+          { text: 'Ouvrir mon agenda sans me contracter', score: 'agenda', bg: '#CC3DAA' },
+          { text: 'Savoir que les choses peuvent attendre', score: 'anticipation', bg: '#2AACCB' },
+          { text: 'Ne plus tout penser pour tout le monde', score: 'autres', bg: '#D4845A' },
+          { text: 'Avoir un vrai espace pour respirer', score: 'temps', bg: '#C9A96E' }
+        ]
+      }
+    ];
+
+    let current = 0;
+    const scores = { agenda: 0, anticipation: 0, autres: 0, temps: 0 };
+    const history = [];
+
+    function startDiagnostic() {
+      document.getElementById('intro').classList.add('hidden');
+      document.getElementById('quiz').classList.remove('hidden');
+      showQuestion(0);
+    }
+
+    function showQuestion(index) {
+      current = index;
+      const question = questions[index];
+      const pct = Math.round((index + 1) / questions.length * 100);
+      document.getElementById('q-num').textContent = 'Question ' + (index + 1) + '/' + questions.length;
+      document.getElementById('q-pct').textContent = pct + '%';
+      document.getElementById('progress').style.width = pct + '%';
+      document.getElementById('back-btn').classList.toggle('hidden', index === 0);
+
+      document.getElementById('q-box').innerHTML = `
+        <div class="fade-in">
+          <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Question ${index + 1}</p>
+          <h2 class="text-2xl md:text-4xl leading-tight font-normal mb-8">${question.q}</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            ${question.answers.map((answer, answerIndex) => `
+              <button class="answer-card min-h-[128px] rounded-sm border border-[#1E3A8A]/10 p-5 text-left text-white flex items-end" style="background:${answer.bg}" onclick="pickAnswer(${answerIndex})">
+                <span class="text-xl sm:text-2xl leading-tight font-serif" style="text-shadow:0 1px 5px rgba(0,0,0,0.22)">${answer.text}</span>
+              </button>
+            `).join('')}
+          </div>
+        </div>`;
+    }
+
+    function pickAnswer(answerIndex) {
+      const answer = questions[current].answers[answerIndex];
+      scores[answer.score] += 1;
+      history[current] = answer.score;
+      current + 1 < questions.length ? showQuestion(current + 1) : showResult();
+    }
+
+    function goBack() {
+      if (current <= 0) return;
+      const previousIndex = current - 1;
+      const previousScore = history[previousIndex];
+      if (previousScore) scores[previousScore] -= 1;
+      history.splice(previousIndex, 1);
+      showQuestion(previousIndex);
+    }
+
+    function showResult() {
+      const maxScore = Math.max(...Object.values(scores));
+      const tiedProfiles = Object.keys(scores).filter(key => scores[key] === maxScore);
+      const winner = [...history].reverse().find(key => tiedProfiles.includes(key)) || 'agenda';
+      const result = profiles[winner];
+      const subject = encodeURIComponent('Mini-diagnostic - ' + result.title);
+      const body = encodeURIComponent('Bonjour Caroline,\n\nJ’ai fait le mini-diagnostic et mon résultat est : ' + result.title + '.\n\nJ’aimerais regarder avec toi ce qui prend trop de place en ce moment.');
+      const dmMessage = encodeURIComponent('J’ai fait le mini-diagnostic et mon résultat est : ' + result.title + '. J’aimerais regarder avec toi ce qui prend trop de place en ce moment.');
+
+      document.getElementById('quiz').classList.add('hidden');
+      document.getElementById('result').innerHTML = `
+        <div class="fade-in text-center">
+          <div class="w-28 h-28 mx-auto mb-6 rounded-full flex items-center justify-center text-5xl text-white shadow-lg" style="background:${result.color}">${result.icon}</div>
+          <p class="ui-text text-xs tracking-[0.22em] uppercase mb-2" style="color:${result.color}">Ton point de saturation principal</p>
+          <h2 class="text-3xl md:text-5xl font-normal mb-3">${result.title}</h2>
+          <p class="text-lg text-[#1E3A8A]/70 mb-10 italic">${result.subtitle}</p>
+
+          <div class="text-left max-w-2xl mx-auto space-y-4 mb-10">
+            <div class="bg-white border border-[#1E3A8A]/10 rounded-sm p-6">
+              <p class="ui-text text-[0.65rem] tracking-[0.18em] uppercase text-[#2AACCB] mb-3">Ce que ça dit de ta saturation</p>
+              <p class="text-lg text-[#1E3A8A]/80 leading-relaxed">${result.text}</p>
+            </div>
+            <div class="bg-white border border-[#1E3A8A]/10 rounded-sm p-6">
+              <p class="ui-text text-[0.65rem] tracking-[0.18em] uppercase text-[#CC3DAA] mb-3">Le premier tri à regarder</p>
+              <p class="text-lg text-[#1E3A8A]/80 leading-relaxed">${result.next}</p>
+            </div>
+          </div>
+
+          <div class="max-w-2xl mx-auto bg-[#1E3A8A] text-white p-7 md:p-8 rounded-sm mb-8 text-left">
+            <p class="ui-text text-[0.65rem] tracking-[0.18em] uppercase text-[#F1D9A7] mb-3">Si tu veux aller plus loin</p>
+            <p class="text-xl md:text-2xl leading-snug mb-5">Tu n'as pas besoin d'arriver claire. Tu peux arriver avec le bazar. Mon rôle, c'est de voir ce que tu ne vois plus, puis de t'aider à trier ce qui prend trop de place.</p>
+            <p class="text-white/75 leading-relaxed mb-6">Si tu m'envoies ton résultat, je te réponds avec une première piste concrète pour savoir par où commencer le tri.</p>
+            <div class="flex flex-col sm:flex-row gap-3">
+              <button onclick="openInstagramDm('${dmMessage}')" class="inline-flex justify-center px-6 py-4 bg-[#CC3DAA] text-white text-xs uppercase tracking-[0.18em] hover:bg-[#D4845A] transition-colors rounded-sm">M'envoyer ton résultat en DM</button>
+              <a href="mailto:hello@carolineverdier.com?subject=${subject}&body=${body}" class="inline-flex justify-center px-6 py-4 border border-white/30 text-white text-xs uppercase tracking-[0.18em] hover:bg-white hover:text-[#1E3A8A] transition-colors rounded-sm">Par email</a>
+              <a href="/la-nouvelle-ligne-de-temps/" class="inline-flex justify-center px-6 py-4 border border-white/30 text-white text-xs uppercase tracking-[0.18em] hover:bg-white hover:text-[#1E3A8A] transition-colors rounded-sm">Voir l'accompagnement</a>
+            </div>
+            <p id="copy-status" class="copy-status text-xs text-white/60 mt-3"></p>
+          </div>
+
+          <button onclick="restartDiagnostic()" class="text-xs uppercase tracking-[0.18em] text-[#1E3A8A]/60 hover:text-[#CC3DAA] transition-colors">Refaire le diagnostic</button>
+        </div>`;
+      document.getElementById('result').classList.remove('hidden');
+      document.getElementById('progress').style.width = '100%';
+    }
+
+    async function openInstagramDm(encodedMessage) {
+      const message = decodeURIComponent(encodedMessage);
+      const status = document.getElementById('copy-status');
+      try {
+        await navigator.clipboard.writeText(message);
+        status.textContent = 'Message copié. Colle-le dans le DM Instagram qui va s’ouvrir.';
+      } catch (error) {
+        status.textContent = 'Instagram va s’ouvrir. Tu peux copier ton résultat depuis cette page si besoin.';
+      }
+      window.open('https://ig.me/m/caroline.verdier', '_blank', 'noopener');
+    }
+
+    function restartDiagnostic() {
+      current = 0;
+      Object.keys(scores).forEach(key => scores[key] = 0);
+      history.splice(0, history.length);
+      document.getElementById('result').classList.add('hidden');
+      document.getElementById('intro').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
