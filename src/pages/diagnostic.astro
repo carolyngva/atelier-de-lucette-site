@@ -28,6 +28,7 @@ import Footer from '../components/Footer.astro';
     .answer-card:hover { transform: translateY(-3px); box-shadow: 0 16px 35px -20px rgba(30, 58, 138, 0.45); border-color: rgba(204, 61, 170, 0.35); }
     .answer-card:active { transform: scale(0.98); }
     .copy-status { min-height: 1.25rem; }
+    .dm-message { word-break: break-word; }
   </style>
 </head>
 
@@ -243,8 +244,11 @@ import Footer from '../components/Footer.astro';
             <p class="ui-text text-[0.65rem] tracking-[0.18em] uppercase text-[#F1D9A7] mb-3">Si tu veux aller plus loin</p>
             <p class="text-xl md:text-2xl leading-snug mb-5">Tu n'as pas besoin d'arriver claire. Tu peux arriver avec le bazar. Mon rôle, c'est de voir ce que tu ne vois plus, puis de t'aider à trier ce qui prend trop de place.</p>
             <p class="text-white/75 leading-relaxed mb-6">Si tu m'envoies ton résultat, je te réponds avec une première piste concrète pour savoir par où commencer le tri.</p>
+            <div class="dm-message bg-white/10 border border-white/15 p-4 rounded-sm mb-4 text-white/80 text-sm leading-relaxed">
+              J’ai fait le mini-diagnostic et mon résultat est : <strong class="text-white">${result.title}</strong>. J’aimerais regarder avec toi ce qui prend trop de place en ce moment.
+            </div>
             <div class="flex flex-col sm:flex-row gap-3">
-              <button onclick="openInstagramDm('${dmMessage}')" class="inline-flex justify-center px-6 py-4 bg-[#CC3DAA] text-white text-xs uppercase tracking-[0.18em] hover:bg-[#D4845A] transition-colors rounded-sm">M'envoyer ton résultat en DM</button>
+              <button onclick="openInstagramDm('${dmMessage}')" class="inline-flex justify-center px-6 py-4 bg-[#CC3DAA] text-white text-xs uppercase tracking-[0.18em] hover:bg-[#D4845A] transition-colors rounded-sm">Copier et ouvrir Instagram</button>
               <a href="mailto:hello@carolineverdier.com?subject=${subject}&body=${body}" class="inline-flex justify-center px-6 py-4 border border-white/30 text-white text-xs uppercase tracking-[0.18em] hover:bg-white hover:text-[#1E3A8A] transition-colors rounded-sm">Par email</a>
               <a href="/la-nouvelle-ligne-de-temps/" class="inline-flex justify-center px-6 py-4 border border-white/30 text-white text-xs uppercase tracking-[0.18em] hover:bg-white hover:text-[#1E3A8A] transition-colors rounded-sm">Voir l'accompagnement</a>
             </div>
@@ -262,11 +266,11 @@ import Footer from '../components/Footer.astro';
       const status = document.getElementById('copy-status');
       try {
         await navigator.clipboard.writeText(message);
-        status.textContent = 'Message copié. Colle-le dans le DM Instagram qui va s’ouvrir.';
+        status.textContent = 'Message copié. Ouvre un message Instagram et colle-le à Caroline.';
       } catch (error) {
-        status.textContent = 'Instagram va s’ouvrir. Tu peux copier ton résultat depuis cette page si besoin.';
+        status.textContent = 'Instagram va s’ouvrir. Tu peux copier le message affiché juste au-dessus.';
       }
-      window.open('https://ig.me/m/caroline.verdier', '_blank', 'noopener');
+      window.open('https://www.instagram.com/caroline.verdier/', '_blank', 'noopener');
     }
 
     function restartDiagnostic() {
