@@ -9,11 +9,11 @@ import Footer from '../components/Footer.astro';
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Qu'est-ce qui prend trop de place dans ta tête ? — L'Atelier de Lucette</title>
-  <meta name="description" content="Mini-diagnostic en 5 questions pour voir ce qui prend réellement le plus de place dans ta tête en ce moment." />
+  <title>Qu'est-ce qui brouille ta direction intérieure ? | L'Atelier de Lucette</title>
+  <meta name="description" content="Mini-diagnostic en 5 questions pour voir ce qui t'empêche de retrouver ta direction après avoir trop tenu." />
   <link rel="canonical" href="https://latelierdelucette.com/diagnostic/" />
-  <meta property="og:title" content="Qu'est-ce qui prend trop de place dans ta tête ?" />
-  <meta property="og:description" content="Agenda archi blindé, cerveau saturé ? Fais le mini-diagnostic en 5 questions." />
+  <meta property="og:title" content="Qu'est-ce qui brouille ta direction intérieure ?" />
+  <meta property="og:description" content="Après avoir trop tenu, fais le mini-diagnostic pour voir ce qui t'empêche de retrouver ta direction." />
   <meta property="og:image" content="https://latelierdelucette.com/images/portrait-caroline.png" />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -43,14 +43,14 @@ import Footer from '../components/Footer.astro';
           <span class="ui-text text-xs tracking-[0.22em] uppercase text-[#1E3A8A]/70">Mini-diagnostic</span>
           <div class="h-px w-10 bg-[#CC3DAA]"></div>
         </div>
-        <h1 class="text-4xl md:text-6xl leading-[1.05] font-normal tracking-tight mb-6">
-          Agenda archi blindé,<br class="hidden md:block" /> <span class="italic text-[#CC3DAA]">cerveau saturé</span> ?
+          <h1 class="text-4xl md:text-6xl leading-[1.05] font-normal tracking-tight mb-6">
+          Qu'est-ce qui brouille<br class="hidden md:block" /> <span class="italic text-[#CC3DAA]">ta direction intérieure</span> ?
         </h1>
         <p class="text-lg md:text-xl text-[#1E3A8A]/75 max-w-2xl mx-auto mb-5 leading-relaxed">
-          Et si tu pouvais voir, en 5 questions, ce qui prend réellement le plus de place dans ta tête en ce moment ?
+          Après avoir trop tenu, tu peux aller mieux et ne pas encore savoir dans quel sens reconstruire.
         </p>
         <p class="text-base md:text-lg text-[#1E3A8A]/65 max-w-xl mx-auto mb-10 leading-relaxed">
-          Pas pour te rajouter une méthode. Juste pour repérer où ça sature en premier. Résultat immédiat, rien à remplir.
+          En 5 questions, repère ce qui brouille le plus ta direction en ce moment : peur de te tromper, poids à rendre, ancien système, trop de possibles ou élan recouvert.
         </p>
         <button onclick="startDiagnostic()" class="px-10 py-5 bg-[#CC3DAA] text-[#F7F4EE] text-xs uppercase tracking-[0.2em] hover:bg-[#D4845A] transition-all rounded-sm">
           Faire le mini-diagnostic
@@ -81,90 +81,103 @@ import Footer from '../components/Footer.astro';
 
   <script is:inline>
     const profiles = {
-      agenda: {
-        title: 'Ton agenda déborde',
-        subtitle: 'Ce qui prend trop de place se voit déjà dans ta semaine.',
+      garantie: {
+        title: 'Tu cherches une garantie',
+        subtitle: 'Ta tête veut être sûre avant d’avancer.',
         color: '#CC3DAA',
-        icon: '□',
-        text: "Ton premier point de saturation semble venir de l'espace visible : semaines pleines, week-ends remplis, agenda partagé, obligations qui s'empilent. Ton corps réagit avant même que tu aies commencé : il voit tout ce qui arrive et il se contracte.",
-        next: "Le premier tri à faire : distinguer ce qui doit vraiment rester dans ton agenda, ce qui peut être déplacé, et ce qui n'a pas besoin d'être visible partout pour exister."
+        icon: '→',
+        text: "Ton premier point de blocage semble venir de la pression à trouver la bonne direction. Pas juste une piste. La direction qui serait encore vraie dans 20 ans, qui ne te ferait pas souffrir, qui ne dérangerait personne et qui prouverait que tu ne vas pas recommencer comme avant.",
+        next: "Le premier tri à faire : distinguer ce qui vient de ton élan de ce qui cherche surtout une sécurité parfaite. Une direction juste n'a pas besoin d'être verrouillée pour commencer."
       },
-      anticipation: {
-        title: 'Ton cerveau anticipe tout',
-        subtitle: "Ce qui prend trop de place n'est pas encore arrivé.",
+      poids: {
+        title: "Tu portes ce qui ne t'appartient plus",
+        subtitle: 'Ta direction est recouverte par des rôles, des loyautés ou des responsabilités anciennes.',
         color: '#2AACCB',
-        icon: '△',
-        text: "Ton point de saturation semble venir de l'anticipation : prévoir, organiser, penser à la rentrée, aux inscriptions, aux cadeaux, aux prochains rendez-vous. Ton cerveau ouvre les dossiers très tôt, puis les garde actifs longtemps.",
-        next: "Le premier tri à faire : créer un endroit fiable où déposer ce qui n'est pas pour maintenant, pour que ton cerveau n'ait plus besoin de le garder ouvert en permanence."
-      },
-      autres: {
-        title: 'Tu portes pour les autres',
-        subtitle: "Ce qui prend trop de place n'est pas entièrement à toi.",
-        color: '#D4845A',
         icon: '◇',
-        text: "Ton point de saturation semble venir de ce que tu gardes pour les autres : leurs oublis, leurs émotions, leurs besoins, leurs urgences, leurs contraintes. Même quand l'action finale n'est pas à toi, une partie reste active dans ta tête.",
-        next: "Le premier tri à faire : distinguer ce qui t'appartient vraiment, ce qui appartient aux autres, et ce que tu peux déposer sans abandonner personne."
+        text: "Ton premier point de blocage semble venir de ce que tu continues à porter : attentes, responsabilités, besoins des autres, loyautés familiales, anciens rôles. Une partie de ton énergie sert encore à tenir une place qui n'est peut-être plus juste pour toi.",
+        next: "Le premier tri à faire : regarder ce qui est vraiment à toi, ce qui vient d'avant, et ce qui peut être rendu ou libéré sans abandonner personne."
       },
-      temps: {
-        title: 'Ton temps pour toi ne respire plus',
-        subtitle: 'Le temps existe parfois, mais il ne te nourrit pas vraiment.',
+      ancien: {
+        title: "Ton ancien système pilote encore",
+        subtitle: 'Ce qui t’a protégée avant continue peut-être de décider pour toi.',
+        color: '#D4845A',
+        icon: '△',
+        text: "Ton premier point de blocage semble venir de réflexes anciens : anticiper, contrôler, prouver, tenir, comprendre encore, sécuriser encore. Ces mécanismes ont peut-être été utiles pour survivre ou tenir, mais ils ne peuvent plus guider toute la suite.",
+        next: "Le premier tri à faire : repérer ce que ton ancien système essaie de protéger, puis mettre à jour ce qui n'a plus besoin de fonctionner comme avant."
+      },
+      possibles: {
+        title: 'Tu as trop de possibles ouverts',
+        subtitle: 'Tout t’appelle un peu, donc plus rien ne devient vraiment praticable.',
         color: '#C9A96E',
         icon: '✦',
-        text: "Ton point de saturation semble venir de la qualité du repos. Tu peux avoir un moment libre, mais ton cerveau reste branché sur tout le reste. Le temps pour toi devient trop court, trop parasité, ou arrive quand tu es déjà épuisée.",
-        next: "Le premier tri à faire : libérer ce qui reste ouvert en arrière-plan, pour que tes moments à toi redeviennent vraiment habitables."
+        text: "Ton premier point de blocage semble venir de l'accumulation de pistes : formations, idées, projets, envies, scénarios, nouvelles voies possibles. Ce n'est pas que rien ne t'intéresse. C'est qu'il y a trop de portes ouvertes en même temps.",
+        next: "Le premier tri à faire : déposer toutes les pièces sur la table pour voir ce qui est vivant maintenant, ce qui peut attendre, et ce qui n'a plus besoin de rester ouvert."
+      },
+      elan: {
+        title: 'Ton élan est recouvert par la peur',
+        subtitle: 'Ce qui t’appelle existe, mais il se fait vite rattraper par le doute.',
+        color: '#1E3A8A',
+        icon: '✧',
+        text: "Ton premier point de blocage semble venir de l'écart entre ce que tu sens et ce que tu oses suivre. Il y a peut-être un appel, une envie, une direction qui revient souvent, mais elle est aussitôt recouverte par la peur de te tromper, de décevoir, ou de refaire comme avant.",
+        next: "Le premier tri à faire : distinguer la voix de ton élan de la voix de la peur, puis chercher un prochain pas assez juste pour être vécu dans ta vraie vie."
       }
     };
 
     const questions = [
       {
-        q: "Quand tu penses à ta semaine, à quoi tu penses en premier ?",
+        q: "Quand tu penses à la suite, qu'est-ce qui arrive en premier ?",
         answers: [
-          { text: 'Mon agenda est blindé', score: 'agenda', bg: '#CC3DAA' },
-          { text: 'Je pense déjà à la semaine suivante, à ce qu’il faut faire après', score: 'anticipation', bg: '#2AACCB' },
-          { text: 'Je pense à tout ce que je dois gérer pour tout le monde', score: 'autres', bg: '#D4845A' },
-          { text: 'Même mes pauses ne me reposent pas', score: 'temps', bg: '#C9A96E' }
+          { text: 'J’ai peur de choisir une direction qui ne sera pas la bonne', score: 'garantie', bg: '#CC3DAA' },
+          { text: 'Je pense à tout ce que je porte encore pour les autres', score: 'poids', bg: '#2AACCB' },
+          { text: 'Je sens mes vieux réflexes revenir : contrôler, prouver, tenir', score: 'ancien', bg: '#D4845A' },
+          { text: 'Je vois trop de pistes possibles et je ne sais plus laquelle suivre', score: 'possibles', bg: '#C9A96E' },
+          { text: 'Je sens quelque chose qui m’appelle, puis je doute tout de suite', score: 'elan', bg: '#1E3A8A' }
         ]
       },
       {
-        q: "Ce qui tourne le plus dans ta tête en ce moment, c'est plutôt…",
+        q: "Ce qui tourne le plus dans ta tête en ce moment, c'est plutôt...",
         answers: [
-          { text: 'Les rendez-vous, les horaires, les créneaux', score: 'agenda', bg: '#1E3A8A' },
-          { text: 'Les choses à prévoir avant qu’elles arrivent', score: 'anticipation', bg: '#C9A96E' },
-          { text: 'Les besoins ou oublis des autres', score: 'autres', bg: '#CC3DAA' },
-          { text: 'L’envie de souffler sans y arriver', score: 'temps', bg: '#2AACCB' }
+          { text: 'Et si je me trompe encore ?', score: 'garantie', bg: '#1E3A8A' },
+          { text: 'Ce qui est à moi, ce qui ne l’est pas, ce que je dois rendre', score: 'poids', bg: '#C9A96E' },
+          { text: 'Pourquoi je refais encore les mêmes choses ?', score: 'ancien', bg: '#CC3DAA' },
+          { text: 'Toutes les formations, idées et projets que j’ai déjà ouverts', score: 'possibles', bg: '#2AACCB' },
+          { text: 'Ce que je veux vraiment, mais que je n’ose pas suivre', score: 'elan', bg: '#D4845A' }
         ]
       },
       {
-        q: "Quand tu as enfin un moment pour toi, qu'est-ce qui se passe le plus souvent ?",
+        q: "Quand une idée ou une envie apparaît, qu'est-ce qui se passe le plus souvent ?",
         answers: [
-          { text: 'Je vois tout ce que je devrais encore faire', score: 'agenda', bg: '#D4845A' },
-          { text: 'Mon cerveau prépare déjà la suite', score: 'anticipation', bg: '#CC3DAA' },
-          { text: 'Quelqu’un ou quelque chose me rattrape', score: 'autres', bg: '#C9A96E' },
-          { text: 'Je suis trop vidée pour en profiter', score: 'temps', bg: '#1E3A8A' }
+          { text: 'Je veux être sûre avant de bouger', score: 'garantie', bg: '#D4845A' },
+          { text: 'Je pense à l’impact que ça aura sur les autres', score: 'poids', bg: '#CC3DAA' },
+          { text: 'Je transforme ça en plan, en pression ou en performance', score: 'ancien', bg: '#C9A96E' },
+          { text: 'Je l’ajoute à une liste déjà trop longue', score: 'possibles', bg: '#1E3A8A' },
+          { text: 'Je la sens juste, puis la peur recouvre tout', score: 'elan', bg: '#2AACCB' }
         ]
       },
       {
-        q: "Si tu pouvais enlever une couche de charge aujourd'hui, tu enlèverais d'abord…",
+        q: "Ce que tu aimerais déposer en premier, ce serait...",
         answers: [
-          { text: 'La pression visuelle de mon agenda', score: 'agenda', bg: '#C9A96E' },
-          { text: 'Les dossiers ouverts dans ma tête', score: 'anticipation', bg: '#D4845A' },
-          { text: 'Ce que je porte pour les autres', score: 'autres', bg: '#2AACCB' },
-          { text: 'La fatigue qui mange mes moments libres', score: 'temps', bg: '#CC3DAA' }
+          { text: 'La pression de trouver LA bonne voie', score: 'garantie', bg: '#C9A96E' },
+          { text: 'Les responsabilités, attentes ou loyautés qui ne sont plus justes', score: 'poids', bg: '#D4845A' },
+          { text: 'Le réflexe de tout sécuriser avant d’avancer', score: 'ancien', bg: '#2AACCB' },
+          { text: 'Les 12 pistes gardées pour plus tard', score: 'possibles', bg: '#CC3DAA' },
+          { text: 'La peur qui arrive dès que mon élan devient visible', score: 'elan', bg: '#1E3A8A' }
         ]
       },
       {
-        q: "La sensation que tu aimerais retrouver, c'est surtout…",
+        q: "La sensation que tu aimerais retrouver, c'est surtout...",
         answers: [
-          { text: 'Ouvrir mon agenda sans me contracter', score: 'agenda', bg: '#2AACCB' },
-          { text: 'Savoir que les choses peuvent attendre', score: 'anticipation', bg: '#1E3A8A' },
-          { text: 'Ne plus tout penser pour tout le monde', score: 'autres', bg: '#C9A96E' },
-          { text: 'Avoir un vrai espace pour respirer', score: 'temps', bg: '#D4845A' }
+          { text: 'Avancer sans exiger une certitude parfaite', score: 'garantie', bg: '#2AACCB' },
+          { text: 'Me sentir à ma place, sans porter celle des autres', score: 'poids', bg: '#1E3A8A' },
+          { text: 'Ne plus reconstruire depuis mes anciens mécanismes', score: 'ancien', bg: '#C9A96E' },
+          { text: 'Savoir ce qui est vivant maintenant et ce qui peut attendre', score: 'possibles', bg: '#D4845A' },
+          { text: 'Sentir mon élan et oser poser un premier pas', score: 'elan', bg: '#CC3DAA' }
         ]
       }
     ];
 
     let current = 0;
-    const scores = { agenda: 0, anticipation: 0, autres: 0, temps: 0 };
+    const scores = { garantie: 0, poids: 0, ancien: 0, possibles: 0, elan: 0 };
     const history = [];
 
     function startDiagnostic() {
@@ -215,23 +228,23 @@ import Footer from '../components/Footer.astro';
     function showResult() {
       const maxScore = Math.max(...Object.values(scores));
       const tiedProfiles = Object.keys(scores).filter(key => scores[key] === maxScore);
-      const winner = [...history].reverse().find(key => tiedProfiles.includes(key)) || 'agenda';
+      const winner = [...history].reverse().find(key => tiedProfiles.includes(key)) || 'garantie';
       const result = profiles[winner];
       const subject = encodeURIComponent('Mini-diagnostic - ' + result.title);
-      const body = encodeURIComponent('Bonjour Caroline,\n\nJ’ai fait le mini-diagnostic et mon résultat est : ' + result.title + '.\n\nJ’aimerais regarder avec toi ce qui prend trop de place en ce moment.');
-      const dmMessage = encodeURIComponent('J’ai fait le mini-diagnostic et mon résultat est : ' + result.title + '. J’aimerais regarder avec toi ce qui prend trop de place en ce moment.');
+      const body = encodeURIComponent('Bonjour Caroline,\n\nJ’ai fait le mini-diagnostic et mon résultat est : ' + result.title + '.\n\nJ’aimerais regarder avec toi ce qui brouille ma direction en ce moment.');
+      const dmMessage = encodeURIComponent('J’ai fait le mini-diagnostic et mon résultat est : ' + result.title + '. J’aimerais regarder avec toi ce qui brouille ma direction en ce moment.');
 
       document.getElementById('quiz').classList.add('hidden');
       document.getElementById('result').innerHTML = `
         <div class="fade-in text-center">
           <div class="w-28 h-28 mx-auto mb-6 rounded-full flex items-center justify-center text-5xl text-white shadow-lg" style="background:${result.color}">${result.icon}</div>
-          <p class="ui-text text-xs tracking-[0.22em] uppercase mb-2" style="color:${result.color}">Ton point de saturation principal</p>
+          <p class="ui-text text-xs tracking-[0.22em] uppercase mb-2" style="color:${result.color}">Ce qui brouille ta direction</p>
           <h2 class="text-3xl md:text-5xl font-normal mb-3">${result.title}</h2>
           <p class="text-lg text-[#1E3A8A]/70 mb-10 italic">${result.subtitle}</p>
 
           <div class="text-left max-w-2xl mx-auto space-y-4 mb-10">
             <div class="bg-white border border-[#1E3A8A]/10 rounded-sm p-6">
-              <p class="ui-text text-[0.65rem] tracking-[0.18em] uppercase text-[#2AACCB] mb-3">Ce que ça dit de ta saturation</p>
+              <p class="ui-text text-[0.65rem] tracking-[0.18em] uppercase text-[#2AACCB] mb-3">Ce que ça dit de ta direction</p>
               <p class="text-lg text-[#1E3A8A]/80 leading-relaxed">${result.text}</p>
             </div>
             <div class="bg-white border border-[#1E3A8A]/10 rounded-sm p-6">
@@ -242,10 +255,10 @@ import Footer from '../components/Footer.astro';
 
           <div class="max-w-2xl mx-auto bg-[#1E3A8A] text-white p-7 md:p-8 rounded-sm mb-8 text-left">
             <p class="ui-text text-[0.65rem] tracking-[0.18em] uppercase text-[#F1D9A7] mb-3">Si tu veux aller plus loin</p>
-            <p class="text-xl md:text-2xl leading-snug mb-5">Tu n'as pas besoin d'arriver claire. Tu peux arriver avec le bazar. Mon rôle, c'est de voir ce que tu ne vois plus, puis de t'aider à trier ce qui prend trop de place.</p>
-            <p class="text-white/75 leading-relaxed mb-6">Si tu m'envoies ton résultat, je te réponds avec une première piste concrète pour savoir par où commencer le tri.</p>
+            <p class="text-xl md:text-2xl leading-snug mb-5">Tu n'as pas besoin d'arriver claire. Tu peux arriver avec le brouillard, les pistes ouvertes, les peurs et ce que tu portes encore.</p>
+            <p class="text-white/75 leading-relaxed mb-6">Si tu m'envoies ton résultat, je te réponds avec une première piste pour voir par où commencer le tri.</p>
             <div class="dm-message bg-white/10 border border-white/15 p-4 rounded-sm mb-4 text-white/80 text-sm leading-relaxed">
-              J’ai fait le mini-diagnostic et mon résultat est : <strong class="text-white">${result.title}</strong>. J’aimerais regarder avec toi ce qui prend trop de place en ce moment.
+              J’ai fait le mini-diagnostic et mon résultat est : <strong class="text-white">${result.title}</strong>. J’aimerais regarder avec toi ce qui brouille ma direction en ce moment.
             </div>
             <div class="flex flex-col sm:flex-row gap-3">
               <button onclick="openInstagramDm('${dmMessage}')" class="inline-flex justify-center px-6 py-4 bg-[#CC3DAA] text-white text-xs uppercase tracking-[0.18em] hover:bg-[#D4845A] transition-colors rounded-sm">Copier et ouvrir Instagram</button>
