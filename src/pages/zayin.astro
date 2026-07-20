@@ -5,191 +5,133 @@ import Footer from '../components/Footer.astro';
 
 const ctaHref = 'https://buy.stripe.com/bJe14n7qafjVbGQ0oN7bW06';
 
-const symptomes = [
-  "Tu as tenu trop longtemps. Peut-être jusqu'au burn-out, à la saturation, à la rupture intérieure, ou à ce moment où tu as compris que ton ancien fonctionnement ne pouvait plus continuer.",
-  "Aujourd'hui, tu vas mieux. Ou tu commences à aller mieux. Et tu sens que tu as envie de reconstruire.",
-  "Mais il y a 1000 dossiers ouverts dans ta tête : ce qui pèse encore, ce qui t'appelle sans être clair, ce que tu portes pour les autres, ce que tu n'oses pas encore choisir.",
-  "Dès que tu essaies d'y voir clair, tout se mélange : les possibilités, les peurs, les envies, les anciennes responsabilités, les prochaines étapes.",
-  "Tu peux passer une heure à réfléchir à tout ce qui serait possible, et finir encore plus submergée qu'avant.",
-  "Tu peux regarder une formation, un accompagnement, une nouvelle piste, alors que tu en as déjà 12 commencés, notés, gardés pour plus tard.",
-  "Ce n'est pas que rien ne t'intéresse. C'est qu'il y a trop de possibles ouverts en même temps, et pas assez d'espace pour sentir lequel est vivant maintenant.",
-  "Tu as besoin d'un espace pour poser tout ça, faire le tri, écouter différemment, et retrouver ta direction.",
+const heroItems = [
+  'Les pensées.',
+  'Les responsabilités.',
+  'Les décisions en attente.',
+  'Les scénarios.',
+  'Les attentes des autres.',
+  "Les projets qui t'appellent.",
+  "Les peurs qui se réveillent dès qu'une piste devient sérieuse.",
 ];
 
-const vraieVie = [
-  "Ta direction redevient plus claire.",
-  "Tu sais mieux distinguer ce qui est à toi, ce qui vient d'une ancienne loyauté, et ce qui ne t'appartient plus.",
-  "Tu reconnais les anciens réflexes qui essaient encore de te protéger, sans les laisser décider toute la suite à ta place.",
-  "Tu retrouves ton élan intérieur, et l'action redevient possible.",
-  "Tu peux choisir un prochain pas sans lui demander d'être valable pour les 20 prochaines années, ni d'être confortable pour tout le monde.",
-  "Tu reconstruis depuis un espace plus juste : pas pour prouver, pas pour tenir, pas pour rassurer tout le monde, mais parce que quelque chose en toi redevient vivant.",
+const agendaInvisible = [
+  'Tout ce que tu prévois.',
+  'Tout ce que tu surveilles.',
+  'Tout ce que tu gardes en mémoire.',
+  'Tout ce que tu portes pour que les choses ne tombent pas.',
 ];
 
-const possibles = [
+const remiseOrdre = [
   {
-    image: '/images/orga-chaos.jpg',
-    title: 'Avant',
-    text: "Tout est là, quelque part, mais trop de choses vivent encore dans ta tête : les envies, les peurs, les projets possibles, les anciennes charges, les décisions en suspens.",
+    title: 'Ce qui tourne',
+    items: ['Les pensées en boucle.', 'Les décisions en suspens.', 'Les scénarios.', 'Les idées commencées.', 'Les projets qui reviennent.', 'Les choses à ne pas oublier.'],
+    text: "On sort de ta tête ce qui n'a plus besoin d'y tourner en permanence.",
   },
   {
-    image: '/images/retraite-yoga.jpg',
-    title: "Ce qui t'appelle peut-être",
-    text: "Un nouveau projet, une manière différente de travailler, une envie de créer, de transmettre, de ralentir, de changer de place, ou simplement de revenir à quelque chose de plus vivant en toi.",
+    title: 'Ce qui pèse',
+    items: ['Les responsabilités prises par défaut.', 'Les attentes.', 'Les culpabilités.', 'Les loyautés.', 'Les rôles anciens.', 'La charge émotionnelle des autres.'],
+    text: "On distingue ce qui t'appartient vraiment de ce qui s'est posé sur toi.",
   },
   {
-    image: '/images/girlboss-focus.jpg',
-    title: 'Ce qui redevient possible',
-    text: "Avancer sans tout verrouiller. Choisir un prochain pas. Retrouver ton élan intérieur. Reconstruire une suite qui ne te demande pas de redevenir celle qui tenait tout.",
+    title: 'Ce qui appelle',
+    items: ['Une envie.', 'Un projet.', 'Une limite.', 'Une conversation.', 'Une autre manière de travailler.', 'Une vie plus respirable.', "Une décision que tu repousses parce qu'elle changerait quelque chose."],
+    text: "On crée assez de calme pour que tu puisses l'entendre sans te mettre la pression.",
   },
 ];
 
-const couches = [
-  {
-    title: 'Déposer ce qui tourne',
-    text: "Les pensées, idées, projets, peurs, scénarios, décisions en suspens, envies et choses à ne pas oublier qui restent actives dans ta tête faute d'un endroit fiable où exister.",
-  },
-  {
-    title: "Libérer ce qui ne t'appartient plus",
-    text: "Les responsabilités, loyautés, attentes, rôles et poids que tu as peut-être portés par amour, par habitude, par peur de décevoir, ou parce que tu as longtemps été celle qui tient. On regarde aussi ce qui vient des générations d'avant : ce que tu as reçu, repris, prolongé parfois sans le savoir. L'objectif n'est pas de rejeter ton histoire, mais de libérer ce qui n'a plus à passer par toi, pour pouvoir recevoir les cadeaux de ta lignée sans continuer à porter ses fardeaux.",
-  },
-  {
-    title: "Mettre à jour l'ancien système",
-    text: "Les croyances, peurs et réflexes qui t'ont aidée à survivre, à tenir, à anticiper ou à rester en sécurité, mais qui ne peuvent plus guider la suite de ta vie.",
-  },
-  {
-    title: "Retrouver ce qui appelle",
-    text: "Ce qui revient souvent. Ce qui te donne de l'élan. Ce qui t'intrigue. Ce qui te fait peur aussi, parce que ça demande peut-être une décision, une limite ou un changement.",
-  },
-  {
-    title: 'Reconstruire une suite plus juste',
-    text: "Une direction simple, incarnée et praticable. Pas forcément toute la réponse pour les 20 prochaines années, mais un prochain pas qui respecte ton énergie, ton histoire et ce qui est vrai pour toi maintenant.",
-  },
+const imagine = [
+  'Te réveiller un lundi sans sentir immédiatement le poids de tout ce que tu dois porter.',
+  "Ouvrir ton ordinateur sans cette sensation de dette intérieure envers tous les projets en attente.",
+  "Regarder ton agenda sans avoir l'impression que ta semaine est déjà en train de te prendre.",
+  'Boire ton café et rester là, vraiment là.',
+  "Avoir une heure libre sans la remplir avant même qu'elle commence.",
+  "Sentir qu'une demande ne t'appartient pas avant de la prendre dans ta tête.",
+  "Penser à un projet sans devoir immédiatement savoir s'il est valable pour les 20 prochaines années.",
+  'Aimer les autres sans garder toute leur vie dans ton cerveau.',
 ];
 
-const croyances = [
-  {
-    depart: "Je devrais être capable d'avancer maintenant que ça va mieux.",
-    arrivee: "Après avoir trop tenu et souffert pour ça, ton système interne ne veut plus se tromper. Il cherche la direction parfaite. Celle qui sera encore vraie dans 20 ans. Trop de pression.",
-  },
-  {
-    depart: "Je suis trop dispersée. Je me juge de ne pas réussir à choisir.",
-    arrivee: "Quand trop de choses sont restées ouvertes trop longtemps, ton cerveau essaie de tout garder visible en même temps. Le problème n'est pas ton manque de clarté. C'est l'absence d'un espace où tout peut être posé, trié et remis à sa juste place.",
-  },
-  {
-    depart: "Je ne sais plus ce que je veux.",
-    arrivee: "Ce que tu veux vraiment n'est pas si loin. Il est peut-être simplement caché sous ce que tu portes encore, ce qui ne te sert plus, et ce qui ne t'appartient pas.",
-  },
-  {
-    depart: "Je devrais réussir à reconstruire seule.",
-    arrivee: "C'est normal. C'est ton ancien fonctionnement : comprendre, porter, avancer, tenir. Mais c'est aussi ce fonctionnement qui t'a menée à devoir reconstruire autrement.",
-  },
+const apres = [
+  'Tu ne repars pas avec une vie parfaite.',
+  'Tu repars avec une tête plus respirable.',
+  'Tu sais mieux quoi poser, quoi garder, quoi rendre, quoi déplacer.',
+  'Tu reconnais les anciens réflexes qui veulent encore tout sécuriser.',
+  "Tu sens plus vite quand tu es en train de porter ce qui n'est pas à toi.",
+  'Tu peux te poser et être vraiment là.',
+  "Tu peux revenir à toi quand ça recommence à se mélanger.",
+  "Tu n'as plus besoin que chaque décision contienne toute ta vie.",
+  "Et peu à peu, ta direction cesse d'être une réponse à trouver. Elle devient quelque chose que tu peux entendre.",
 ];
 
-const alternatives = [
-  {
-    title: 'Comprendre ce que tu as vécu',
-    text: "Comprendre peut soulager énormément. Ça remet du sens là où il y avait de la confusion. Mais comprendre ne suffit pas toujours à changer ce qui se rejoue dans ton quotidien, dans tes choix, dans ton corps, dans ta manière de porter ou d'anticiper.",
-  },
-  {
-    title: 'Te reposer, ralentir, prendre soin de toi',
-    text: "C'est nécessaire. Et parfois vital. Le repos ne suffit pas toujours à retrouver une direction. Tu peux aller mieux, sans encore savoir quoi reconstruire.",
-  },
-  {
-    title: 'Chercher ta voie',
-    text: "Ça peut ouvrir des pistes. Mais ça peut aussi ajouter de la pression, comme s'il fallait trouver la bonne réponse, le bon projet, la bonne version de toi pour les 20 prochaines années.",
-  },
-  {
-    title: "T'organiser autrement",
-    text: "Un meilleur agenda, une liste ou un cadre peuvent aider. Mais si ce que tu portes n'a pas été trié, libéré ou remis à sa juste place, tu risques seulement d'organiser ton ancien système un peu mieux.",
-  },
-  {
-    title: 'Travailler sur tes croyances',
-    text: "C'est précieux. Mais certaines croyances ne se mettent pas à jour seulement avec des phrases. Elles ont besoin d'être replacées dans ton histoire, ton corps, ton quotidien, et parfois dans ce qui vient de plus loin que toi.",
-  },
+const experiences = [
+  'Ta tête.',
+  'Ton agenda invisible.',
+  'Tes responsabilités.',
+  'Tes peurs.',
+  'Tes élans.',
+  'Tes loyautés.',
+  'Tes anciennes manières de tenir.',
+  'Ce qui revient encore et encore.',
+  'Ce qui demande une autre place.',
 ];
 
-const avantApres = [
+const passages = [
   {
-    situation: 'Ta tête',
-    avant: "Tout se mélange : les envies, les peurs, les idées, les responsabilités, les scénarios et les décisions en suspens.",
-    apres: "Tu sais où déposer ce qui tourne, comment le regarder, et quoi en faire sans tout garder ouvert en permanence.",
+    title: '1. Déposer',
+    text: "On sort la matière de ta tête. Pas joliment. Pas parfaitement. Pas dans le bon ordre. On pose ce qui tourne, ce qui fatigue, ce qui revient, ce que tu repousses, ce que tu n'oses pas regarder.",
+    example: "Concrètement, cela peut vouloir dire poser sur la table les projets ouverts, les décisions en attente, les conversations évitées, les responsabilités invisibles, les 'il faut que je pense à...' qui tournent en arrière-plan.",
   },
   {
-    situation: 'Ta direction',
-    avant: "Tu cherches la bonne réponse, celle qui sera encore vraie dans 20 ans, et cette pression te fige.",
-    apres: "Ta direction redevient plus claire, et tu peux choisir un prochain pas sans lui demander de contenir toute ta vie.",
+    title: '2. Distinguer',
+    text: "On sépare ce qui est à toi, ce qui ne l'est pas, ce qui est pour maintenant, ce qui peut attendre, ce qui vient de la peur, ce qui vient de l'élan, et ce qui vient d'un ancien rôle.",
+    example: "Une tâche peut sembler pratique, alors qu'elle porte en réalité une peur de décevoir. Une envie peut sembler floue, alors qu'elle revient depuis des mois. Une responsabilité peut sembler normale, alors qu'elle ne devrait plus reposer uniquement sur toi.",
   },
   {
-    situation: 'Ce que tu portes',
-    avant: "Tu continues à porter des responsabilités, loyautés, attentes ou rôles qui ne t'appartiennent plus vraiment.",
-    apres: "Tu distingues ce qui est à toi, ce qui vient d'avant, ce qui peut être rendu, libéré ou remis à sa juste place.",
+    title: '3. Libérer',
+    text: "On regarde les charges invisibles : les loyautés, les héritages, les attentes, les places prises trop tôt ou trop longtemps, les responsabilités qui se sont installées comme si elles étaient naturelles.",
+    example: "On peut travailler avec des constellations, du transgénérationnel, des images, des phrases, des ressentis corporels, selon ce qui se présente. L'objectif n'est pas de rejeter ton histoire. L'objectif est de ne plus la laisser décider à ta place.",
   },
   {
-    situation: 'Tes anciens réflexes',
-    avant: "Ton système essaie encore de te protéger comme avant : anticiper, tenir, tout comprendre, tout sécuriser.",
-    apres: "Tu reconnais ces réflexes sans les laisser piloter toute la suite. Tu peux mettre à jour ce qui n'a plus besoin de fonctionner comme ça.",
+    title: '4. Entendre',
+    text: "Quand il y a moins de choses ouvertes, ce qui appelle devient plus perceptible : un projet, un choix, une limite, une envie, un changement de rythme, une conversation, une décision.",
+    example: "On ne force pas la direction. On crée les conditions pour qu'elle devienne évidente. Pas forcément définitive. Mais assez claire pour avancer.",
   },
   {
-    situation: 'Ton élan',
-    avant: "Tu sens peut-être qu'il y a quelque chose qui t'appelle, mais c'est flou, fragile ou aussitôt recouvert par la peur.",
-    apres: "Tu retrouves un contact plus clair avec ton élan intérieur, et l'action redevient possible.",
+    title: '5. Ajuster',
+    text: "Un mois plus tard, on revient au réel : ce qui a bougé, ce qui s'est confirmé, ce qui résiste, ce qui demande encore à être simplifié, ce qui devient possible maintenant que tu n'es plus exactement au même endroit.",
+    example: "La clarté se vérifie dans la vie. Cette dernière session sert à ajuster, stabiliser et éviter que l'ancien système reprenne toute la place.",
   },
 ];
 
 const inclus = [
-  '5 sessions au total : 4 sessions individuelles sur 1 mois, puis une session de rappel à 1 mois.',
-  'Des sessions de 1h à 2h selon le besoin et la matière du moment.',
-  'Un support WhatsApp entre les sessions, dans un cadre clair.',
-  "Un espace pour déposer tout ce qui tourne, pèse ou appelle, et remettre les choses à leur juste place.",
-  "Un temps de constellation ou de travail transgénérationnel pour libérer ce qui ne t'appartient plus.",
-  "Un travail sur les peurs, croyances et réflexes de l'ancien système qui continuent peut-être de piloter la suite.",
+  '5 sessions individuelles.',
+  '4 sessions sur 1 mois.',
+  '1 session de rappel un mois plus tard.',
+  'Des sessions de 1h à 2h selon la matière.',
+  'Un support WhatsApp entre les séances.',
+  'Un travail de tri mental, concret, émotionnel et symbolique.',
+  'Un temps de constellation ou de travail transgénérationnel.',
+  'Un travail sur les peurs, croyances et anciens réflexes.',
+  'Un prochain pas clair, incarné et praticable.',
 ];
 
-const sessions = [
-  {
-    title: 'Session 1 · Déposer',
-    text: "On sort de ta tête ce qui tourne : pensées, idées, projets, peurs, scénarios, décisions en suspens, envies, responsabilités, tensions et choses à ne pas oublier. Souvent, une première direction commence déjà à apparaître dès cette séance, parce que tout cesse d'être mélangé. Entre les séances, tu repars avec un travail personnel simple pour observer, ressentir ou poser un premier pas dans ta vraie vie.",
-  },
-  {
-    title: 'Session 2 · Trier',
-    text: "On distingue ce qui est à toi, ce qui ne l'est pas, ce qui est pour maintenant, ce qui peut attendre, ce qui vient de la peur, ce qui vient de l'élan, et ce qui demande une autre place. La direction qui a commencé à émerger se précise : on regarde ce qui la soutient, ce qui la brouille, et ce qui demande encore à être trié.",
-  },
-  {
-    title: 'Session 3 · Libérer',
-    text: "On regarde ce que tu portes par loyauté, par habitude, par amour, par héritage familial ou parce que tu as longtemps été celle qui tient. On libère ce qui ne t'appartient plus, pour recevoir les cadeaux de ton histoire sans continuer à porter ses fardeaux. La direction se confirme à mesure que les anciennes charges perdent leur pouvoir sur tes choix.",
-  },
-  {
-    title: 'Session 4 · Mettre à jour',
-    text: "On travaille sur les peurs, croyances et réflexes de l'ancien système : ceux qui t'ont aidée à survivre, anticiper, tenir ou rester en sécurité, mais qui ne peuvent plus guider la suite. On dépasse ce qui te fige encore, sans te forcer à aller plus vite que ton système. La direction devient plus incarnée : pas seulement une idée claire, mais quelque chose que tu peux commencer à vivre.",
-  },
-  {
-    title: 'Session 5 · Revenir et ajuster',
-    text: "Un mois plus tard, on revient sur ce qui a bougé : ce qui est devenu plus clair, ce qui résiste encore, ce qui demande à être simplifié, approfondi ou réajusté. On ajuste à partir du réel, parce que la vraie clarté se confirme aussi dans l'expérience. L'objectif : stabiliser le passage à l'action dans ta vraie vie.",
-  },
+const pourToi = [
+  'Tu as trop tenu.',
+  "Tu as vécu une saturation, une transition, une rupture intérieure, ou ce moment où tu sens que tu ne veux plus attendre de craquer pour changer quelque chose.",
+  'Tu sens que ta tête reste pleine même quand ton agenda se vide.',
+  "Tu as parfois du temps pour toi, mais tu n'arrives pas à l'habiter.",
+  "Tu portes des choses qui ne devraient peut-être plus être à toi.",
+  'Tu as beaucoup compris, mais ta vie concrète reste trop serrée.',
+  "Tu veux entendre ce qui t'appelle sans te forcer à trouver immédiatement la bonne réponse.",
+  "Tu veux reconstruire sans recréer une version plus douce du même épuisement.",
 ];
 
-const resultats = [
-  "Tu sais enfin dans quelle direction avancer, sans avoir besoin que cette direction soit parfaite, définitive ou valable pour les 20 prochaines années.",
-  "Tu comprends ce qui te bloquait vraiment : ce qui était à toi, ce qui ne l'était pas, ce qui venait de la peur, de l'ancien système ou d'une loyauté plus ancienne.",
-  "Tu as libéré une partie de ce que tu portais sans t'en rendre compte : des rôles, des attentes, des responsabilités ou des héritages qui n'ont plus besoin de guider ta vie.",
-  "Tu repars avec un prochain pas clair, concret et praticable, pas seulement avec une prise de conscience de plus.",
-  "Tu sens mieux la différence entre ce qui vient de ton élan et ce qui vient de la peur de te tromper, de décevoir ou de recommencer comme avant.",
-  "Tu vois mieux les choix, limites ou conversations qui deviennent nécessaires pour que la suite ne repose plus sur ton effacement.",
-  "Tu peux repasser à l'action depuis un endroit plus juste : moins en force, moins dans la preuve, moins dans l'urgence de tout sécuriser.",
-  "Tu as une manière de revenir à toi quand ça se mélange à nouveau, parce que tu sais mieux déposer, trier, libérer et remettre à jour ce qui prend trop de place.",
-  "Tu ne repars pas avec une vie parfaite. Tu repars avec une suite plus claire, plus incarnée, et la sensation profonde que tu peux avancer sans redevenir celle qui tenait tout.",
-];
-
-const preuves = [
-  "J'ai traversé plusieurs périodes de transition qui m'ont demandé de reconstruire différemment : divorce, licenciement, burn-out.",
-  "Mon talent naturel est de faire émerger l'évidence dans ce qui semblait emmêlé : trier, réagencer et rendre les choses plus lisibles.",
-  "Mon approche relie le concret et l'invisible : organisation, constellations, intuition, transgénérationnel, croyances et retour à soi.",
-];
-
-const deuxMondes = [
-  "Le concret : pensées, projets, idées, décisions, priorités, prochaines étapes, organisation et passage à l'action.",
-  "L'invisible : loyautés, peurs, croyances, héritages familiaux, rôle de celle qui tient, difficulté à choisir ou à déposer.",
-  "Le lien entre les deux : un tri qui ne sert pas à mieux tenir, mais à libérer ce qui pèse pour retrouver une direction plus juste.",
+const pasPourToi = [
+  "Tu veux qu'on te dise quoi faire.",
+  "Tu cherches une méthode d'organisation purement pratique.",
+  'Tu veux une réponse définitive pour les 20 prochaines années.',
+  'Tu es en situation de burn-out aigu ou de détresse psychique nécessitant un suivi médical ou thérapeutique prioritaire.',
+  'Tu veux aller vite sans regarder ce que tu continues à porter.',
 ];
 
 const temoignages = [
@@ -201,41 +143,34 @@ const temoignages = [
   "J'ai ressenti une libération. Je me suis déculpabilisée de beaucoup de choses. Je me suis libérée d'un poids extraordinaire.",
 ];
 
-const pasPourToi = [
-  "Tu cherches une réponse extérieure. Ce n'est pas moi qui sais à ta place.",
-  "Tu veux aller très vite sans regarder ce qui te fait peur, ce que tu portes encore, ou ce qui continue de piloter tes choix.",
-  "Tu veux seulement parler de ta direction sans toucher au corps, aux croyances, aux loyautés ou à l'histoire plus large dans laquelle elle s'inscrit.",
-  "Tu veux qu'on te garantisse une vision parfaite, définitive et verrouillée pour les 20 prochaines années.",
-];
-
 const faqs = [
   {
+    q: 'Est-ce que je dois déjà savoir ce que je veux travailler ?',
+    a: "Non. Tu peux venir avec une sensation floue : je suis saturée, je ne peux plus repartir comme avant, je sens qu'il y a quelque chose à changer, mais je ne sais pas encore quoi. On part de ce qui est là.",
+  },
+  {
     q: 'Est-ce que tu vas me dire quoi faire ?',
-    a: "Non. Ce n'est pas moi qui sais à ta place. Mon rôle est de t'aider à déposer, trier, libérer et écouter autrement, pour que ta propre direction devienne plus claire.",
+    a: "Non. Je ne prends pas la place de ta boussole intérieure. Je t'aide à retirer ce qui fait trop de bruit autour d'elle.",
   },
   {
-    q: 'Est-ce que je dois déjà savoir sur quoi je veux travailler ?',
-    a: "Non. Tu peux venir avec une sensation floue : je ne peux plus repartir comme avant, je sens qu'il y a quelque chose à changer, je ne sais plus dans quel sens avancer. On part de ce qui est là.",
-  },
-  {
-    q: "Est-ce qu'on va parler uniquement de projet professionnel ?",
-    a: "Non. Le projet professionnel peut être un terrain important, parce qu'il cristallise souvent beaucoup de choses : sécurité, identité, argent, reconnaissance, liberté, peur de se tromper. Mais on regarde surtout ce qui demande à retrouver sa juste place dans ta vie.",
+    q: "Est-ce qu'on va parler seulement du professionnel ?",
+    a: "Non. Le professionnel peut être présent, parce qu'il touche souvent à l'identité, au rythme, à l'argent, à la sécurité et à la reconnaissance. Mais Zayin regarde la vie comme un système entier : corps, relations, projets, loyautés, fatigue, envies, décisions, place intérieure.",
   },
   {
     q: "Est-ce que c'est une thérapie ?",
-    a: "Non. Ce n'est pas un accompagnement thérapeutique ni médical. On peut toucher à ton histoire, à tes loyautés, à tes croyances, à ce que tu portes, mais l'objectif reste de remettre de l'ordre, de retrouver une direction et de soutenir le passage à l'action.",
+    a: "Non. Zayin n'est pas une thérapie ni un suivi médical. On peut toucher à ton histoire, à tes loyautés, à tes croyances et à ce que tu portes, mais l'objectif reste de remettre de l'ordre, retrouver de l'écoute intérieure et soutenir une suite plus juste.",
+  },
+  {
+    q: 'Et si je manque déjà de temps ?',
+    a: "Alors attendre d'avoir plus de temps risque de ne pas suffire. Parce que le problème n'est peut-être pas seulement ton agenda. C'est ce qui continue d'occuper ta tête, même quand un créneau se libère.",
+  },
+  {
+    q: "Est-ce que c'est seulement pour les femmes après un burn-out ?",
+    a: "Non. Zayin peut être juste après un burn-out, mais aussi avant. Pour les femmes qui sentent qu'elles ont trop tenu. Ou qui voient qu'elles sont en train de se perdre dans la gestion, l'anticipation, la charge mentale, les responsabilités, les projets et les attentes. Tu n'as pas besoin d'attendre l'effondrement pour remettre de l'ordre à l'intérieur.",
   },
   {
     q: "Est-ce qu'il y a une garantie ?",
-    a: "Oui. Après la première séance, si tu sens que l'accompagnement n'est pas juste pour toi, on peut arrêter là et tu seras intégralement remboursée. L'idée est que tu puisses t'engager sans te sentir coincée.",
-  },
-  {
-    q: "Pourquoi seulement 5 places ?",
-    a: "Parce que c'est la première ouverture de cette nouvelle version. Je veux accompagner chaque personne finement, recueillir des retours précis et construire la suite à partir du réel, pas d'une offre théorique.",
-  },
-  {
-    q: "Et si je découvre que quelque chose doit changer dans ma vie ?",
-    a: "C'est possible. Quand on dépose tout sur la table, certaines choses deviennent plus visibles : une limite à poser, une responsabilité à rendre, une croyance à remettre à jour, une décision à laisser mûrir, une direction à suivre. L'accompagnement ne sert pas à te pousser à tout bouleverser. Il sert à voir plus clairement ce qui demande une autre place, à ton rythme.",
+    a: "Oui. Après la première séance, si tu sens que l'accompagnement n'est pas juste pour toi, on peut s'arrêter là et tu seras intégralement remboursée. Tu peux t'engager sans te sentir coincée.",
   },
 ];
 ---
@@ -245,22 +180,22 @@ const faqs = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zayin | Accompagnement 1:1 | L'Atelier de Lucette</title>
+    <title>Zayin | Remise en ordre intérieure | L'Atelier de Lucette</title>
     <meta
       name="description"
-      content="Zayin : accompagnement 1:1 pour faire le tri dans ce qui tourne, ce qui pèse et ce qui t'appelle, pour retrouver ta direction intérieure après avoir trop tenu."
+      content="Zayin est une expérience de remise en ordre intérieure pour les femmes qui portent trop dans leur tête et veulent retrouver assez de place en elles pour pouvoir enfin s'entendre."
     />
     <link rel="canonical" href="https://latelierdelucette.com/zayin/" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="fr_CH" />
     <meta property="og:site_name" content="L'Atelier de Lucette" />
-    <meta property="og:title" content="Zayin | Retrouver ta direction intérieure" />
-    <meta property="og:description" content="Un accompagnement 1:1 pour faire le tri dans ce qui tourne, ce qui pèse et ce qui t'appelle, pour retrouver ta direction intérieure après avoir trop tenu." />
+    <meta property="og:title" content="Zayin | Remise en ordre intérieure" />
+    <meta property="og:description" content="Une expérience de remise en ordre intérieure pour retrouver assez de place en toi et pouvoir enfin t'entendre." />
     <meta property="og:url" content="https://latelierdelucette.com/zayin/" />
     <meta property="og:image" content="https://latelierdelucette.com/images/portrait-caroline.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Zayin | L'Atelier de Lucette" />
-    <meta name="twitter:description" content="Retrouver ta direction intérieure après avoir trop tenu." />
+    <meta name="twitter:title" content="Zayin | Remise en ordre intérieure" />
+    <meta name="twitter:description" content="Pour retrouver assez de place en toi et pouvoir enfin t'entendre." />
     <meta name="twitter:image" content="https://latelierdelucette.com/images/portrait-caroline.png" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -275,7 +210,7 @@ const faqs = [
         "@context": "https://schema.org",
         "@type": "Service",
         "name": "Zayin",
-        "description": "Un accompagnement 1:1 pour faire le tri dans ce qui tourne, ce qui pèse et ce qui t'appelle, pour retrouver ta direction intérieure après avoir trop tenu.",
+        "description": "Une expérience de remise en ordre intérieure pour les femmes qui portent trop dans leur tête et veulent retrouver assez de place en elles pour pouvoir enfin s'entendre.",
         "provider": {
           "@type": "Organization",
           "name": "L'Atelier de Lucette",
@@ -315,268 +250,186 @@ const faqs = [
       </svg>
     </div>
 
-    <Nav current="/zayin/" ctaHref={ctaHref} ctaLabel="Rejoindre l'accompagnement" />
+    <Nav current="/zayin/" ctaHref={ctaHref} ctaLabel="Oui. C'est le moment." />
 
     <main class="relative z-10">
       <header class="min-h-screen flex items-center px-6 pt-32 pb-20">
-        <div class="max-w-6xl mx-auto grid lg:grid-cols-[1.05fr_0.95fr] gap-14 items-center">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-[1fr_0.9fr] gap-14 items-center">
           <div>
             <div class="inline-flex items-center gap-4 mb-8">
               <div class="h-px w-10 bg-[#2AACCB]"></div>
-              <span class="ui-text text-xs tracking-[0.22em] uppercase text-[#1E3A8A]/70">Accompagnement 1:1 · 5 places · offre de lancement</span>
+              <span class="ui-text text-xs tracking-[0.22em] uppercase text-[#1E3A8A]/70">5 places · offre de lancement · 500 CHF</span>
             </div>
 
             <h1 class="text-5xl md:text-7xl leading-[1.02] font-normal tracking-tight mb-8">
-              Zayin<br /><span class="italic text-[#CC3DAA]">Retrouver ta direction intérieure</span>
+              Zayin<br /><span class="italic text-[#CC3DAA]">Une expérience de remise en ordre intérieure.</span>
             </h1>
 
-            <p class="text-2xl md:text-3xl italic leading-tight text-[#1E3A8A]/85 mb-8">
-              Faire le tri dans ce qui tourne, ce qui pèse et ce qui t'appelle, après avoir trop tenu.
+            <p class="text-2xl md:text-3xl italic leading-tight text-[#1E3A8A]/85 mb-8 max-w-3xl">
+              Pour retrouver assez de place en toi afin de pouvoir enfin t'entendre.
             </p>
 
             <p class="text-xl md:text-2xl leading-relaxed text-[#1E3A8A]/78 max-w-2xl mb-10">
-              Un accompagnement d'un mois pour déposer ce qui tourne, libérer ce qui ne t'appartient plus, mettre à jour l'ancien système et retrouver la direction juste pour la suite.
+              Quand tout réclame ton attention en même temps, il devient presque impossible de savoir ce qui est vraiment à toi.
             </p>
 
-            <p class="text-lg md:text-xl leading-relaxed text-[#1E3A8A]/68 max-w-2xl mb-10">
-              Zayin est le symbole de la flèche : une direction qui redevient visible quand ce qui l'encombrait retrouve sa juste place.
+            <div class="grid sm:grid-cols-2 gap-3 mb-10 max-w-2xl">
+              {heroItems.map((item) => (
+                <p class="bg-[#FFFCF6]/80 border border-[#1E3A8A]/10 rounded-sm px-4 py-3 text-lg leading-relaxed text-[#1E3A8A]/78">{item}</p>
+              ))}
+            </div>
+
+            <div class="space-y-5 text-xl md:text-2xl leading-relaxed text-[#1E3A8A]/82 max-w-2xl mb-10">
+              <p>Alors tu peux te croire perdue.</p>
+              <p>Mais tu ne manques pas forcément de clarté.</p>
+              <p>Tu essaies peut-être simplement d'entendre ta propre voix au milieu de tout ce que tu portes encore.</p>
+            </div>
+
+            <p class="text-xl leading-relaxed text-[#1E3A8A]/78 max-w-2xl mb-10">
+              Zayin est une expérience de remise en ordre intérieure pour les femmes qui ont trop tenu, ou qui sentent qu'elles ne veulent plus attendre d'en arriver là.
             </p>
 
             <div class="flex flex-col sm:flex-row gap-5">
               <a href={ctaHref} class="inline-flex items-center justify-center gap-3 bg-[#CC3DAA] text-[#F7F4EE] ui-text text-xs tracking-[0.18em] uppercase px-9 py-4 rounded-sm hover:bg-[#D4845A] transition-colors">
                 <iconify-icon icon="solar:letter-linear" width="15" height="15"></iconify-icon>
-                Rejoindre l'accompagnement
+                Oui. C'est le moment.
               </a>
-              <a href="#format" class="inline-flex items-center justify-center gap-3 border border-[#1E3A8A]/25 text-[#1E3A8A] ui-text text-xs tracking-[0.18em] uppercase px-9 py-4 rounded-sm hover:border-[#CC3DAA] hover:text-[#CC3DAA] transition-colors">
-                Voir le format
+              <a href="#experience" class="inline-flex items-center justify-center gap-3 border border-[#1E3A8A]/25 text-[#1E3A8A] ui-text text-xs tracking-[0.18em] uppercase px-9 py-4 rounded-sm hover:border-[#CC3DAA] hover:text-[#CC3DAA] transition-colors">
+                Voir l'expérience
               </a>
             </div>
           </div>
 
           <aside class="bg-[#FFFCF6] border border-[#1E3A8A]/10 rounded-sm p-8 md:p-10 shadow-xl shadow-[#1E3A8A]/5 relative overflow-hidden">
             <div class="absolute -top-20 -right-20 w-52 h-52 rounded-full bg-[#F1D9A7]/50 blur-2xl"></div>
-            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Ce que c'est</p>
-            <div class="space-y-4 text-xl md:text-2xl leading-snug text-[#1E3A8A]/80 relative z-10">
-              <p>un endroit où déposer ce que tu gardais ouvert</p>
-              <p>un cadre de tri vivant pour ta vraie vie</p>
-              <p>un accompagnement pour faire le tri dans ce qui t'appartient, ce qui vient d'avant, et ce qui t'appelle maintenant.</p>
-            </div>
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Signature</p>
+            <p class="text-3xl md:text-4xl italic leading-tight text-[#1E3A8A] mb-8 relative z-10">
+              Mon travail, c'est la remise en ordre intérieure.
+            </p>
             <div class="h-px bg-[#1E3A8A]/15 my-8"></div>
-            <p class="text-2xl md:text-3xl italic leading-tight text-[#CC3DAA] relative z-10">
-              C'est un grand tri accompagné, pour retrouver ta direction sans redevenir celle qui tenait tout.
+            <p class="text-xl md:text-2xl leading-relaxed text-[#1E3A8A]/78 relative z-10">
+              Pour les femmes qui portent trop dans leur tête et n'arrivent plus à s'entendre malgré tout ce qu'elles ont déjà essayé.
             </p>
           </aside>
         </div>
       </header>
 
-      <section class="px-6 py-24 bg-[#FFFCF6] border-y border-[#1E3A8A]/10">
-        <div class="max-w-5xl mx-auto">
-          <div class="text-center mb-14">
-            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Peut-être que tu connais ça</p>
-            <h2 class="text-4xl md:text-5xl leading-tight font-normal">Tu ne peux plus simplement repartir comme avant.</h2>
+      <section class="px-6 py-28 bg-[#FFFCF6] border-y border-[#1E3A8A]/10">
+        <div class="max-w-5xl mx-auto text-center">
+          <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-8">Le point de départ</p>
+          <h2 class="text-5xl md:text-7xl leading-tight font-normal mb-10">Tu as parfois du temps.</h2>
+          <h2 class="text-5xl md:text-7xl leading-tight font-normal italic text-[#CC3DAA] mb-14">Mais tu n'es pas dedans.</h2>
+
+          <div class="max-w-3xl mx-auto space-y-5 text-xl md:text-2xl leading-relaxed text-[#1E3A8A]/78 text-left">
+            <p>Tu ouvres ton agenda et ton corps se contracte.</p>
+            <p>Tu as une heure libre, mais elle arrive quand tu es déjà trop vidée pour en faire quelque chose.</p>
+            <p>Tu prends un café seule, et tu es déjà partie dans la suite.</p>
+            <p>Tu t'allonges, mais ta tête continue.</p>
+            <p>Tu écris une liste, elle te soulage dix minutes, puis tout revient.</p>
           </div>
 
-          <div class="grid md:grid-cols-2 gap-5">
-            {symptomes.map((item) => (
-              <div class="bg-[#F7F4EE] border border-[#1E3A8A]/10 rounded-sm p-6 flex gap-4">
-                <span class="text-[#CC3DAA] text-xl">✦</span>
-                <p class="text-xl leading-relaxed text-[#1E3A8A]/78">{item}</p>
-              </div>
-            ))}
-          </div>
-
-          <p class="text-2xl md:text-3xl italic leading-tight text-center text-[#1E3A8A] max-w-3xl mx-auto mt-16">
-            Ce n'est pas seulement un problème d'organisation. C'est une tête pleine de choses qui demandent à retrouver leur juste place, pour que tu puisses reconstruire une suite plus juste.
-          </p>
-        </div>
-      </section>
-
-      <section class="px-6 py-28">
-        <div class="max-w-5xl mx-auto">
-          <div class="text-center mb-14">
-            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#2AACCB] mb-6">Ce n'est pas toi le problème</p>
-            <h2 class="text-4xl md:text-5xl leading-tight font-normal">Ce que tu crois peut-être aujourd'hui.</h2>
-          </div>
-
-          <div class="space-y-5">
-            {croyances.map((item) => (
-              <article class="grid md:grid-cols-[1fr_auto_1fr] gap-5 items-stretch">
-                <div class="bg-[#FFFCF6] border border-[#1E3A8A]/10 rounded-sm p-6">
-                  <p class="ui-text text-xs tracking-[0.18em] uppercase text-[#1E3A8A]/55 mb-4">Avant</p>
-                  <p class="text-xl leading-relaxed text-[#1E3A8A]/78">{item.depart}</p>
-                </div>
-                <div class="hidden md:flex items-center text-[#CC3DAA] text-2xl">→</div>
-                <div class="bg-[#F1D9A7]/45 border border-[#C9A96E]/30 rounded-sm p-6">
-                  <p class="ui-text text-xs tracking-[0.18em] uppercase text-[#CC3DAA] mb-4">Déplacement</p>
-                  <p class="text-xl leading-relaxed text-[#1E3A8A]">{item.arrivee}</p>
-                </div>
-              </article>
-            ))}
+          <div class="max-w-3xl mx-auto mt-16 bg-[#F7F4EE] border border-[#1E3A8A]/10 rounded-sm p-8 md:p-10 text-left">
+            <h3 class="text-3xl md:text-4xl font-normal mb-6">Ce n'est pas seulement ton agenda qui est plein.</h3>
+            <p class="text-3xl md:text-5xl italic text-[#CC3DAA] leading-tight mb-8">C'est ton agenda invisible.</p>
+            <div class="grid sm:grid-cols-2 gap-4">
+              {agendaInvisible.map((item) => (
+                <p class="text-xl leading-relaxed text-[#1E3A8A]/78 border-l-2 border-[#2AACCB] pl-4">{item}</p>
+              ))}
+            </div>
+            <p class="text-2xl italic leading-tight text-[#1E3A8A] mt-8">Même ce qui n'est pas écrit prend de la place.</p>
           </div>
         </div>
       </section>
 
       <section class="px-6 py-28">
-        <div class="max-w-5xl mx-auto grid lg:grid-cols-[0.85fr_1.15fr] gap-14 items-start">
+        <div class="max-w-5xl mx-auto grid lg:grid-cols-[0.9fr_1.1fr] gap-14 items-start">
           <div class="lg:sticky lg:top-28">
-            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#2AACCB] mb-6">Le vrai travail</p>
-            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-6">Faire le tri dans ce qui tourne, ce qui pèse et ce qui t'appelle.</h2>
-            <p class="text-xl leading-relaxed text-[#1E3A8A]/75">
-              Pas seulement comprendre ce que tu as vécu. Pas seulement poser une intention. Pas seulement chercher le bon projet, la bonne décision ou la bonne direction.
-            </p>
-            <p class="text-xl leading-relaxed text-[#1E3A8A] mt-6 bg-[#FF5AD9]/25 border-l-4 border-[#FF2EC4] px-5 py-4 shadow-[0_0_24px_rgba(255,46,196,0.18)]">
-              Tu as besoin d'un espace assez clair pour déposer tout ce qui tourne, et assez profond pour remettre à jour ce qui continue de te faire fonctionner comme avant.
-            </p>
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#2AACCB] mb-6">Le vrai problème</p>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-8">Ce n'est pas seulement de la fatigue.</h2>
+            <p class="text-2xl italic leading-tight text-[#CC3DAA] mb-8">C'est cette impression que rien, à l'intérieur, n'accepte enfin de se poser.</p>
           </div>
 
-          <div class="space-y-5">
-            {couches.map((couche, index) => (
-              <article class="bg-[#FFFCF6] border border-[#1E3A8A]/10 rounded-sm p-7">
-                <div class="flex items-start gap-5">
-                  <span class="ui-text text-xs tracking-[0.2em] text-[#CC3DAA] pt-2">0{index + 1}</span>
-                  <div>
-                    <h3 class="text-2xl font-normal mb-3 text-[#1E3A8A]">{couche.title}</h3>
-                    <p class="text-xl leading-relaxed text-[#1E3A8A]/75">{couche.text}</p>
-                  </div>
-                </div>
-              </article>
-            ))}
+          <div class="space-y-6 text-xl md:text-2xl leading-relaxed text-[#1E3A8A]/78">
+            <p>Tu repousses ce qui compte vraiment à un futur moment imaginaire :</p>
+            <div class="grid sm:grid-cols-2 gap-4">
+              {['quand ce sera plus calme', "quand j'aurai fini ça", "quand j'aurai récupéré", "quand j'aurai une vraie journée devant moi"].map((item) => (
+                <p class="bg-[#FFFCF6] border border-[#1E3A8A]/10 rounded-sm p-5 italic text-[#1E3A8A]">{item}</p>
+              ))}
+            </div>
+            <p>Mais ce moment ne vient pas.</p>
+            <p>Ou quand il vient, tu es trop épuisée pour l'habiter.</p>
+            <p>Alors tu continues à tenir.</p>
+            <p>Plus doucement qu'avant, peut-être.</p>
+            <p>Mais encore depuis le même système.</p>
           </div>
-        </div>
-      </section>
-
-      <section class="px-6 py-28 border-y border-[#1E3A8A]/10 relative overflow-hidden bg-[linear-gradient(rgba(255,252,246,0.70),rgba(255,252,246,0.70)),url('/images/olga-thelavart-vS3idIiYxX0-unsplash.jpg')] bg-cover bg-center bg-no-repeat">
-        <div class="relative z-10 max-w-6xl mx-auto grid lg:grid-cols-[0.9fr_1.1fr] gap-12 items-start">
-          <div>
-            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Pourquoi ça n'a pas suffi</p>
-            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-8">Tu as peut-être déjà essayé plein de choses.</h2>
-            <p class="text-xl leading-relaxed text-[#1E3A8A]/75">
-              Et certaines t'ont probablement aidée. Comprendre ton histoire. Lire. Te faire accompagner. Écrire. Méditer. Faire des pauses. Repenser ton organisation. Chercher ta voie. Imaginer un nouveau projet. Te promettre de ne plus refaire comme avant.
-            </p>
-            <p class="text-xl leading-relaxed text-[#1E3A8A]/75 mt-6">
-              Le problème, c'est que ces approches regardent souvent une seule couche à la fois : la tête, l'émotion, l'agenda, le corps, le passé, le futur, le projet.
-            </p>
-            <p class="text-xl leading-relaxed text-[#1E3A8A]/75 mt-6">
-              Mais toi, tu as besoin de déposer toutes les pièces sur la table en même temps. Pas pour tout analyser une fois de plus. Pour voir ce qui va ensemble, ce qui ne t'appartient plus, ce qui doit être libéré, ce qui a besoin d'être mis à jour, et ce qui peut enfin te redonner une direction.
-            </p>
-          </div>
-
-          <div class="space-y-5">
-            {alternatives.map((item) => (
-              <article class="bg-[#F7F4EE]/86 backdrop-blur-[2px] border border-[#1E3A8A]/10 rounded-sm p-6">
-                <h3 class="text-2xl font-normal mb-3 text-[#1E3A8A]">{item.title}</h3>
-                <p class="text-xl leading-relaxed text-[#1E3A8A]/75">{item.text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section class="px-6 py-28 relative overflow-hidden bg-[#F7F4EE]">
-        <div class="relative z-10 max-w-6xl mx-auto grid lg:grid-cols-[0.9fr_1.1fr] gap-12 items-start">
-          <div>
-            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#2AACCB] mb-6">Ce que ça change</p>
-            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-8">Plus de clarté, sans te remettre de pression.</h2>
-            <p class="text-xl leading-relaxed text-[#1E3A8A]/75">
-              Ce qui change, ce n'est pas que tu trouves enfin la réponse parfaite. C'est que tout arrête de se mélanger dans ta tête.
-            </p>
-          </div>
-
-          <div class="space-y-4">
-            {vraieVie.map((item) => (
-              <div class="flex gap-4 bg-[#FFFCF6]/86 backdrop-blur-[2px] border border-[#1E3A8A]/10 rounded-sm p-5">
-                <span class="text-[#CC3DAA]">✧</span>
-                <p class="text-xl leading-relaxed text-[#1E3A8A]/78">{item}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div class="relative z-10 max-w-6xl mx-auto mt-16 grid md:grid-cols-3 gap-5">
-          {possibles.map((item) => (
-            <article class="bg-[#FFFCF6]/88 backdrop-blur-[2px] border border-[#1E3A8A]/10 rounded-sm overflow-hidden shadow-lg shadow-[#1E3A8A]/5">
-              <img src={item.image} alt="" class="w-full h-64 object-cover" loading="lazy" />
-              <div class="p-6">
-                <p class="ui-text text-xs tracking-[0.18em] uppercase text-[#CC3DAA] mb-3">{item.title}</p>
-                <p class="text-xl leading-relaxed text-[#1E3A8A]/78">{item.text}</p>
-              </div>
-            </article>
-          ))}
         </div>
       </section>
 
       <section class="px-6 py-28 bg-[#1E3A8A] text-[#F7F4EE] relative overflow-hidden">
         <div class="absolute inset-0 bg-grain opacity-10"></div>
-        <div class="relative z-10 max-w-4xl mx-auto text-center">
-            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#F1D9A7] mb-8">L'offre de lancement</p>
-          <h2 class="text-4xl md:text-6xl leading-tight font-normal mb-8">Une première version vivante, construite avec le réel.</h2>
-          <p class="text-xl md:text-2xl leading-relaxed text-white/85 max-w-3xl mx-auto">
-            J'ouvre seulement 5 places pour accompagner finement, ajuster le format et construire cette offre à partir de ce qui se passe vraiment dans ta vie. Pas à partir d'une méthode figée.
-          </p>
-        </div>
-      </section>
-
-      <section class="px-6 py-28 relative overflow-hidden bg-[linear-gradient(rgba(247,244,238,0.72),rgba(247,244,238,0.72)),url('/images/max-fuchs-Nm6ojlDO-5c-unsplash.jpg')] bg-cover bg-center bg-no-repeat">
-        <div class="relative z-10 max-w-6xl mx-auto">
-          <div class="text-center mb-14">
-            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#2AACCB] mb-6">Avant / après</p>
-            <h2 class="text-4xl md:text-5xl leading-tight font-normal">Ce qui change dans la vraie vie.</h2>
-          </div>
-
-          <div class="space-y-5">
-            {avantApres.map((item) => (
-              <article class="bg-[#FFFCF6]/88 backdrop-blur-[2px] border border-[#1E3A8A]/10 rounded-sm overflow-hidden p-6">
-                <h3 class="text-2xl md:text-3xl font-normal text-[#CC3DAA] mb-5">{item.situation}</h3>
-                <div class="grid md:grid-cols-2">
-                  <div class="pb-6 md:pb-0 md:pr-6 border-b md:border-b-0 md:border-r border-[#1E3A8A]/10">
-                    <p class="ui-text text-xs tracking-[0.18em] uppercase text-[#CC3DAA] mb-4">Avant</p>
-                    <p class="text-xl leading-relaxed text-[#1E3A8A]/75">{item.avant}</p>
-                  </div>
-                  <div class="pt-6 md:pt-0 md:pl-6 bg-transparent">
-                    <p class="ui-text text-xs tracking-[0.18em] uppercase text-[#CC3DAA] mb-4">Après</p>
-                    <p class="text-xl leading-relaxed text-[#1E3A8A]/85">{item.apres}</p>
-                  </div>
-                </div>
-              </article>
-            ))}
+        <div class="relative z-10 max-w-5xl mx-auto text-center">
+          <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#F1D9A7] mb-8">Le déplacement</p>
+          <h2 class="text-4xl md:text-6xl leading-tight font-normal mb-10">Le vrai problème n'est pas que tu n'as pas de direction.</h2>
+          <div class="max-w-3xl mx-auto space-y-6 text-xl md:text-2xl leading-relaxed text-white/85">
+            <p>Le vrai problème, c'est que tout prend trop de place pour que tu puisses l'entendre.</p>
+            <p>Tu peux chercher ta voie, lire, te faire accompagner, écrire, méditer, alléger ton agenda, changer d'organisation, prendre du temps pour toi.</p>
+            <p>Mais si ta tête reste occupée par tout ce que tu portes, ta propre voix ne peut pas remonter clairement.</p>
+            <p>Elle est là, peut-être.</p>
+            <p>Mais elle est couverte par ce qui réclame ton attention.</p>
+            <p class="text-3xl md:text-4xl italic leading-tight text-[#F1D9A7]">Zayin sert à faire assez de place pour que tu puisses à nouveau t'entendre.</p>
           </div>
         </div>
       </section>
 
-      <section id="format" class="px-6 py-28 bg-[#FFFCF6] border-y border-[#1E3A8A]/10">
-        <div class="max-w-6xl mx-auto grid lg:grid-cols-[1fr_1fr] gap-12 items-start">
+      <section class="px-6 py-28 bg-[#FFFCF6] border-y border-[#1E3A8A]/10">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-[0.9fr_1.1fr] gap-14 items-start">
           <div>
-            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Concrètement</p>
-            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-8">Ce que comprend l'accompagnement.</h2>
-            <div class="bg-[#F7F4EE] border border-[#1E3A8A]/10 rounded-sm p-8">
-              <p class="text-5xl font-serif text-[#CC3DAA] mb-2">500 CHF</p>
-              <p class="ui-text text-xs tracking-[0.18em] uppercase text-[#1E3A8A]/65 mb-6">tarif de lancement · 5 places seulement</p>
-              <p class="text-xl leading-relaxed text-[#1E3A8A]/75">
-                Ce tarif existe parce que cette première version sert aussi à affiner le cadre, recueillir les retours et construire la suite de l'offre à partir du réel.
-              </p>
-            </div>
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Caroline</p>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-8">Mon travail, c'est la remise en ordre intérieure.</h2>
+            <img src="/images/caro-2026.jpg" alt="Portrait de Caroline Verdier" class="w-full h-auto rounded-sm border border-[#1E3A8A]/10 shadow-xl shadow-[#1E3A8A]/10" loading="lazy" />
           </div>
 
-          <div class="space-y-4">
-            {inclus.map((item) => (
-              <div class="flex gap-4 bg-[#F7F4EE] border border-[#1E3A8A]/10 rounded-sm p-5">
-                <span class="text-[#CC3DAA]">✓</span>
-                <p class="text-xl leading-relaxed text-[#1E3A8A]/78">{item}</p>
-              </div>
-            ))}
+          <div class="space-y-6 text-xl md:text-2xl leading-relaxed text-[#1E3A8A]/78">
+            <p>Depuis des années, j'accompagne des femmes qui pensent chercher une direction, une meilleure organisation ou une nouvelle étape de vie.</p>
+            <p>Mais très souvent, sous la demande visible, il y a autre chose.</p>
+            <p>Elles ne sont pas perdues parce qu'elles ne savent rien.</p>
+            <p>Elles sont saturées parce qu'elles portent trop.</p>
+            <div class="bg-[#F7F4EE] border border-[#1E3A8A]/10 rounded-sm p-7 space-y-4 text-[#1E3A8A]">
+              <p>Trop de responsabilités.</p>
+              <p>Trop d'anticipation.</p>
+              <p>Trop de choses pas si graves qui restent dans leur tête.</p>
+              <p>Trop de rôles pris par amour, par habitude, par loyauté ou par peur de décevoir.</p>
+            </div>
+            <div class="bg-[#CC3DAA] text-white rounded-sm p-7 space-y-5">
+              <p class="ui-text text-xs tracking-[0.22em] uppercase text-white/70">Ce que les femmes me disent souvent</p>
+              <p class="text-3xl italic leading-tight">Je suis arrivée avec une sensation de chaos.</p>
+              <p class="text-3xl italic leading-tight">Tu as vu un fil que je ne voyais plus.</p>
+            </div>
+            <p>C'est exactement ça, mon travail.</p>
+            <p>Entrer dans une matière confuse, dense, émotionnelle, pratique, symbolique, et faire apparaître ce qui était caché dans le désordre.</p>
+            <p>La structure. La logique. La loyauté. Le poids. La peur. L'élan. La chose qui demande une autre place.</p>
+            <p>J'ai dû apprendre ça dans ma propre vie aussi, après un divorce, une saturation, un licenciement, un burn-out, et plusieurs moments où mon ancien fonctionnement ne pouvait plus continuer.</p>
           </div>
         </div>
+      </section>
 
-        <div class="max-w-6xl mx-auto mt-16">
-          <div class="text-center mb-10">
-            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#2AACCB] mb-6">À l'intérieur</p>
-            <h3 class="text-3xl md:text-4xl leading-tight font-normal">Les 5 sessions de Zayin.</h3>
+      <section class="px-6 py-28">
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-16">
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#2AACCB] mb-6">Le territoire</p>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-8">Ce que la remise en ordre intérieure remet à sa place.</h2>
           </div>
-          <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-4">
-            {sessions.map((session) => (
-              <article class="bg-[#F7F4EE] border border-[#1E3A8A]/10 rounded-sm p-5">
-                <h4 class="text-xl font-normal mb-3 text-[#CC3DAA]">{session.title}</h4>
-                <p class="text-lg leading-relaxed text-[#1E3A8A]/75">{session.text}</p>
+
+          <div class="grid lg:grid-cols-3 gap-6">
+            {remiseOrdre.map((bloc) => (
+              <article class="bg-[#FFFCF6] border border-[#1E3A8A]/10 rounded-sm p-7 shadow-lg shadow-[#1E3A8A]/5">
+                <h3 class="text-3xl font-normal text-[#CC3DAA] mb-6">{bloc.title}</h3>
+                <div class="space-y-3 mb-7">
+                  {bloc.items.map((item) => (
+                    <p class="text-lg leading-relaxed text-[#1E3A8A]/75">{item}</p>
+                  ))}
+                </div>
+                <p class="text-xl leading-relaxed text-[#1E3A8A] border-t border-[#1E3A8A]/10 pt-6">{bloc.text}</p>
               </article>
             ))}
           </div>
@@ -584,32 +437,151 @@ const faqs = [
       </section>
 
       <section class="px-6 py-28 bg-[#FFFCF6] border-y border-[#1E3A8A]/10">
-        <div class="max-w-6xl mx-auto grid lg:grid-cols-[0.9fr_1.1fr] gap-12 items-start">
+        <div class="max-w-4xl mx-auto text-center">
+          <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-8">Pourquoi Zayin existe</p>
+          <div class="space-y-8 text-3xl md:text-5xl leading-tight font-serif text-[#1E3A8A]">
+            <p>Parce qu'un agenda ne peut pas porter une loyauté.</p>
+            <p>Parce qu'une to-do list ne sait pas quoi faire d'une peur de décevoir.</p>
+            <p>Parce qu'un week-end libre ne repose pas quand ton cerveau vit déjà trois semaines plus loin.</p>
+          </div>
+          <div class="h-px bg-[#1E3A8A]/15 my-12"></div>
+          <p class="text-xl md:text-2xl leading-relaxed text-[#1E3A8A]/78 max-w-3xl mx-auto">
+            Pour ne plus traiter ta surcharge intérieure comme un problème d'organisation. Et pour ne plus traiter ta quête de direction comme un problème de volonté.
+          </p>
+        </div>
+      </section>
+
+      <section class="px-6 py-28 relative overflow-hidden bg-[linear-gradient(rgba(247,244,238,0.72),rgba(247,244,238,0.72)),url('/images/max-fuchs-Nm6ojlDO-5c-unsplash.jpg')] bg-cover bg-center bg-no-repeat">
+        <div class="relative z-10 max-w-6xl mx-auto grid lg:grid-cols-[0.85fr_1.15fr] gap-14 items-start">
+          <div class="lg:sticky lg:top-28">
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#2AACCB] mb-6">Projection</p>
+            <h2 class="text-5xl md:text-7xl leading-tight font-normal italic text-[#CC3DAA]">Imagine.</h2>
+          </div>
+          <div class="space-y-4">
+            {imagine.map((item) => (
+              <div class="bg-[#FFFCF6]/88 backdrop-blur-[2px] border border-[#1E3A8A]/10 rounded-sm p-6">
+                <p class="text-2xl leading-relaxed text-[#1E3A8A]/82">{item}</p>
+              </div>
+            ))}
+            <div class="bg-[#CC3DAA] text-white rounded-sm p-8 md:p-10 mt-8">
+              <p class="text-3xl md:text-5xl italic leading-tight">Et entendre à nouveau cette voix calme, simple, presque évidente :</p>
+              <div class="mt-8 space-y-2 text-3xl md:text-4xl font-serif">
+                <p>Là.</p>
+                <p>C'est ça.</p>
+                <p>C'est par là.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="px-6 py-28 bg-[#F7F4EE]">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-[0.9fr_1.1fr] gap-14 items-start">
           <div>
-            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Pourquoi moi</p>
-            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-8">Je connais les deux mondes.</h2>
-            <p class="text-xl leading-relaxed text-[#1E3A8A]/75">
-              Le monde très concret du tri, de l'organisation, de la clarification, des projets, des décisions et du passage à l'action.
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Après Zayin</p>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-8">Tu ne repars pas avec une vie parfaite.</h2>
+          </div>
+          <div class="space-y-4">
+            {apres.map((item) => (
+              <div class="flex gap-4 bg-[#FFFCF6] border border-[#1E3A8A]/10 rounded-sm p-5">
+                <span class="text-[#CC3DAA]">✧</span>
+                <p class="text-xl leading-relaxed text-[#1E3A8A]/78">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="px-6 py-28 bg-[#1E3A8A] text-[#F7F4EE] relative overflow-hidden">
+        <div class="absolute inset-0 bg-grain opacity-10"></div>
+        <div class="relative z-10 max-w-6xl mx-auto grid lg:grid-cols-[0.9fr_1.1fr] gap-14 items-start">
+          <div>
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#F1D9A7] mb-6">L'expérience Zayin</p>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-8">Un espace où tout peut être posé sans être immédiatement résolu.</h2>
+            <p class="text-xl md:text-2xl leading-relaxed text-white/82 mb-8">
+              Je ne viens pas avec une méthode froide à appliquer. Je viens avec une capacité très particulière : faire dialoguer le concret et l'invisible.
             </p>
-            <p class="text-xl leading-relaxed text-[#1E3A8A]/75 mt-6">
-              Et le monde plus invisible de ce qu'on porte, de ce qui se transmet, de ce qui se rejoue, de ce qui demande à être libéré ou remis à sa juste place. Cet accompagnement existe au croisement des deux.
+            <p class="text-xl md:text-2xl leading-relaxed text-white/82">
+              On ne range pas seulement ta tête. On regarde pourquoi elle a dû porter autant.
             </p>
-            <img src="/images/caro-2026.jpg" alt="Portrait de Caroline Verdier" class="w-full h-auto rounded-sm border border-[#1E3A8A]/10 shadow-xl shadow-[#1E3A8A]/10 mt-8" loading="lazy" />
+          </div>
+          <div class="grid sm:grid-cols-2 gap-4">
+            {experiences.map((item) => (
+              <p class="bg-white/8 border border-white/10 rounded-sm p-5 text-xl leading-relaxed text-white/85">{item}</p>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="px-6 py-28 bg-[#FFFCF6] border-y border-[#1E3A8A]/10">
+        <div class="max-w-6xl mx-auto">
+          <div class="text-center mb-16">
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#2AACCB] mb-6">Les 5 passages</p>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal">Comment ça se passe.</h2>
+          </div>
+          <div class="space-y-5">
+            {passages.map((passage) => (
+              <article class="bg-[#F7F4EE] border border-[#1E3A8A]/10 rounded-sm p-7 md:p-8 grid lg:grid-cols-[0.55fr_1fr] gap-8">
+                <h3 class="text-3xl font-normal text-[#CC3DAA]">{passage.title}</h3>
+                <div class="space-y-5">
+                  <p class="text-xl leading-relaxed text-[#1E3A8A]/80">{passage.text}</p>
+                  <p class="text-xl leading-relaxed text-[#1E3A8A]/68">{passage.example}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="format" class="px-6 py-28">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-[0.9fr_1.1fr] gap-14 items-start">
+          <div>
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Concrètement</p>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-8">Ce que comprend Zayin.</h2>
+            <div class="bg-[#FFFCF6] border border-[#1E3A8A]/10 rounded-sm p-8 md:p-10 shadow-xl shadow-[#1E3A8A]/5">
+              <p class="text-5xl font-serif text-[#CC3DAA] mb-2">500 CHF</p>
+              <p class="ui-text text-xs tracking-[0.18em] uppercase text-[#1E3A8A]/65 mb-6">tarif de lancement · 5 places seulement</p>
+              <p class="text-xl leading-relaxed text-[#1E3A8A]/75">
+                Cette première cohorte est volontairement limitée à 5 femmes. Je veux accompagner chaque participante avec une présence fine et une vraie qualité d'ajustement. Le tarif de lancement est valable pour cette première ouverture avant évolution du programme.
+              </p>
+            </div>
+            <a href={ctaHref} class="mt-8 inline-flex items-center justify-center gap-3 bg-[#CC3DAA] text-[#F7F4EE] ui-text text-xs tracking-[0.18em] uppercase px-9 py-4 rounded-sm hover:bg-[#D4845A] transition-colors">
+              <iconify-icon icon="solar:letter-linear" width="15" height="15"></iconify-icon>
+              Je veux retrouver de la place en moi
+            </a>
           </div>
 
           <div class="space-y-4">
-            {deuxMondes.map((item) => (
-              <div class="flex gap-4 bg-[#F7F4EE] border border-[#1E3A8A]/10 rounded-sm p-5">
-                <span class="text-[#2AACCB]">•</span>
+            {inclus.map((item) => (
+              <div class="flex gap-4 bg-[#FFFCF6] border border-[#1E3A8A]/10 rounded-sm p-5">
+                <span class="text-[#CC3DAA]">✓</span>
                 <p class="text-xl leading-relaxed text-[#1E3A8A]/78">{item}</p>
               </div>
             ))}
-            {preuves.map((item) => (
-              <div class="flex gap-4 bg-[#F7F4EE] border border-[#1E3A8A]/10 rounded-sm p-5">
-                <span class="text-[#CC3DAA]">✦</span>
-                <p class="text-xl leading-relaxed text-[#1E3A8A]/78">{item}</p>
-              </div>
-            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="px-6 py-28 bg-[#FFFCF6] border-y border-[#1E3A8A]/10">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-14">
+          <div>
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#2AACCB] mb-6">C'est pour toi si</p>
+            <div class="space-y-4">
+              {pourToi.map((item) => (
+                <div class="flex gap-4 bg-[#F7F4EE] border border-[#1E3A8A]/10 rounded-sm p-5">
+                  <span class="text-[#2AACCB]">✦</span>
+                  <p class="text-xl leading-relaxed text-[#1E3A8A]/78">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div class="bg-[#CC3DAA] text-white rounded-sm p-8 md:p-10 self-start">
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-white/75 mb-6">Ce n'est pas pour toi si</p>
+            <div class="space-y-5">
+              {pasPourToi.map((item) => (
+                <p class="text-xl leading-relaxed text-white/90">{item}</p>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -619,9 +591,7 @@ const faqs = [
           <div class="text-center mb-14">
             <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#2AACCB] mb-6">Elles en parlent</p>
             <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-6">Ce que mes clientes ont déjà vécu dans mes accompagnements.</h2>
-            <p class="text-lg leading-relaxed text-[#1E3A8A]/60 max-w-2xl mx-auto">
-              Extraits issus d'accompagnements précédents.
-            </p>
+            <p class="text-lg leading-relaxed text-[#1E3A8A]/60 max-w-2xl mx-auto">Extraits issus d'accompagnements précédents.</p>
           </div>
 
           <div class="grid md:grid-cols-2 gap-5">
@@ -636,40 +606,10 @@ const faqs = [
       </section>
 
       <section class="px-6 py-28">
-        <div class="max-w-6xl mx-auto grid lg:grid-cols-[1fr_1fr] gap-12">
-          <div>
-            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#2AACCB] mb-6">À la fin</p>
-            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-8">Tu repars avec une direction et un système intérieur plus clair.</h2>
-            <div class="space-y-4">
-              {resultats.map((item) => (
-                <div class="flex gap-4 bg-[#FFFCF6] border border-[#1E3A8A]/10 rounded-sm p-5">
-                  <span class="text-[#CC3DAA]">✧</span>
-                  <p class="text-xl leading-relaxed text-[#1E3A8A]/78">{item}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div class="bg-[#CC3DAA] text-white rounded-sm p-8 md:p-10 self-start">
-            <p class="ui-text text-xs tracking-[0.22em] uppercase text-white/75 mb-6">Pas pour toi si</p>
-            <div class="space-y-5">
-              {pasPourToi.map((item) => (
-                <p class="text-xl leading-relaxed text-white/90">{item}</p>
-              ))}
-            </div>
-            <div class="h-px bg-white/20 my-8"></div>
-            <p class="text-2xl italic leading-tight">
-              Ici, on ne cherche pas une performance de reconstruction. On crée les conditions pour qu'une direction plus juste puisse apparaître, se confirmer, puis commencer à se vivre.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section class="px-6 py-28">
         <div class="max-w-4xl mx-auto">
           <div class="text-center mb-14">
             <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#2AACCB] mb-6">Questions fréquentes</p>
-            <h2 class="text-4xl md:text-5xl leading-tight font-normal">Avant de rejoindre l'accompagnement.</h2>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal">Avant de rejoindre Zayin.</h2>
           </div>
 
           <div class="space-y-5">
@@ -688,14 +628,27 @@ const faqs = [
 
       <section class="py-28 px-6 bg-[#CC3DAA] relative overflow-hidden">
         <div class="absolute inset-0 bg-grain opacity-10"></div>
-        <div class="relative z-10 max-w-3xl mx-auto text-center">
+        <div class="relative z-10 max-w-3xl mx-auto text-center text-white">
           <p class="ui-text text-xs tracking-[0.22em] uppercase text-white/75 mb-6">5 places · offre de lancement</p>
-          <h2 class="text-4xl md:text-6xl font-serif text-white mb-8 leading-[1.1] tracking-tight">
-            Si tu sens que c'est le moment<br /><span class="italic">de reconstruire autrement.</span>
+          <h2 class="text-4xl md:text-6xl font-serif mb-8 leading-[1.1] tracking-tight">
+            Si tu sens que ta tête est pleine, mais qu'une partie de toi sait qu'une autre suite est possible.
           </h2>
+          <div class="space-y-4 text-xl md:text-2xl leading-relaxed text-white/85 mb-10">
+            <p>Pas pour tout comprendre une fois de plus.</p>
+            <p>Pas pour chercher une direction à tout prix.</p>
+            <p>Pour faire de la place.</p>
+            <p>Pour poser ce qui tourne. Alléger ce qui pèse. Entendre ce qui appelle.</p>
+            <p>Et retrouver, enfin, assez de calme pour pouvoir t'entendre.</p>
+          </div>
+          <div class="mb-10 text-xl md:text-2xl leading-relaxed">
+            <p><strong>Zayin</strong></p>
+            <p>5 sessions individuelles</p>
+            <p>Tarif de lancement : 500 CHF</p>
+            <p>5 places disponibles</p>
+          </div>
           <a href={ctaHref} class="inline-flex items-center gap-4 px-10 py-5 bg-[#1E3A8A] text-[#F7F4EE] font-semibold text-xs uppercase tracking-[0.2em] hover:bg-[#1E3A8A]/90 transition-all hover:-translate-y-1 shadow-2xl shadow-black/20 rounded-sm">
             <iconify-icon icon="solar:letter-linear" width="16" height="16"></iconify-icon>
-            Rejoindre l'accompagnement
+            Oui. C'est le moment.
           </a>
         </div>
       </section>
