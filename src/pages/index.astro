@@ -7,11 +7,17 @@ const ctaOffre = '/zayin/';
 const ctaSubstack = 'https://carolineverdier.substack.com';
 
 const sections = [
-  { icon: '✦', title: 'Travailler avec moi', desc: "Zayin, une expérience de remise en ordre intérieure pour retrouver assez de place en toi et pouvoir enfin t'entendre.", href: '/zayin/' },
-  { icon: '◈', title: "L'oracle D'une Rive à l'Autre", desc: '42 cartes, un chemin de retour à soi. Un oracle pour dialoguer avec ce qui se passe en vous.', href: '/oracle-dunerivealautre/' },
-  { icon: '✧', title: 'Le Substack', desc: 'Chaque dimanche soir, un article pour retrouver sa voix intérieure quand le monde autour est trop bruyant.', href: ctaSubstack, external: true },
-  { icon: '★', title: 'Le tirage gratuit', desc: '3 cartes en ligne — Situation, blocage, conseil. Une pause dans le bruit.', href: '/tirage/' },
-  { icon: '♡', title: 'Qui suis-je', desc: "Supply chain et optimisation de systèmes, créatrice d'oracle et constellatrice. Mon chemin entre logistique et intuition.", href: '/qui-suis-je/' },
+  { icon: '✦', title: 'Zayin', desc: "Une expérience 1:1 pour remettre de l'ordre à l'intérieur, entendre ta direction et poser un prochain pas praticable.", href: '/zayin/' },
+  { icon: '◈', title: "L'oracle D'une Rive à l'Autre", desc: '42 cartes pour dialoguer avec ce qui est déjà là, voir plus clair et retrouver un langage intérieur.', href: '/oracle-dunerivealautre/' },
+  { icon: '✧', title: 'Le Substack', desc: 'Chaque dimanche soir, un article incarné sur le retour à soi, les passages de vie et la place à reprendre.', href: ctaSubstack, external: true },
+  { icon: '★', title: 'Le tirage gratuit', desc: '3 cartes en ligne : Situation, blocage, conseil. Une pause dans le bruit pour écouter autrement.', href: '/tirage/' },
+  { icon: '♡', title: 'Qui suis-je', desc: "Supply chain, optimisation de systèmes, oracle et constellations : mon chemin entre concret, invisible et passage à l'acte.", href: '/qui-suis-je/' },
+];
+
+const accompagnements = [
+  "Je t'aide à déposer ce qui tourne, ce qui pèse et ce que tu portes parfois depuis trop longtemps.",
+  "Je t'aide à distinguer ta vraie voix de la peur, du mental, des loyautés et du bruit extérieur.",
+  "Je t'aide à remettre du mouvement là où quelque chose de toi attend d'avoir une place dans ta vie réelle.",
 ];
 ---
 
@@ -20,22 +26,22 @@ const sections = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>L'Atelier de Lucette — Retrouver ta voix intérieure</title>
+    <title>L'Atelier de Lucette — Révèle-toi</title>
     <meta
       name="description"
-      content="Un espace pour les femmes sensibles et actives qui veulent retrouver leur voix intérieure dans un monde saturé de bruit. Intuition, oracle, constellations, écriture."
+      content="L'Atelier de Lucette accompagne les femmes qui veulent reconnaître leur valeur, entendre ce qu'elles savent déjà au fond d'elles et oser agir depuis cet endroit."
     />
     <link rel="canonical" href="https://latelierdelucette.com/" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="fr_CH" />
     <meta property="og:site_name" content="L'Atelier de Lucette" />
-    <meta property="og:title" content="L'Atelier de Lucette — Retrouver ta voix intérieure" />
-    <meta property="og:description" content="Un espace pour retrouver ta voix intérieure dans un monde saturé de bruit. Intuition, oracle, constellations, écriture." />
+    <meta property="og:title" content="L'Atelier de Lucette — Révèle-toi" />
+    <meta property="og:description" content="Un espace pour reconnaître ce qui était déjà là, lui donner des mots et oser vivre depuis cet endroit." />
     <meta property="og:url" content="https://latelierdelucette.com/" />
     <meta property="og:image" content="https://latelierdelucette.com/images/portrait-caroline.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="L'Atelier de Lucette — Retrouver ta voix intérieure" />
-    <meta name="twitter:description" content="Un espace pour retrouver ta voix intérieure dans un monde saturé de bruit." />
+    <meta name="twitter:title" content="L'Atelier de Lucette — Révèle-toi" />
+    <meta name="twitter:description" content="Un espace pour reconnaître ce qui était déjà là, lui donner des mots et oser vivre depuis cet endroit." />
     <meta name="twitter:image" content="https://latelierdelucette.com/images/portrait-caroline.png" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -51,7 +57,7 @@ const sections = [
         "@type": "WebSite",
         "name": "L'Atelier de Lucette",
         "url": "https://latelierdelucette.com",
-        "description": "Un espace pour les femmes sensibles et actives qui veulent retrouver leur voix intérieure dans un monde saturé de bruit."
+        "description": "L'Atelier de Lucette accompagne les femmes qui veulent reconnaître leur valeur, entendre ce qu'elles savent déjà au fond d'elles et oser agir depuis cet endroit."
       }
     </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SNKPGHZL0Y"></script>
@@ -95,11 +101,11 @@ const sections = [
           </h1>
 
           <p class="text-2xl md:text-3xl italic leading-tight text-[#CC3DAA] mb-8">
-            Un espace pour retrouver ta voix intérieure<br />dans un monde qui va trop vite.
+            Révèle-toi.
           </p>
 
           <p class="text-lg md:text-xl leading-relaxed text-[#1E3A8A]/80 max-w-2xl mx-auto mb-12">
-            Ici, on n'ajoute pas une réponse de plus. On apprend à reconnaître ce qui est encore vraiment à soi — au milieu du bruit, des avis, des algorithmes et des décisions qui s'accumulent.
+            Ici, on n'ajoute pas une réponse de plus. On vient reconnaître ce qui était déjà là, lui donner des mots et oser enfin vivre depuis cet endroit.
           </p>
 
           <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
@@ -115,12 +121,42 @@ const sections = [
         </div>
       </header>
 
-      <!-- Explore -->
+      <!-- Mission -->
       <section class="px-6 py-24 bg-[#FFFCF6] border-y border-[#1E3A8A]/10">
+        <div class="max-w-5xl mx-auto grid lg:grid-cols-[0.95fr_1.05fr] gap-14 items-start">
+          <div>
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Ma mission</p>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-6">Accompagner les processus de révélation.</h2>
+            <p class="text-xl md:text-2xl italic leading-tight text-[#D4845A]">
+              Que les femmes voient vraiment leur valeur, puis se mettent en action à partir de cette nouvelle manière de se voir et de s'aimer.
+            </p>
+          </div>
+
+          <div class="text-lg md:text-xl leading-relaxed text-[#1E3A8A]/75 space-y-6">
+            <p>
+              Se révéler, ce n'est pas devenir une meilleure version de soi. C'est reconnaître ce qui était déjà là, lui donner des mots et oser enfin vivre depuis cet endroit.
+            </p>
+            <p>
+              Mon travail se situe dans ce passage précis : le moment entre <span class="italic">je sais déjà</span> et <span class="italic">j'ose agir</span>.
+            </p>
+            <div class="grid gap-4 pt-2">
+              {accompagnements.map((item) => (
+                <div class="bg-[#F7F4EE] border border-[#1E3A8A]/10 rounded-sm p-5 flex gap-4">
+                  <span class="text-[#CC3DAA]">*</span>
+                  <p class="text-base md:text-lg leading-relaxed text-[#1E3A8A]/75">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Explore -->
+      <section class="px-6 py-24">
         <div class="max-w-6xl mx-auto">
           <div class="text-center mb-14">
-            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Explorer</p>
-            <h2 class="text-4xl md:text-5xl leading-tight font-normal">Les portes de l'atelier</h2>
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#CC3DAA] mb-6">Ce que je fais</p>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal">Plusieurs portes, un même fil : revenir à toi.</h2>
           </div>
 
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -150,19 +186,19 @@ const sections = [
           <div class="grid md:grid-cols-2 gap-5">
             <div class="bg-[#FFFCF6] border border-[#1E3A8A]/10 rounded-sm p-6 flex gap-4">
               <span class="text-[#CC3DAA]">*</span>
-              <p class="text-lg leading-relaxed text-[#1E3A8A]/78">Tient beaucoup — famille, couple, travail — et commence à sentir le poids de porter seule.</p>
+              <p class="text-lg leading-relaxed text-[#1E3A8A]/78">Tient beaucoup : famille, couple, travail, projets, émotions des autres, et commence à sentir le poids de porter seule.</p>
             </div>
             <div class="bg-[#FFFCF6] border border-[#1E3A8A]/10 rounded-sm p-6 flex gap-4">
               <span class="text-[#CC3DAA]">*</span>
-              <p class="text-lg leading-relaxed text-[#1E3A8A]/78">Ne sait plus si ce qu'elle ressent est son intuition, sa peur, son mental ou la fatigue.</p>
+              <p class="text-lg leading-relaxed text-[#1E3A8A]/78">Doute de ce qu'elle porte, alors qu'une part d'elle sait déjà ce qui est vrai.</p>
             </div>
             <div class="bg-[#FFFCF6] border border-[#1E3A8A]/10 rounded-sm p-6 flex gap-4">
               <span class="text-[#CC3DAA]">*</span>
-              <p class="text-lg leading-relaxed text-[#1E3A8A]/78">A trop de réponses, trop d'avis, trop de contenus sauvegardés — et plus assez de silence.</p>
+              <p class="text-lg leading-relaxed text-[#1E3A8A]/78">A trop de réponses, trop d'avis, trop de contenus sauvegardés, et plus assez de silence pour reconnaître sa propre voix.</p>
             </div>
             <div class="bg-[#FFFCF6] border border-[#1E3A8A]/10 rounded-sm p-6 flex gap-4">
               <span class="text-[#CC3DAA]">*</span>
-              <p class="text-lg leading-relaxed text-[#1E3A8A]/78">Veut écouter son intuition sans se couper du monde réel, des écrans et de sa vie active.</p>
+              <p class="text-lg leading-relaxed text-[#1E3A8A]/78">Veut se rencontrer davantage sans transformer sa vie intérieure en nouvelle injonction de développement personnel.</p>
             </div>
           </div>
         </div>
@@ -178,7 +214,7 @@ const sections = [
           <div class="text-lg md:text-xl leading-relaxed text-[#1E3A8A]/75 space-y-5">
             <p>Lucette, c'était ma grand-mère. Une femme créative, sensible, talentueuse, qui n'a pas toujours eu la place qu'elle méritait.</p>
             <p>L'Atelier de Lucette, c'est un hommage. Et une promesse : ne pas laisser nos élans, nos désirs et notre vérité rester coincés dans une vie trop petite.</p>
-            <p class="text-xl italic text-[#CC3DAA]">Lucette, c'est le rappel que ce qui veut naître à travers nous mérite une place dans le monde.</p>
+            <p class="text-xl italic text-[#CC3DAA]">Lucette, c'est le rappel que ce qui était déjà là mérite des mots, une place et une vie plus grande.</p>
           </div>
         </div>
       </section>
@@ -188,10 +224,10 @@ const sections = [
         <div class="absolute inset-0 bg-grain opacity-10"></div>
         <div class="relative z-10 max-w-3xl mx-auto text-center">
           <h2 class="text-4xl md:text-6xl font-serif text-white mb-8 leading-[1.1] tracking-tight">
-            Prête à retrouver<br /><span class="italic">le fil ?</span>
+            Prête à te révéler<br /><span class="italic">sans te forcer ?</span>
           </h2>
           <p class="text-lg text-white/90 font-light max-w-2xl mx-auto mb-12 leading-relaxed">
-              Deux façons d'entrer dans l'atelier : lire chaque dimanche sur Substack, ou travailler avec moi en 1:1.
+              Deux façons d'entrer dans l'atelier : lire chaque dimanche sur Substack, ou travailler avec moi en 1:1 pour remettre de l'ordre et entendre ta direction.
           </p>
           <div class="flex flex-col sm:flex-row items-center justify-center gap-5">
             <a href={ctaOffre} class="inline-flex items-center gap-4 px-10 py-5 bg-[#1E3A8A] text-[#F7F4EE] font-semibold text-xs uppercase tracking-[0.2em] hover:bg-[#1E3A8A]/90 transition-all hover:-translate-y-1 shadow-2xl shadow-black/20 rounded-sm">
