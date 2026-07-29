@@ -50,20 +50,6 @@ import '../styles/global.css';
         text-align: center;
       }
 
-      .avatar {
-        width: 88px;
-        height: 88px;
-        border-radius: 50%;
-        margin: 0 auto 24px;
-        overflow: hidden;
-        border: 2px solid #C9A96E;
-      }
-      .avatar img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
       h1 {
         font-size: 2rem;
         font-weight: 500;
@@ -81,6 +67,12 @@ import '../styles/global.css';
         opacity: 0.7;
         margin: 0 0 8px;
         font-weight: 400;
+        line-height: 1.35;
+      }
+
+      .tagline .arrow-line {
+        display: block;
+        margin-top: 6px;
       }
 
       .divider {
@@ -163,33 +155,31 @@ import '../styles/global.css';
   </head>
   <body>
     <div class="container">
-      <div class="avatar">
-        <img
-          src="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4912b6ad-3610-48d6-be3f-a237010589e9_500x500.png"
-          alt="L'Atelier de Lucette"
-        />
-      </div>
       <h1>L'Atelier <span class="italic">de Lucette</span></h1>
-      <p class="tagline">Revenir à toi, écouter ton intuition, poser des actions justes</p>
+      <p class="tagline">
+        Je relance mon business après 2 burn-out<br />
+        5 licenciements, 3 mariages, et ça va très bien
+        <span class="arrow-line">→ Je te raconte comment ça se passe</span>
+      </p>
 
       <div class="divider"></div>
 
       <div class="links">
-        <a href="/zayin/" target="_blank" rel="noopener" class="link-card">
-          <h2><span class="icon">◈</span> Zayin</h2>
-          <p>Une expérience de remise en ordre intérieure pour pouvoir enfin t'entendre</p>
-          <span class="arrow">→</span>
-        </a>
-
         <a href="https://carolineverdier.substack.com" target="_blank" rel="noopener" class="link-card">
-          <h2><span class="icon">✧</span> Blog Substack</h2>
-          <p>1 article par semaine sur les relations, le retour à soi et la création</p>
+          <h2><span class="icon">✧</span> Newsletter</h2>
+          <p>Les coulisses en entier : ce que je comprends, ce que je rate, ce qui me fait rire malgré tout</p>
           <span class="arrow">→</span>
         </a>
 
-        <a href="/tirage" target="_blank" rel="noopener" class="link-card">
-          <h2><span class="icon">✦</span> Tirage 3 cartes</h2>
-          <p>Tirage en ligne gratuit — Situation, blocage, conseil avec l'oracle D'une Rive à l'Autre</p>
+        <a href="/oracle-dunerivealautre/" target="_blank" rel="noopener" class="link-card">
+          <h2><span class="icon">✦</span> L'oracle</h2>
+          <p>42 cartes pour les jours où ton cerveau a ouvert 47 onglets et refuse de fermer la session</p>
+          <span class="arrow">→</span>
+        </a>
+
+        <a href="/zayin/" target="_blank" rel="noopener" class="link-card">
+          <h2><span class="icon">◈</span> Accompagnement</h2>
+          <p>Si tu veux reconstruire sans recréer une version premium de ce qui t'a cramée</p>
           <span class="arrow">→</span>
         </a>
       </div>
