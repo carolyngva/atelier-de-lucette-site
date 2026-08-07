@@ -14,8 +14,16 @@ const pourToi = [
   "tu n'as pas besoin que quelqu'un décide à ta place, mais tu aimerais être accompagnée pour retrouver ta propre direction.",
 ];
 
+const attentes = [
+  'Une vision beaucoup plus claire de la situation.',
+  'Des décisions plus simples à prendre.',
+  "Un plan d'action réaliste.",
+  'Davantage de confiance dans ta propre manière de fonctionner.',
+  'Le sentiment de ne plus porter tout ça seule.',
+];
+
 const inclus = [
-  '5 séances individuelles.',
+  "5 séances d'accompagnement.",
   'Des exercices concrets adaptés à ta situation.',
   'Des outils de réflexion et de prise de décision.',
   "Un espace où tu peux déposer tes idées sans avoir besoin qu'elles soient déjà organisées.",
@@ -35,22 +43,22 @@ const outils = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zayin | Accompagnement individuel | L'Atelier de Lucette</title>
+    <title>Zayin | Accompagnement | L'Atelier de Lucette</title>
     <meta
       name="description"
-      content="Zayin est un accompagnement individuel pour faire le tri dans tes idées, retrouver ta propre direction et remettre du mouvement dans ta vie, ton projet ou ton fonctionnement."
+      content="Zayin est un accompagnement pour faire le tri, retrouver ta direction et remettre du mouvement là où tout semblait bloqué."
     />
     <link rel="canonical" href="https://latelierdelucette.com/zayin/" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="fr_CH" />
     <meta property="og:site_name" content="L'Atelier de Lucette" />
-    <meta property="og:title" content="Zayin | Accompagnement individuel" />
+    <meta property="og:title" content="Zayin | Accompagnement" />
     <meta property="og:description" content="Tu n'as peut-être pas besoin de plus d'informations. Tu as peut-être besoin d'un espace où tout ce que tu sais déjà devient enfin clair." />
     <meta property="og:url" content="https://latelierdelucette.com/zayin/" />
     <meta property="og:image" content="https://latelierdelucette.com/images/portrait-caroline.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Zayin | Accompagnement individuel" />
-    <meta name="twitter:description" content="Un accompagnement individuel pour retrouver ta propre direction et remettre le mouvement en route." />
+    <meta name="twitter:title" content="Zayin | Accompagnement" />
+    <meta name="twitter:description" content="Un espace pour faire le tri, retrouver ta direction et remettre du mouvement là où tout semblait bloqué." />
     <meta name="twitter:image" content="https://latelierdelucette.com/images/portrait-caroline.png" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -65,7 +73,7 @@ const outils = [
         "@context": "https://schema.org",
         "@type": "Service",
         "name": "Zayin",
-        "description": "Accompagnement individuel pour faire le tri, clarifier sa direction et remettre le mouvement en route.",
+        "description": "Accompagnement pour faire le tri, retrouver sa direction et remettre du mouvement là où tout semblait bloqué.",
         "provider": {
           "@type": "Organization",
           "name": "L'Atelier de Lucette",
@@ -113,11 +121,11 @@ const outils = [
           <div>
             <div class="inline-flex items-center gap-4 mb-8">
               <div class="h-px w-10 bg-[#2AACCB]"></div>
-              <span class="ui-text text-xs tracking-[0.22em] uppercase text-[#1E3A8A]/70">Accompagnement individuel · 5 séances · 500 CHF</span>
+              <span class="ui-text text-xs tracking-[0.22em] uppercase text-[#1E3A8A]/70">Accompagnement · 5 séances · 500 CHF</span>
             </div>
 
             <h1 class="text-5xl md:text-7xl leading-[1.02] font-normal tracking-tight mb-8">
-              Zayin<br /><span class="italic text-[#CC3DAA]">Accompagnement individuel.</span>
+              Zayin<br /><span class="italic text-[#CC3DAA]">Un espace pour faire le tri, retrouver ta direction et remettre du mouvement là où tout semblait bloqué.</span>
             </h1>
 
             <div class="space-y-6 text-2xl md:text-3xl leading-tight text-[#1E3A8A]/85 mb-10 max-w-3xl">
@@ -189,13 +197,33 @@ const outils = [
           </div>
 
           <div class="bg-[#1E3A8A] text-[#F7F4EE] rounded-sm p-8 md:p-10 lg:sticky lg:top-28">
-            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#F1D9A7] mb-6">Le processus</p>
-            <p class="text-3xl md:text-4xl italic leading-tight mb-8">Le point commun n'est jamais le sujet.</p>
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#F1D9A7] mb-6">Ce que nous faisons ensemble</p>
+            <p class="text-3xl md:text-4xl italic leading-tight mb-8">Je ne viens pas t'apporter une réponse toute faite.</p>
             <div class="space-y-5 text-xl md:text-2xl leading-relaxed text-white/85">
-              <p>Je travaille aussi bien sur des sujets professionnels que personnels.</p>
-              <p>Le point commun, c'est le processus.</p>
-              <p>Faire émerger ce qui est déjà là, clarifier ce qui est mélangé, puis poser un prochain pas juste.</p>
+              <p>Je t'aide à retrouver les tiennes.</p>
+              <p>Pendant cinq séances, nous clarifions ce qui est important pour toi, nous mettons des mots sur ce que tu ressens déjà, nous construisons un système qui te ressemble et nous transformons cette clarté en mouvement.</p>
+              <p>Je travaille aussi bien sur des sujets de vie personnelle, de couple que de business.</p>
+              <p>Le sujet change.</p>
+              <p>Le processus reste le même.</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="px-6 py-24">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-[0.8fr_1.2fr] gap-14 items-start">
+          <div>
+            <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#2AACCB] mb-6">Ce que tu peux attendre</p>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-8">Tu repartiras souvent avec quelque chose de plus simple.</h2>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            {attentes.map((item) => (
+              <div class="flex gap-4 bg-[#FFFCF6] border border-[#1E3A8A]/10 rounded-sm p-5">
+                <span class="text-[#2AACCB]">✓</span>
+                <p class="text-xl leading-relaxed text-[#1E3A8A]/78">{item}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -204,7 +232,7 @@ const outils = [
         <div class="max-w-6xl mx-auto grid lg:grid-cols-[0.8fr_1.2fr] gap-14 items-start">
           <div>
             <p class="ui-text text-xs tracking-[0.22em] uppercase text-[#2AACCB] mb-6">Déroulé</p>
-            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-8">5 séances individuelles.</h2>
+            <h2 class="text-4xl md:text-5xl leading-tight font-normal mb-8">5 séances d'accompagnement.</h2>
             <p class="text-xl md:text-2xl leading-relaxed text-[#1E3A8A]/75">Pourquoi cinq ? Parce qu'une seule séance peut ouvrir quelque chose, mais elle ne suffit pas toujours à l'ancrer.</p>
           </div>
 
